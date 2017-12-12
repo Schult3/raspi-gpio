@@ -7,6 +7,6 @@ KILLSWITCH = 18
 GPIO.setup(KILLSWITCH, GPIO.IN)
 
 def killswitch():
-	print(GPIO.input(KILLSWITCH))
-	#if GPIO.input(KILLSWITCH) != GPIO.HIGH:
-		#os.system("sudo shutdown -h now")
+	#print(GPIO.input(KILLSWITCH))
+	if GPIO.input(KILLSWITCH) != GPIO.HIGH:
+		os.system("sudo shutdown -h now")
