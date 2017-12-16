@@ -5,6 +5,8 @@ import goertzel as go
 
 running_max = []
 running_max_size = 100
+freq_min = 64
+freq_max = 250
 
 def readSound(samples):
 	buff = []
@@ -16,11 +18,12 @@ def readSound(samples):
 
 
 def calc():
-	window_size = 128
+	global freq_min, freq_max
+	window_size = 64
 	t, sound = readSound(window_size)
 	sample_rate = float(t[len(t) - 1] - t[0]) / 1000
 	sample_rate = len(sound) / sample_rate
-	freqs, results = go.goertzel(sound, sample_rate, (140, 250))
+	freqs, results = go.goertzel(sound, sample_rate, (freq_min, freq_max))
 	rarr = np.array(results)[:,2]
 	max = np.amax(rarr)
 	return max
@@ -37,7 +40,10 @@ def getSoundPWM():
 	running_max.append(max)
 		
 	max_running_max = np.amax(running_max)
-	teil = int(max / max_running_max * 100)
+	if max_running_max > 0:
+		teil = int(max / max_running_max * 100)
+	else:
+		teil = 0
 	return teil
 
 if __name__ == '__main__':
