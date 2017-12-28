@@ -27,6 +27,7 @@ def main():
 	while True:
 		#k.killswitch()
 		power = sa.getSoundPWM()
+		print(power)
 		if power >= 75:
 			pwm3.ChangeDutyCycle(power)
 			pwm2.ChangeDutyCycle(100)
