@@ -148,6 +148,9 @@ def runningLights(strip, color, wait_ms=50, anz_cars = 1, car_length = 5, car_sp
 		strip.show()
 		time.sleep(wait_ms / 1000.0)
 
+def initializeTetris(strip, color, wait_ms=50, parts=1):
+    print("Test")
+
 
 # Main program logic follows:
 if __name__ == '__main__':
@@ -163,7 +166,7 @@ if __name__ == '__main__':
 	#destroy(strip, Color(0, 0, 0))
 
 	while True:
-		grainbow(strip)
+		rainbow(strip)
 		#strobe(strip, Color(255, 255, 255), 20)
 		#equalizer(strip)
 		#destroy(strip, Color(0, 0, 0))
