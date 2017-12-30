@@ -157,6 +157,7 @@ def initializeTetris(strip, color, wait_ms=15, parts=1):
             print("i:")
             print(i)
             i -= 1
+            time.sleep(wait_ms / 1000.0)
 
 
 
