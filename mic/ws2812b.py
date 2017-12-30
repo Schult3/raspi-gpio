@@ -148,10 +148,11 @@ def runningLights(strip, color, wait_ms=50, anz_cars = 1, car_length = 5, car_sp
 		strip.show()
 		time.sleep(wait_ms / 1000.0)
 
-def initializeTetris(strip, color, wait_ms=50, parts=1):
+def initializeTetris(strip, color, wait_ms=15, parts=1):
     queue = 0
     i = strip.numPixels() - 1
     while queue <= strip.numPixels() - 1:
+        print(queue)
         while i >= queue:
             strip.setPixelColor(i, color)
             strip.setPixelColor(i + 1, Color(0, 0, 0))
