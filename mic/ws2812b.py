@@ -153,7 +153,7 @@ def initializeTetris(strip, color, wait_ms=50, parts=1):
     i = strip.numPixels() - 1
     while i >= queue:
         strip.setPixelColor(i, color)
-        strip.setPixelColor(i, Color(0, 0, 0))
+        strip.setPixelColor(i + 1, Color(0, 0, 0))
         strip.show()
         i -= 1
         time.sleep(wait_ms / 1000.0)
