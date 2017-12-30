@@ -184,6 +184,7 @@ if __name__ == '__main__':
     rainbow_counter = 0
 
     while True:
+        print(rainbow_counter)
 		#rainbow(strip)
 		#strobe(strip, Color(255, 255, 255), 20)
 		#equalizer(strip)
