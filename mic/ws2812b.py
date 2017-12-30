@@ -152,9 +152,11 @@ def initializeTetris(strip, color, wait_ms=15, parts=1):
     queue = 0
     i = strip.numPixels() - 1
     for queue in range(strip.numPixels()):
-        for i in range(10):
+        while i >= queue:
             print(queue)
+            print("i:")
             print(i)
+            i -= 1
 
 
 
