@@ -161,7 +161,10 @@ def initializeTetris(strip, color, wait_ms=25, parts=1):
         i -= 1
         time.sleep(wait_ms / 1000.0)
 
-    TET_QUEUE += 1
+    if TET_QUEUE >= strip.numPixels() - 1:
+        TET_QUEUE = 0
+    else:
+        TET_QUEUE += 1
 
 
 
