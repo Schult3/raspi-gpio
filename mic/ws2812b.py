@@ -5,23 +5,23 @@
 # various animations on a strip of NeoPixels.
 import time
 import sound_analysis as sa
- 
+
 from neopixel import *
- 
+
 import argparse
 import signal
 import sys
 def signal_handler(signal, frame):
         colorWipe(strip, Color(0,0,0))
         sys.exit(0)
- 
+
 def opt_parse():
         parser = argparse.ArgumentParser()
         parser.add_argument('-c', action='store_true', help='clear the display on exit')
         args = parser.parse_args()
         if args.c:
                 signal.signal(signal.SIGINT, signal_handler)
- 
+
 # LED strip configuration:
 LED_COUNT      = 134      # Number of LED pixels.
 LED_PIN        = 18      # GPIO pin connected to the pixels (18 uses PWM!).
@@ -85,7 +85,7 @@ def equalizer(strip, parts=2):
 	max_pixels = strip.numPixels() / parts
 	anz_pixels = amp / 100.0 * max_pixels
 	anz_pixels = round(anz_pixels, 0)
-	
+
 	if len(POS_OFFSET) != parts:
 		for i in range(parts):
 			POS_OFFSET.append(i * max_pixels)
@@ -137,7 +137,7 @@ def runningLights(strip, color, wait_ms=50, anz_cars = 1, car_length = 5, car_sp
 	while True:
 		for x in range(strip.numPixels()):
 			strip.setPixelColor(x, Color(0, 0, 0))
-		
+
 		for i in cars:
 			for pos in i:
 				strip.setPixelColor(pos, color)
@@ -147,25 +147,25 @@ def runningLights(strip, color, wait_ms=50, anz_cars = 1, car_length = 5, car_sp
 					cars[cars.index(i)][i.index(pos)] += 1
 		strip.show()
 		time.sleep(wait_ms / 1000.0)
-		
+
 
 # Main program logic follows:
 if __name__ == '__main__':
-    	# Process arguments
-   	opt_parse() 
-    	# Create NeoPixel object with appropriate configuration.
-    	strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
+    # Process arguments
+   	opt_parse()
+    # Create NeoPixel object with appropriate configuration.
+    strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
 
-    	# Intialize the library (must be called once before other functions).
-    	strip.begin()
+    # Intialize the library (must be called once before other functions).
+    strip.begin()
 	initialize(strip, Color(255, 255, 255))
 	#runningLights(strip, Color(0, 160, 245), 10, 3, 3, 25)
 	#destroy(strip, Color(0, 0, 0))
-	
+
 	while True:
-		#rainbow(strip)
+		grainbow(strip)
 		#strobe(strip, Color(255, 255, 255), 20)
-		equalizer(strip)
+		#equalizer(strip)
 		#destroy(strip, Color(0, 0, 0))
 		#initialize(strip, Color(0, 160, 245))
 		#runningLights(strip, Color(0, 160, 245))
