@@ -149,7 +149,7 @@ def runningLights(strip, color, wait_ms=50, anz_cars = 1, car_length = 5, car_sp
 		time.sleep(wait_ms / 1000.0)
 
 def initializeTetris(strip, color, wait_ms=50, parts=1):
-    print("Test")
+    print("Test2")
 
 
 # Main program logic follows:
