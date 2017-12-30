@@ -166,7 +166,7 @@ if __name__ == '__main__':
 	#runningLights(strip, Color(0, 160, 245), 10, 3, 3, 25)
 	#destroy(strip, Color(0, 0, 0))
 
-	while True:
+    while True:
 		#rainbow(strip)
 		#strobe(strip, Color(255, 255, 255), 20)
 		#equalizer(strip)
