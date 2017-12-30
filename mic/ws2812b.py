@@ -38,6 +38,9 @@ LED_STRIP      = ws.WS2811_STRIP_GRB   # Strip type and colour ordering
 HIST_AMP = 0
 POS_OFFSET = []
 
+# Tetris Einstellungen
+TET_QUEUE = 0
+
 def wheel(pos):
     """Generate rainbow colors across 0-255 positions."""
     if pos < 85:
@@ -148,16 +151,17 @@ def runningLights(strip, color, wait_ms=50, anz_cars = 1, car_length = 5, car_sp
 		strip.show()
 		time.sleep(wait_ms / 1000.0)
 
-def initializeTetris(strip, color, wait_ms=1000, parts=1):
-    queue = 0
+def initializeTetris(strip, color, wait_ms=100, parts=1):
+    global TET_QUEUE
     i = strip.numPixels() - 1
-    for queue in range(strip.numPixels()):
-        while i >= queue:
-            print(queue)
-            print("i:")
-            print(i)
-            i -= 1
-            time.sleep(wait_ms / 1000.0)
+    while i >= TET_QUEUE:
+        print(TET_QUEUE)
+        print("i:")
+        print(i)
+        i -= 1
+        time.sleep(wait_ms / 1000.0)
+
+    TET_QUEUE += 1
 
 
 
