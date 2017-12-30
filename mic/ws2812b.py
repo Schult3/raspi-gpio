@@ -150,6 +150,7 @@ def runningLights(strip, color, wait_ms=50, anz_cars = 1, car_length = 5, car_sp
 
 def initializeTetris(strip, color, wait_ms=50, parts=1):
     print("Test2")
+    time.sleep(wait_ms / 1000.0)
 
 
 # Main program logic follows:
@@ -161,14 +162,15 @@ if __name__ == '__main__':
 
     # Intialize the library (must be called once before other functions).
     strip.begin()
-	initialize(strip, Color(255, 255, 255))
+    initialize(strip, Color(255, 255, 255))
 	#runningLights(strip, Color(0, 160, 245), 10, 3, 3, 25)
 	#destroy(strip, Color(0, 0, 0))
 
 	while True:
-		rainbow(strip)
+		#rainbow(strip)
 		#strobe(strip, Color(255, 255, 255), 20)
 		#equalizer(strip)
 		#destroy(strip, Color(0, 0, 0))
 		#initialize(strip, Color(0, 160, 245))
 		#runningLights(strip, Color(0, 160, 245))
+        initializeTetris(strip, Color(0, 160, 245))
