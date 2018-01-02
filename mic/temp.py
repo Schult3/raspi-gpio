@@ -17,15 +17,9 @@ def read_sensor(path):
     print time.strftime("%x %X"), "Error reading", path, ": ", e
   return value
 
-# define pathes to 1-wire sensor data
-pathes = (
-  "/sys/bus/w1/devices/28-000005a2120b/w1_slave"
-)
-
 # read sensor data
 data = 'N'
-for path in pathes:
-  data += ':'
-  data += read_sensor(path)
-  print(data)
-  time.sleep(1)
+data += ':'
+data += read_sensor("/sys/bus/w1/devices/28-000005a2120b/w1_slave")
+print(data)
+time.sleep(1)
