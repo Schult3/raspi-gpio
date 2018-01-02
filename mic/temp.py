@@ -1,5 +1,5 @@
 
-import re, os, rrdtool, time
+import re, os, time
 
 # function: read and parse sensor data file
 def read_sensor(path):
