@@ -17,9 +17,6 @@ def read_sensor(path):
     print time.strftime("%x %X"), "Error reading", path, ": ", e
   return value
 
-# read sensor data
-data = 'N'
-data += ':'
-data += read_sensor("/sys/bus/w1/devices/28-000005a2120b/w1_slave")
-print(data)
-time.sleep(1)
+while True:
+    print(read_sensor("/sys/bus/w1/devices/28-000005a2120b/w1_slave"))
+    time.sleep(1)
