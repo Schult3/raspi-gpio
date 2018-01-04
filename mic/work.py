@@ -192,7 +192,10 @@ if __name__ == '__main__':
     while True:
         config = readConfig()
         if config["color_switch"] == True:
+            brightness = config["range_brightness"] / 100.0
             color = wheel(rainbow_counter)
+            for i in color:
+                print i
         else:
             brightness = config["range_brightness"] / 100.0
             color = Color(int(config["color_picker"]["r"] * brightness), int(config["color_picker"]["g"] * brightness), int(config["color_picker"]["b"] * brightness))
