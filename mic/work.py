@@ -169,7 +169,7 @@ def initializeTetris(strip, color, wait_ms=25, parts=1):
 
 def readConfig():
 	data = json.load(open('/var/www/html/config.json'))
-	print(data["light_switch"])
+	print(data["music_switch"])
 
 # Main program logic follows:
 if __name__ == '__main__':
