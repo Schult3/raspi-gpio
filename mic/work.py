@@ -191,12 +191,10 @@ if __name__ == '__main__':
 
     while True:
         config = readConfig()
-        strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, int(255 * config["range_brightness"] / 100.0), LED_CHANNEL, LED_STRIP)
         if config["color_switch"] == True:
             color = wheel(rainbow_counter)
         else:
             brightness = config["range_brightness"] / 100.0
-            brightness = 1
             color = Color(int(config["color_picker"]["r"] * brightness), int(config["color_picker"]["g"] * brightness), int(config["color_picker"]["b"] * brightness))
 
         if config["light_switch"] == True:
