@@ -193,6 +193,7 @@ if __name__ == '__main__':
 		config = readConfig()
 		if config["color_switch"] == True:
 			color = wheel(rainbow_counter)
+            print(color)
 		else:
 			color = Color(config["color_picker"]["r"], config["color_picker"]["g"], config["color_picker"]["b"])
 
