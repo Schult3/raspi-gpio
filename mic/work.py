@@ -187,6 +187,8 @@ if __name__ == '__main__':
     strip.begin()
     initialize(strip, Color(255, 255, 255))
 
+    effects = [initializeTetris, light]
+
     rainbow_counter = 0
 
     while True:
@@ -202,6 +204,8 @@ if __name__ == '__main__':
         elif config["music_switch"] == True:
         	equalizer(strip, 4)
         else:
+            for eff in effects:
+                print eff
         	initializeTetris(strip, color, 10)
 
         if rainbow_counter >= 255:
