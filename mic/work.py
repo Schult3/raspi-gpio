@@ -196,6 +196,6 @@ if __name__ == '__main__':
 		#runningLights(strip, Color(0, 160, 245))
         initializeTetris(strip, wheel(rainbow_counter), 10)
         if rainbow_counter >= 255:
-            rainbow_counter = 0
-        else:
-            rainbow_counter += 1
+        	rainbow_counter = 0
+    	else:
+        	rainbow_counter += 1
