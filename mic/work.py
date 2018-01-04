@@ -51,6 +51,7 @@ def wheel(pos, brightness):
         return Color(int(255 - pos * 3 * brightness), 0, int(pos * 3 * brightness))
     else:
         pos -= 170
+        print(int(pos * 3 * brightness))
         return Color(0, int(pos * 3 * brightness), int(255 - pos * 3 * brightness))
 
 
