@@ -189,22 +189,21 @@ if __name__ == '__main__':
 
 	rainbow_counter = 0
 
-	while True:
-		config = readConfig()
-		if config["color_switch"] == True:
-			color = wheel(rainbow_counter)
-		else:
+    while True:
+        config = readConfig()
+        if config["color_switch"] == True:
+            color = wheel(rainbow_counter)
+        else:
             brightness = config["range_brightness"] / 100.0
             color = Color(int(config["color_picker"]["r"] * brightness), int(config["color_picker"]["g"] * brightness), int(config["color_picker"]["b"] * brightness))
 
-		if config["light_switch"] == True:
-			light(strip, color)
-		elif config["music_switch"] == True:
-			equalizer(strip, 4)
-		else:
-			initializeTetris(strip, color, 10)
+        if config["light_switch"] == True:
+        	light(strip, color)
+        elif config["music_switch"] == True:
+        	equalizer(strip, 4)
+        else:
+        	initializeTetris(strip, color, 10)
 
-		if rainbow_counter >= 255:
-			rainbow_counter = 0
-		else:
-			rainbow_counter += 1
+        if rainbow_counter >= 255:
+            rainbow_counter = 0
+        else:
