@@ -167,9 +167,9 @@ def initializeTetris(strip, color, wait_ms=25, parts=1):
     else:
         TET_QUEUE += 1
 
-def light(strip):
+def light(strip, color):
 	for i in range(strip.numPixels()):
-		strip.setPixelColor(i, Color(255, 255, 255))
+		strip.setPixelColor(i, color)
 	strip.show()
 
 def readConfig():
@@ -197,7 +197,7 @@ if __name__ == '__main__':
 			color = Color(config["color_picker"]["r"], config["color_picker"]["g"], config["color_picker"]["b"])
 
 		if config["light_switch"] == True:
-			light(strip)
+			light(strip, color)
 		elif config["music_switch"] == True:
 			equalizer(strip, 4)
 		else:
