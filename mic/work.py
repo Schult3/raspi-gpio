@@ -192,6 +192,7 @@ if __name__ == '__main__':
 	while True:
 		config = readConfig()
 
+		print(config["color_switch"])
 		if config["color_switch"] == True:
 			color = wheel(rainbow_counter)
 		else:
