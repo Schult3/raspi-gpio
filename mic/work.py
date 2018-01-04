@@ -207,3 +207,4 @@ if __name__ == '__main__':
         if rainbow_counter >= 255:
             rainbow_counter = 0
         else:
+            rainbow_counter += 1
