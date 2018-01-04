@@ -169,7 +169,7 @@ def initializeTetris(strip, color, wait_ms=25, parts=1):
 
 def readConfig():
 	data = json.load(open('/var/www/html/config.json'))
-	print(data)
+	print(data["light_switch"])
 
 # Main program logic follows:
 if __name__ == '__main__':
@@ -194,8 +194,8 @@ if __name__ == '__main__':
 		#destroy(strip, Color(0, 0, 0))
 		#initialize(strip, Color(0, 160, 245))
 		#runningLights(strip, Color(0, 160, 245))
-        initializeTetris(strip, wheel(rainbow_counter), 10)
-        if rainbow_counter >= 255:
-        	rainbow_counter = 0
-    	else:
-        	rainbow_counter += 1
+	    initializeTetris(strip, wheel(rainbow_counter), 10)
+	    if rainbow_counter >= 255:
+	    	rainbow_counter = 0
+		else:
+	    	rainbow_counter += 1
