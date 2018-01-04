@@ -5,12 +5,13 @@
 # various animations on a strip of NeoPixels.
 import time
 import sound_analysis as sa
-
 from neopixel import *
-
 import argparse
 import signal
 import sys
+
+import json
+
 def signal_handler(signal, frame):
         colorWipe(strip, Color(0,0,0))
         sys.exit(0)
@@ -166,7 +167,9 @@ def initializeTetris(strip, color, wait_ms=25, parts=1):
     else:
         TET_QUEUE += 1
 
-
+def readConfig():
+	data = json.load(open('/var/www/html/config.json'))
+	print(data)
 
 # Main program logic follows:
 if __name__ == '__main__':
@@ -184,6 +187,7 @@ if __name__ == '__main__':
     rainbow_counter = 0
 
     while True:
+		readConfig()
 		#rainbow(strip)
 		#strobe(strip, Color(255, 255, 255), 20)
 		#equalizer(strip)
