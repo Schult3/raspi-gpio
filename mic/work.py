@@ -200,8 +200,11 @@ if __name__ == '__main__':
 
 		if config["light_switch"] == True:
 			light(strip)
+		elif config["music_switch"] == True:
+			equalizer(strip, 4)
 		else:
 			initializeTetris(strip, color, 10)
+
 		if rainbow_counter >= 255:
 			rainbow_counter = 0
 		else:
