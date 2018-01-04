@@ -191,6 +191,12 @@ if __name__ == '__main__':
 
 	while True:
 		config = readConfig()
+
+		if config["color_switch"] == True:
+			color = wheel(rainbow_counter)
+		else:
+			color = Color(config["color_picker"]["r"], config["color_picker"]["g"], config["color_picker"]["b"])
+
 		if config["light_switch"] == True:
 			light(strip)
 		else:
