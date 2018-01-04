@@ -167,9 +167,14 @@ def initializeTetris(strip, color, wait_ms=25, parts=1):
     else:
         TET_QUEUE += 1
 
+def light(strip):
+	for i in range(strip.numPixels()):
+		strip.setPixelColor(i, Color(255, 255, 255))
+	strip.show()
+
 def readConfig():
 	data = json.load(open('/var/www/html/config.json'))
-	print(data["music_switch"])
+	return data
 
 # Main program logic follows:
 if __name__ == '__main__':
@@ -185,8 +190,11 @@ if __name__ == '__main__':
 	rainbow_counter = 0
 
 	while True:
-		readConfig()
-		initializeTetris(strip, wheel(rainbow_counter), 10)
+		config = readConfig()
+		if config["light_switch"] == True:
+			light(strip)
+		else:
+			initializeTetris(strip, wheel(rainbow_counter), 10)
 		if rainbow_counter >= 255:
 			rainbow_counter = 0
 		else:
