@@ -42,13 +42,12 @@ POS_OFFSET = []
 # Tetris Einstellungen
 TET_QUEUE = 0
 
-def wheel(pos, brightness):
+def wheel(pos):
     """Generate rainbow colors across 0-255 positions."""
     if pos < 85:
         return Color(int(pos * 3 * brightness), int(255 - pos * 3 * brightness), 0)
     elif pos < 170:
         pos -= 85
-        print(int(255 - pos * 3 * brightness))
         return Color(int(255 - pos * 3 * brightness), 0, int(pos * 3 * brightness))
     else:
         pos -= 170
@@ -193,8 +192,7 @@ if __name__ == '__main__':
     while True:
         config = readConfig()
         if config["color_switch"] == True:
-            brightness = config["range_brightness"] / 100.0
-            color = wheel(rainbow_counter, brightness)
+            color = wheel(rainbow_counter)
         else:
             brightness = config["range_brightness"] / 100.0
             color = Color(int(config["color_picker"]["r"] * brightness), int(config["color_picker"]["g"] * brightness), int(config["color_picker"]["b"] * brightness))
