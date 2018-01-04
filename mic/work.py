@@ -178,16 +178,16 @@ def readConfig():
 
 # Main program logic follows:
 if __name__ == '__main__':
-# Process arguments
-	opt_parse()
-	# Create NeoPixel object with appropriate configuration.
-	strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
+    # Process arguments
+    opt_parse()
+    # Create NeoPixel object with appropriate configuration.
+    strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
 
-	# Intialize the library (must be called once before other functions).
-	strip.begin()
-	initialize(strip, Color(255, 255, 255))
+    # Intialize the library (must be called once before other functions).
+    strip.begin()
+    initialize(strip, Color(255, 255, 255))
 
-	rainbow_counter = 0
+    rainbow_counter = 0
 
     while True:
         config = readConfig()
