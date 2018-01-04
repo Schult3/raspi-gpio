@@ -194,7 +194,8 @@ if __name__ == '__main__':
 		if config["color_switch"] == True:
 			color = wheel(rainbow_counter)
 		else:
-			color = Color(config["color_picker"]["r"] * config["range_brightness"], config["color_picker"]["g"] * config["range_brightness"], config["color_picker"]["b"] * config["range_brightness"])
+            brightness = config["range_brightness"] / 100.0
+			color = Color(int(config["color_picker"]["r"] * brightness), int(config["color_picker"]["g"] * brightness), int(config["color_picker"]["b"] * brightness))
 
 		if config["light_switch"] == True:
 			light(strip, color)
