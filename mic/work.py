@@ -36,6 +36,7 @@ LED_STRIP      = ws.WS2811_STRIP_GRB   # Strip type and colour ordering
 
 
 FLG_CHANGE_COLOR = 0
+AKT_MODUS = ""
 
 # Equalizer Einstellungen
 HIST_AMP = 0
@@ -44,6 +45,9 @@ POS_OFFSET = []
 # Tetris Einstellungen
 TET_QUEUE = 0 #Position des Stapels
 TET_LAUFNUMMER = LED_COUNT - 1 #Aktuelle Position des Elements
+
+#RunningLights config
+RL_CARS = []
 
 def wheel(pos):
     """Generate rainbow colors across 0-255 positions."""
@@ -119,7 +123,7 @@ def equalizer(strip, parts=2):
 	HIST_AMP = amp
 	#time.sleep(10 / 1000.0)
 
-def strobe(strip, color, wait_ms=50):
+def strobe(strip, color):
 	for i in range(strip.numPixels()):
 		strip.setPixelColor(i, color)
 	strip.show()
@@ -127,33 +131,35 @@ def strobe(strip, color, wait_ms=50):
 	for i in range(strip.numPixels()):
 		strip.setPixelColor(i, Color(0, 0, 0))
 	strip.show()
-	time.sleep(wait_ms / 1000.0)
 
 
-def runningLights(strip, color, wait_ms=50, anz_cars = 1, car_length = 5, car_space = 10):
-	cars = []
-	pos_offset = 0
-	for i in range(anz_cars):
-		pos = []
-		for x in range(car_length):
-			pos.append(pos_offset)
-			pos_offset -= 1
-		cars.append(pos)
-		pos_offset-= car_space
+def runningLights(strip, color, anz_cars = 1, car_length = 5, car_space = 10):
+    global AKT_MODUS
+    global RL_CARS
 
-	while True:
-		for x in range(strip.numPixels()):
-			strip.setPixelColor(x, Color(0, 0, 0))
+    if AKT_MODUS != "RL":
+        RL_CARS = []
+        pos_offset = 0
+        for i in range(anz_cars):
+        	pos = []
+        	for x in range(car_length):
+        		pos.append(pos_offset)
+        		pos_offset -= 1
+        	cars.append(pos)
+        	pos_offset-= car_space
 
-		for i in cars:
-			for pos in i:
-				strip.setPixelColor(pos, color)
-				if pos + 1 >= strip.numPixels():
-					cars[cars.index(i)][i.index(pos)] = 0
-				else:
-					cars[cars.index(i)][i.index(pos)] += 1
-		strip.show()
-		time.sleep(wait_ms / 1000.0)
+	for x in range(strip.numPixels()):
+		strip.setPixelColor(x, Color(0, 0, 0))
+
+	for i in RL_CARS:
+		for pos in i:
+			strip.setPixelColor(pos, color)
+			if pos + 1 >= strip.numPixels():
+				RL_CARS[RL_CARS.index(i)][i.index(pos)] = 0
+			else:
+				RL_CARS[RL_CARS.index(i)][i.index(pos)] += 1
+	strip.show()
+    AKT_MODUS = "RL"
 
 def initializeTetris(strip, color):
     global TET_QUEUE
@@ -214,7 +220,8 @@ if __name__ == '__main__':
         else:
             #for eff in effects:
                 #print eff
-        	initializeTetris(strip, color)
+        	#initializeTetris(strip, color)
+            runningLighs(strip, color)
 
         if FLG_CHANGE_COLOR == 1:
             if rainbow_counter >= 255:
