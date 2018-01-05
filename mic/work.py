@@ -212,6 +212,7 @@ if __name__ == '__main__':
     music_effects = [equalizer]
 
     rainbow_counter = 0
+    effect_counter = 1
 
     while True:
         config = readConfig()
@@ -226,10 +227,8 @@ if __name__ == '__main__':
         elif config["music_switch"] == True:
         	equalizer(strip, 4)
         else:
-            #for eff in effects:
-                #print eff
-        	#initializeTetris(strip, color)
-            runningLights(strip, color)
+            if effect_counter <= 1:
+                effects[random.randint(1, len(effects) - 1)](strip, color)
 
         if FLG_CHANGE_COLOR == 1:
             if rainbow_counter >= 255:
@@ -237,5 +236,11 @@ if __name__ == '__main__':
             else:
                 rainbow_counter += 1
             FLG_CHANGE_COLOR = 0
+
+        #nach x-Aufrufen anderer Effekt
+        if effect_counter <= 1:
+            effect_counter = random.randint(100, 1000)
+        else:
+            effect_counter -= 1
 
         time.sleep(config["range_delay"] / 1000.0)
