@@ -194,6 +194,8 @@ def initializeTetris(strip, color):
     if TET_QUEUE >= strip.numPixels() - 1:
         TET_QUEUE = 0
 
+    AKT_MODUS = "IT"
+
 def light(strip, color):
     global AKT_MODUS
     global FLG_CHANGE_COLOR
