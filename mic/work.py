@@ -195,9 +195,9 @@ def initializeTetris(strip, color):
 
 def light(strip, color):
     global AKT_MODUS
-	for i in range(strip.numPixels()):
-		strip.setPixelColor(i, color)
-	strip.show()
+    for i in range(strip.numPixels()):
+        strip.setPixelColor(i, color)
+    strip.show()
     AKT_MODUS = "LI"
 
 
