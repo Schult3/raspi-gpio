@@ -228,7 +228,10 @@ if __name__ == '__main__':
         	equalizer(strip, 4)
         else:
             if effect_counter <= 1:
-                effects[random.randint(1, len(effects) - 1)](strip, color)
+                randint = random.randint(1, len(effects) - 1)
+                print(randint)
+                print(effects[randint])
+                effects[randint](strip, color)
 
         if FLG_CHANGE_COLOR == 1:
             if rainbow_counter >= 255:
