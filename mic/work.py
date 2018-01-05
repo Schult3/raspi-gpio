@@ -245,6 +245,7 @@ if __name__ == '__main__':
                 print(len(effects))
                 print(randint)
                 randint -= 1
+            print(effects[randint])
             effects[randint](strip, color)
 
 
