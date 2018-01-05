@@ -260,10 +260,10 @@ def chrystal(strip, color):
         for i in range(strip.numPixels()):
             strip.setPixelColor(i, Color(0, 0, 0))
         CH_TWINKLE = []
-        FLG_CHANGE_COLOR = 1
+
 
     strip.show()
-
+    FLG_CHANGE_COLOR = 1
     AKT_MODUS = "CH"
 
 def readConfig():
