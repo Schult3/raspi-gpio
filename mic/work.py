@@ -45,13 +45,13 @@ TET_QUEUE = 0
 def wheel(pos):
     """Generate rainbow colors across 0-255 positions."""
     if pos < 85:
-        return Color(int(pos * 3 * brightness), int(255 - pos * 3 * brightness), 0)
+        return Color(pos * 3, 255 - pos * 3, 0)
     elif pos < 170:
         pos -= 85
-        return Color(int(255 - pos * 3 * brightness), 0, int(pos * 3 * brightness))
+        return Color(255 - pos * 3, 0, pos * 3)
     else:
         pos -= 170
-        return Color(0, int(pos * 3 * brightness), int(255 - pos * 3 * brightness))
+        return Color(0, pos * 3, 255 - pos * 3)
 
 
 def initialize(strip, color, wait_ms=10):
