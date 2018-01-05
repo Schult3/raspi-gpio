@@ -180,9 +180,16 @@ def initializeTetris(strip, color):
     global AKT_MODUS
     global TET_RICHTUNG
 
+    print("Richtung:")
     print(TET_RICHTUNG)
+    print("Lfd Nummer"):
     print(TET_LAUFNUMMER)
-    
+
+    print("POS:")
+    print(TET_QUEUE_POS)
+    print("NEG:")
+    print(TET_QUEUE_NEG)
+
     if AKT_MODUS != "IT":
         TET_QUEUE_POS = 0
         TET_QUEUE_NEG = strip.numPixels() - 1
