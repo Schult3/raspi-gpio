@@ -35,6 +35,8 @@ LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 LED_STRIP      = ws.WS2811_STRIP_GRB   # Strip type and colour ordering
 
 
+FLG_CHANGE_COLOR = 0
+
 # Equalizer Einstellungen
 HIST_AMP = 0
 POS_OFFSET = []
@@ -156,6 +158,7 @@ def runningLights(strip, color, wait_ms=50, anz_cars = 1, car_length = 5, car_sp
 def initializeTetris(strip, color):
     global TET_QUEUE
     global TET_LAUFNUMMER
+    global FLG_CHANGE_COLOR
 
     strip.setPixelColor(TET_LAUFNUMMER, color)
     strip.setPixelColor(TET_LAUFNUMMER + 1, Color(0, 0, 0))
@@ -164,6 +167,7 @@ def initializeTetris(strip, color):
     if TET_LAUFNUMMER <= TET_QUEUE:
         TET_LAUFNUMMER = strip.numPixels() - 1
         TET_QUEUE += 1
+        FLG_CHANGE_COLOR = 1
     else:
         TET_LAUFNUMMER -= 1
 
@@ -212,9 +216,11 @@ if __name__ == '__main__':
                 #print eff
         	initializeTetris(strip, color)
 
-        if rainbow_counter >= 255:
-            rainbow_counter = 0
-        else:
-            rainbow_counter += 1
+        if FLG_CHANGE_COLOR = 1:
+            if rainbow_counter >= 255:
+                rainbow_counter = 0
+            else:
+                rainbow_counter += 1
+            FLG_CHANGE_COLOR = 0
 
         time.sleep(config["range_delay"] / 1000.0)
