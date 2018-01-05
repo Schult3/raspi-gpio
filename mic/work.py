@@ -56,6 +56,10 @@ RL_CARS = []
 #Chrystal config
 CH_TWINKLE = []
 
+#Rainbow config
+RB_J = 0
+RB_I = 0
+
 def wheel(pos):
     """Generate rainbow colors across 0-255 positions."""
     if pos < 85:
@@ -87,13 +91,25 @@ def destroy(strip, color, wait_ms=10):
 		x -= 1
 
 
-def rainbow(strip, wait_ms=20, iterations=1):
-	"""Draw rainbow that fades across all pixels at once."""
-    	for j in range(256*iterations):
-        	for i in range(strip.numPixels()):
-            		strip.setPixelColor(i, wheel((i+j) & 255))
-        	strip.show()
-        	time.sleep(wait_ms/1000.0)
+def rainbow(strip, color):
+    global AKT_MODUS
+    global RB_I
+    global RB_J
+
+    if AKT_MODUS != "RB":
+        RB_J = 0
+        RB_I = 0
+
+	strip.setPixelColor(RB_I, wheel((RB_I + RB_J) & 255))
+    RB_I += 1
+    if RB_I >= strip.numPixels():
+        RB_I = 0
+        RB_J += 1
+
+    if RB_J >= 256:
+        RB_J = 0
+
+    strip.show()
 
 def equalizer(strip, parts=2):
 	global HIST_AMP
@@ -107,8 +123,6 @@ def equalizer(strip, parts=2):
 	if len(POS_OFFSET) != parts:
 		for i in range(parts):
 			POS_OFFSET.append(i * max_pixels)
-
-	print(POS_OFFSET)
 
 	hist_anz_pixels = HIST_AMP / 100.0 * max_pixels
 	hist_anz_pixels = round(hist_anz_pixels, 0)
@@ -280,7 +294,7 @@ if __name__ == '__main__':
     strip.begin()
     initialize(strip, Color(255, 255, 255))
 
-    effects = [initializeTetris, light, runningLights, chrystal]
+    effects = [initializeTetris, light, runningLights, chrystal, rainbow]
     music_effects = [equalizer]
 
     rainbow_counter = 0
@@ -303,7 +317,7 @@ if __name__ == '__main__':
             if effect_counter <= 1:
                 randint = random.randint(0, len(effects))
                 randint -= 1
-            effects[0](strip, color)
+            effects[4](strip, color)
 
 
         if FLG_CHANGE_COLOR == 1:
