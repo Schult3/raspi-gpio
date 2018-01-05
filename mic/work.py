@@ -151,14 +151,14 @@ def runningLights(strip, color, anz_cars = 1, car_length = 5, car_space = 10):
 	for x in range(strip.numPixels()):
 		strip.setPixelColor(x, Color(0, 0, 0))
 
-	for i in RL_CARS:
-		for pos in i:
-			strip.setPixelColor(pos, color)
+    for i in RL_CARS:
+        for pos in i:
+            strip.setPixelColor(pos, color)
             print(pos)
-			if pos + 1 >= strip.numPixels():
-				RL_CARS[RL_CARS.index(i)][i.index(pos)] = 0
-			else:
-				RL_CARS[RL_CARS.index(i)][i.index(pos)] += 1
+            if pos + 1 >= strip.numPixels():
+                RL_CARS[RL_CARS.index(i)][i.index(pos)] = 0
+            else:
+                RL_CARS[RL_CARS.index(i)][i.index(pos)] += 1
 	strip.show()
     AKT_MODUS = "RL"
 
