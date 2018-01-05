@@ -208,7 +208,7 @@ if __name__ == '__main__':
     strip.begin()
     initialize(strip, Color(255, 255, 255))
 
-    effects = [initializeTetris, light]
+    effects = [initializeTetris, light, runningLights]
     music_effects = [equalizer]
 
     rainbow_counter = 0
