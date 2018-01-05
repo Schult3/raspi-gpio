@@ -195,6 +195,9 @@ def initializeTetris(strip, color):
 
 def light(strip, color):
     global AKT_MODUS
+    global FLG_CHANGE_COLOR
+    FLG_CHANGE_COLOR = 1
+
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, color)
     strip.show()
