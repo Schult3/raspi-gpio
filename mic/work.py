@@ -102,14 +102,14 @@ def rainbow(strip, color):
         for i in range(strip.numPixels()):
             strip.setPixelColor(i, Color(0, 0, 0))
 
+    for i in range(256):
+        strip.setPixelColor(i, wheel((i + RB_J) & 255))
 
-    strip.setPixelColor(RB_I, wheel((RB_I + RB_J) & 255))
-    RB_I += 1
-    strip.setPixelColor(RB_I, wheel((RB_I + RB_J) & 255))
-    
-    if RB_I >= strip.numPixels():
-        RB_I = 0
-        RB_J += 1
+    RB_J += 1
+
+    #if RB_I >= strip.numPixels():
+        #RB_I = 0
+        #RB_J += 1
 
         if RB_J >= 256:
             RB_J = 0
