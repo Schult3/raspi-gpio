@@ -169,7 +169,7 @@ def runningLights(strip, color, car_space = 10):
                 RL_CARS[RL_CARS.index(i)][i.index(pos)] = 0
             else:
                 RL_CARS[RL_CARS.index(i)][i.index(pos)] += 1
-	strip.show()
+    strip.show()
     AKT_MODUS = "RL"
     FLG_CHANGE_COLOR = 1
 
