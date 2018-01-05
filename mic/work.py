@@ -135,7 +135,7 @@ def strobe(strip, color):
 	strip.show()
 
 
-def runningLights(strip, color, car_space = 10):
+def runningLights(strip, color):
     global AKT_MODUS
     global RL_CARS
     global FLG_CHANGE_COLOR
@@ -253,7 +253,7 @@ if __name__ == '__main__':
 
         #nach x-Aufrufen anderer Effekt
         if effect_counter <= 1:
-            effect_counter = random.randint(1000, 10000)
+            effect_counter = random.randint(100, 1000)
         else:
             effect_counter -= 1
 
