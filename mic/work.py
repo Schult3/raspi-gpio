@@ -136,6 +136,7 @@ def strobe(strip, color):
 def runningLights(strip, color, anz_cars = 1, car_length = 5, car_space = 10):
     global AKT_MODUS
     global RL_CARS
+    global FLG_CHANGE_COLOR
 
     if AKT_MODUS != "RL":
         RL_CARS = []
@@ -160,6 +161,7 @@ def runningLights(strip, color, anz_cars = 1, car_length = 5, car_space = 10):
                 RL_CARS[RL_CARS.index(i)][i.index(pos)] += 1
 	strip.show()
     AKT_MODUS = "RL"
+    FLG_CHANGE_COLOR = 1
 
 def initializeTetris(strip, color):
     global TET_QUEUE
