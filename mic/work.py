@@ -45,8 +45,10 @@ HIST_AMP = 0
 POS_OFFSET = []
 
 # Tetris Einstellungen
-TET_QUEUE = 0 #Position des Stapels
+TET_QUEUE_POS = 0 #Position des Stapels
+TET_QUEUE_NEG = LED_COUNT - 1
 TET_LAUFNUMMER = LED_COUNT - 1 #Aktuelle Position des Elements
+TET_RICHTUNG = 1
 
 #RunningLights config
 RL_CARS = []
@@ -171,28 +173,41 @@ def runningLights(strip, color):
     FLG_CHANGE_COLOR = 1
 
 def initializeTetris(strip, color):
-    global TET_QUEUE
+    global TET_QUEUE_POS
+    global TET_QUEUE_NEG
     global TET_LAUFNUMMER
     global FLG_CHANGE_COLOR
     global AKT_MODUS
+    global TET_RICHTUNG
 
     if AKT_MODUS != "IT":
-        TET_QUEUE = 0
+        TET_QUEUE_POS = 0
+        TET_QUEUE_NEG = strip.numPixels() - 1
         TET_LAUFNUMMER = strip.numPixels() - 1
 
     strip.setPixelColor(TET_LAUFNUMMER, color)
     strip.setPixelColor(TET_LAUFNUMMER + 1, Color(0, 0, 0))
     strip.show()
 
-    if TET_LAUFNUMMER <= TET_QUEUE:
-        TET_LAUFNUMMER = strip.numPixels() - 1
-        TET_QUEUE += 1
-        FLG_CHANGE_COLOR = 1
-    else:
-        TET_LAUFNUMMER -= 1
 
-    if TET_QUEUE >= strip.numPixels() - 1:
-        TET_QUEUE = 0
+    if TET_RICHTUNG = 1:
+        if TET_LAUFNUMMER <= TET_QUEUE_POS:
+            TET_LAUFNUMMER = TET_QUEUE_NEG
+            TET_QUEUE_POS += 1
+            FLG_CHANGE_COLOR = 1
+        else:
+            TET_LAUFNUMMER -= 1
+    else:
+        if TET_LAUFNUMMER >= TET_QUEUE_NEG:
+            TET_LAUFNUMMER = TET_QUEUE_POS
+            TET_QUEUE_NEG -= 1
+            FLG_CHANGE_COLOR = 1
+        else:
+            TET_LAUFNUMMER += 1
+
+    if TET_QUEUE_POS == TET_QUEUE_NEG:
+        TET_QUEUE_POS = 0
+        TET_QUEUE_NEG = strip.numPixels() - 1
 
     AKT_MODUS = "IT"
 
@@ -244,8 +259,6 @@ if __name__ == '__main__':
         else:
             if effect_counter <= 1:
                 randint = random.randint(0, len(effects))
-                print(len(effects))
-                print(randint)
                 randint -= 1
             effects[randint](strip, color)
 
