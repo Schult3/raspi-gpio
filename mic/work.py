@@ -12,6 +12,8 @@ import sys
 
 import json
 
+import random
+
 def signal_handler(signal, frame):
         colorWipe(strip, Color(0,0,0))
         sys.exit(0)
@@ -133,12 +135,16 @@ def strobe(strip, color):
 	strip.show()
 
 
-def runningLights(strip, color, anz_cars = 1, car_length = 5, car_space = 10):
+def runningLights(strip, color, car_space = 10):
     global AKT_MODUS
     global RL_CARS
     global FLG_CHANGE_COLOR
 
     if AKT_MODUS != "RL":
+        anz_cars = random.randint(1, 10)
+        car_length = random.randint(2, 10)
+        car_space = random.randint(3, 20)
+
         RL_CARS = []
         pos_offset = 0
         for i in range(anz_cars):
