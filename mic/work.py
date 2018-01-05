@@ -53,6 +53,9 @@ TET_RICHTUNG = 1
 #RunningLights config
 RL_CARS = []
 
+#Chrystal config
+CH_TWINKLE = []
+
 def wheel(pos):
     """Generate rainbow colors across 0-255 positions."""
     if pos < 85:
@@ -236,6 +239,18 @@ def light(strip, color):
     AKT_MODUS = "LI"
 
 
+def chrystal(strip, color):
+    global CH_TWINKLE
+    global AKT_MODUS
+
+    twinkle = random.randint(0, strip.numPixels() - 1)
+    CH_TWINKLE.append(twinkle)
+
+    strip.setPixelColor(twinkle, color)
+    strip.show()
+
+    AKT_MODUS = "CH"
+
 def readConfig():
 	data = json.load(open('/var/www/html/config.json'))
 	return data
@@ -251,7 +266,7 @@ if __name__ == '__main__':
     strip.begin()
     initialize(strip, Color(255, 255, 255))
 
-    effects = [initializeTetris, light, runningLights]
+    effects = [initializeTetris, light, runningLights, chrystal]
     music_effects = [equalizer]
 
     rainbow_counter = 0
@@ -274,7 +289,7 @@ if __name__ == '__main__':
             if effect_counter <= 1:
                 randint = random.randint(0, len(effects))
                 randint -= 1
-            effects[randint](strip, color)
+            effects[3](strip, color)
 
 
         if FLG_CHANGE_COLOR == 1:
