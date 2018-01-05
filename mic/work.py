@@ -155,6 +155,7 @@ def runningLights(strip, color, wait_ms=50, anz_cars = 1, car_length = 5, car_sp
 
 def initializeTetris(strip, color):
     global TET_QUEUE
+    global TET_LAUFNUMMER
 
     strip.setPixelColor(TET_LAUFNUMMER, color)
     strip.setPixelColor(TET_LAUFNUMMER + 1, Color(0, 0, 0))
