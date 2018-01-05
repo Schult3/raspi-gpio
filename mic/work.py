@@ -145,6 +145,10 @@ def runningLights(strip, color, car_space = 10):
         car_length = random.randint(2, 10)
         car_space = random.randint(3, 20)
 
+        anz_cars = 5
+        car_length = 5
+        car_space = 10
+
         RL_CARS = []
         pos_offset = 0
         for i in range(anz_cars):
@@ -235,9 +239,8 @@ if __name__ == '__main__':
         else:
             if effect_counter <= 1:
                 randint = random.randint(0, len(effects) - 1)
-                print(randint)
-                print(effects[randint])
-            effects[randint](strip, color)
+            #effects[randint](strip, color)
+            runningLights(strip, color)
 
         if FLG_CHANGE_COLOR == 1:
             if rainbow_counter >= 255:
@@ -248,7 +251,7 @@ if __name__ == '__main__':
 
         #nach x-Aufrufen anderer Effekt
         if effect_counter <= 1:
-            effect_counter = random.randint(1000, 100000)
+            effect_counter = random.randint(1000, 10000)
             print(effect_counter)
         else:
             effect_counter -= 1
