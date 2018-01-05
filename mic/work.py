@@ -242,11 +242,23 @@ def light(strip, color):
 def chrystal(strip, color):
     global CH_TWINKLE
     global AKT_MODUS
+    global FLG_CHANGE_COLOR
+
+    if AKT_MODUS != "CH":
+        for i in range(strip.numPixels()):
+            strip.setPixelColor(i, Color(0, 0, 0))
 
     twinkle = random.randint(0, strip.numPixels() - 1)
-    CH_TWINKLE.append(twinkle)
+    if twinkle not in CH_TWINKLE:
+        CH_TWINKLE.append(twinkle)
+        strip.setPixelColor(twinkle, color)
 
-    strip.setPixelColor(twinkle, color)
+
+    if len(CH_TWINKLE) == strip.numPixels():
+        strip.setPixelColor(i, Color(0, 0, 0))
+        CH_TWINKLE = []
+        FLG_CHANGE_COLOR = 1
+
     strip.show()
 
     AKT_MODUS = "CH"
