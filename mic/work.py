@@ -216,7 +216,7 @@ if __name__ == '__main__':
                 #print eff
         	initializeTetris(strip, color)
 
-        if FLG_CHANGE_COLOR = 1:
+        if FLG_CHANGE_COLOR == 1:
             if rainbow_counter >= 255:
                 rainbow_counter = 0
             else:
