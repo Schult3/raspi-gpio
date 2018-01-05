@@ -180,16 +180,6 @@ def initializeTetris(strip, color):
     global AKT_MODUS
     global TET_RICHTUNG
 
-    print("Richtung:")
-    print(TET_RICHTUNG)
-    print("Lfd Nummer:")
-    print(TET_LAUFNUMMER)
-
-    print("POS:")
-    print(TET_QUEUE_POS)
-    print("NEG:")
-    print(TET_QUEUE_NEG)
-
     if AKT_MODUS != "IT":
         TET_QUEUE_POS = 0
         TET_QUEUE_NEG = strip.numPixels() - 1
@@ -284,7 +274,7 @@ if __name__ == '__main__':
             if effect_counter <= 1:
                 randint = random.randint(0, len(effects))
                 randint -= 1
-            effects[0](strip, color)
+            effects[randint](strip, color)
 
 
         if FLG_CHANGE_COLOR == 1:
@@ -296,7 +286,7 @@ if __name__ == '__main__':
 
         #nach x-Aufrufen anderer Effekt
         if effect_counter <= 1:
-            effect_counter = random.randint(100, 1000)
+            effect_counter = random.randint(1000, 10000)
         else:
             effect_counter -= 1
 
