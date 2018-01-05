@@ -214,6 +214,7 @@ if __name__ == '__main__':
     rainbow_counter = 0
     effect_counter = 1
 
+
     while True:
         config = readConfig()
         if config["color_switch"] == True:
@@ -231,7 +232,7 @@ if __name__ == '__main__':
                 randint = random.randint(0, len(effects) - 1)
                 print(randint)
                 print(effects[randint])
-                effects[randint](strip, color)
+            effects[randint](strip, color)
 
         if FLG_CHANGE_COLOR == 1:
             if rainbow_counter >= 255:
