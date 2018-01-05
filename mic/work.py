@@ -173,6 +173,11 @@ def initializeTetris(strip, color):
     global TET_QUEUE
     global TET_LAUFNUMMER
     global FLG_CHANGE_COLOR
+    global AKT_MODUS
+
+    if AKT_MODUS != "IT":
+        TET_QUEUE = 0
+        TET_LAUFNUMMER = strip.numPixels() - 1
 
     strip.setPixelColor(TET_LAUFNUMMER, color)
     strip.setPixelColor(TET_LAUFNUMMER + 1, Color(0, 0, 0))
@@ -243,7 +248,7 @@ if __name__ == '__main__':
 
         #nach x-Aufrufen anderer Effekt
         if effect_counter <= 1:
-            effect_counter = random.randint(100, 1000)
+            effect_counter = random.randint(1000, 100000)
         else:
             effect_counter -= 1
 
