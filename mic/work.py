@@ -163,13 +163,12 @@ def initializeTetris(strip, color):
 
     if TET_LAUFNUMMER <= TET_QUEUE:
         TET_LAUFNUMMER = strip.numPixels() - 1
+        TET_QUEUE += 1
     else:
         TET_LAUFNUMMER -= 1
 
     if TET_QUEUE >= strip.numPixels() - 1:
         TET_QUEUE = 0
-    else:
-        TET_QUEUE += 1
 
 def light(strip, color):
 	for i in range(strip.numPixels()):
