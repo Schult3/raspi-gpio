@@ -111,8 +111,8 @@ def rainbow(strip, color):
         #RB_I = 0
         #RB_J += 1
 
-        if RB_J >= 256:
-            RB_J = 0
+    if RB_J >= 256:
+        RB_J = 0
 
     strip.show()
     AKT_MODUS = "RB"
