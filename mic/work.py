@@ -252,6 +252,8 @@ def chrystal(strip, color):
     if twinkle not in CH_TWINKLE:
         CH_TWINKLE.append(twinkle)
         strip.setPixelColor(twinkle, color)
+    else:
+        chrystal(strip, color)
 
 
     if len(CH_TWINKLE) == strip.numPixels():
