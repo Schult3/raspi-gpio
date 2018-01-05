@@ -99,6 +99,8 @@ def rainbow(strip, color):
     if AKT_MODUS != "RB":
         RB_J = 0
         RB_I = 0
+        for i in range(strip.numPixels()):
+            strip.setPixelColor(i, Color(0, 0, 0))
 
 
 	strip.setPixelColor(RB_I, wheel((RB_I + RB_J) & 255))
