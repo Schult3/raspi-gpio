@@ -221,7 +221,7 @@ if __name__ == '__main__':
             #for eff in effects:
                 #print eff
         	#initializeTetris(strip, color)
-            runningLighs(strip, color)
+            runningLights(strip, color)
 
         if FLG_CHANGE_COLOR == 1:
             if rainbow_counter >= 255:
