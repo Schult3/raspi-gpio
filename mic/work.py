@@ -58,7 +58,6 @@ CH_TWINKLE = []
 
 #Rainbow config
 RB_J = 0
-RB_I = 0
 
 def wheel(pos):
     """Generate rainbow colors across 0-255 positions."""
@@ -93,12 +92,10 @@ def destroy(strip, color, wait_ms=10):
 
 def rainbow(strip, color):
     global AKT_MODUS
-    global RB_I
     global RB_J
 
     if AKT_MODUS != "RB":
         RB_J = 0
-        RB_I = 0
         for i in range(strip.numPixels()):
             strip.setPixelColor(i, Color(0, 0, 0))
 
@@ -106,10 +103,6 @@ def rainbow(strip, color):
         strip.setPixelColor(i, wheel((i + RB_J) & 255))
 
     RB_J += 1
-
-    #if RB_I >= strip.numPixels():
-        #RB_I = 0
-        #RB_J += 1
 
     if RB_J >= 256:
         RB_J = 0
@@ -323,7 +316,7 @@ if __name__ == '__main__':
             if effect_counter <= 1:
                 randint = random.randint(0, len(effects))
                 randint -= 1
-            effects[4](strip, color)
+            effects[randint](strip, color)
 
 
         if FLG_CHANGE_COLOR == 1:
