@@ -303,7 +303,7 @@ if __name__ == '__main__':
             if effect_counter <= 1:
                 randint = random.randint(0, len(effects))
                 randint -= 1
-            effects[randint](strip, color)
+            effects[2](strip, color)
 
 
         if FLG_CHANGE_COLOR == 1:
