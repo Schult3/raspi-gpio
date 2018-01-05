@@ -145,10 +145,6 @@ def runningLights(strip, color, car_space = 10):
         car_length = random.randint(2, 10)
         car_space = random.randint(3, 20)
 
-        anz_cars = 5
-        car_length = 5
-        car_space = 10
-
         RL_CARS = []
         pos_offset = 0
         for i in range(anz_cars):
@@ -198,9 +194,12 @@ def initializeTetris(strip, color):
         TET_QUEUE = 0
 
 def light(strip, color):
+    global AKT_MODUS
 	for i in range(strip.numPixels()):
 		strip.setPixelColor(i, color)
 	strip.show()
+    AKT_MODUS = "LI"
+
 
 def readConfig():
 	data = json.load(open('/var/www/html/config.json'))
@@ -239,8 +238,8 @@ if __name__ == '__main__':
         else:
             if effect_counter <= 1:
                 randint = random.randint(0, len(effects) - 1)
-            #effects[randint](strip, color)
-            runningLights(strip, color)
+            effects[randint](strip, color)
+
 
         if FLG_CHANGE_COLOR == 1:
             if rainbow_counter >= 255:
@@ -252,7 +251,6 @@ if __name__ == '__main__':
         #nach x-Aufrufen anderer Effekt
         if effect_counter <= 1:
             effect_counter = random.randint(1000, 10000)
-            print(effect_counter)
         else:
             effect_counter -= 1
 
