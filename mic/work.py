@@ -154,6 +154,7 @@ def runningLights(strip, color, anz_cars = 1, car_length = 5, car_space = 10):
 	for i in RL_CARS:
 		for pos in i:
 			strip.setPixelColor(pos, color)
+            print(pos)
 			if pos + 1 >= strip.numPixels():
 				RL_CARS[RL_CARS.index(i)][i.index(pos)] = 0
 			else:
