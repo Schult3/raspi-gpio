@@ -40,7 +40,8 @@ HIST_AMP = 0
 POS_OFFSET = []
 
 # Tetris Einstellungen
-TET_QUEUE = 0
+TET_QUEUE = 0 #Position des Stapels
+TET_LAUFNUMMER = 0 #Aktuelle Position des Elements
 
 def wheel(pos):
     """Generate rainbow colors across 0-255 positions."""
@@ -152,15 +153,17 @@ def runningLights(strip, color, wait_ms=50, anz_cars = 1, car_length = 5, car_sp
 		strip.show()
 		time.sleep(wait_ms / 1000.0)
 
-def initializeTetris(strip, color, wait_ms=25, parts=1):
+def initializeTetris(strip, color):
     global TET_QUEUE
-    i = strip.numPixels() - 1
-    while i >= TET_QUEUE:
-        strip.setPixelColor(i, color)
-        strip.setPixelColor(i + 1, Color(0, 0, 0))
-        strip.show()
-        i -= 1
-        time.sleep(wait_ms / 1000.0)
+
+    strip.setPixelColor(TET_LAUFNUMMER, color)
+    strip.setPixelColor(TET_LAUFNUMMER + 1, Color(0, 0, 0))
+    strip.show()
+
+    if TET_LAUFNUMMER <= TET_QUEUE:
+        TET_LAUFNUMMER = strip.numPixels() - 1
+    else:
+        TET_LAUFNUMMER -= 1
 
     if TET_QUEUE >= strip.numPixels() - 1:
         TET_QUEUE = 0
@@ -207,9 +210,11 @@ if __name__ == '__main__':
         else:
             #for eff in effects:
                 #print eff
-        	initializeTetris(strip, color, 10)
+        	initializeTetris(strip, color)
 
         if rainbow_counter >= 255:
             rainbow_counter = 0
         else:
             rainbow_counter += 1
+
+        time.sleep(config["range_delay"] / 1000.0)
