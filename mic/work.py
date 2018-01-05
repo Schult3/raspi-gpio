@@ -249,7 +249,9 @@ if __name__ == '__main__':
         #nach x-Aufrufen anderer Effekt
         if effect_counter <= 1:
             effect_counter = random.randint(1000, 100000)
+            print(effect_counter)
         else:
             effect_counter -= 1
+
 
         time.sleep(config["range_delay"] / 1000.0)
