@@ -165,6 +165,7 @@ def runningLights(strip, color):
                 RL_CARS[RL_CARS.index(i)][i.index(pos)] = 0
             else:
                 RL_CARS[RL_CARS.index(i)][i.index(pos)] += 1
+
     strip.show()
     AKT_MODUS = "RL"
     FLG_CHANGE_COLOR = 1
@@ -241,6 +242,7 @@ if __name__ == '__main__':
         else:
             if effect_counter <= 1:
                 randint = random.randint(0, len(effects)) - 1
+                print(randint)
             effects[randint](strip, color)
 
 
