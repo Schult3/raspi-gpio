@@ -182,7 +182,7 @@ def initializeTetris(strip, color):
 
     print("Richtung:")
     print(TET_RICHTUNG)
-    print("Lfd Nummer"):
+    print("Lfd Nummer:")
     print(TET_LAUFNUMMER)
 
     print("POS:")
