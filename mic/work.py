@@ -186,7 +186,11 @@ def initializeTetris(strip, color):
         TET_LAUFNUMMER = strip.numPixels() - 1
 
     strip.setPixelColor(TET_LAUFNUMMER, color)
-    strip.setPixelColor(TET_LAUFNUMMER + 1, Color(0, 0, 0))
+
+    if TET_RICHTUNG == 1:
+        strip.setPixelColor(TET_LAUFNUMMER + 1, Color(0, 0, 0))
+    else:
+        strip.setPixelColor(TET_LAUFNUMMER - 1, Color(0, 0, 0))
     strip.show()
 
 
