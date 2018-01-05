@@ -41,7 +41,7 @@ POS_OFFSET = []
 
 # Tetris Einstellungen
 TET_QUEUE = 0 #Position des Stapels
-TET_LAUFNUMMER = 0 #Aktuelle Position des Elements
+TET_LAUFNUMMER = LED_COUNT - 1 #Aktuelle Position des Elements
 
 def wheel(pos):
     """Generate rainbow colors across 0-255 positions."""
