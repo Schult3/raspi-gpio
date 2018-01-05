@@ -104,9 +104,9 @@ def rainbow(strip, color):
 
 
     strip.setPixelColor(RB_I, wheel((RB_I + RB_J) & 255))
-    print(RB_I + RB_J)
-    
     RB_I += 1
+    strip.setPixelColor(RB_I, wheel((RB_I + RB_J) & 255))
+    
     if RB_I >= strip.numPixels():
         RB_I = 0
         RB_J += 1
