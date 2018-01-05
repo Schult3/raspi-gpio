@@ -100,6 +100,7 @@ def rainbow(strip, color):
         RB_J = 0
         RB_I = 0
 
+
 	strip.setPixelColor(RB_I, wheel((RB_I + RB_J) & 255))
     RB_I += 1
     if RB_I >= strip.numPixels():
@@ -110,6 +111,7 @@ def rainbow(strip, color):
         RB_J = 0
 
     strip.show()
+    AKT_MODUS = "RB"
 
 def equalizer(strip, parts=2):
 	global HIST_AMP
