@@ -267,7 +267,13 @@ def chrystal(strip, color):
             strip.setPixelColor(i, Color(0, 0, 0))
         CH_TWINKLE = []
 
+    print(len(CH_TWINKLE))
+
     twinkle = random.randint(0, strip.numPixels() - 1)
+
+    print("Twinkle:")
+    print(twinkle)
+
     if twinkle not in CH_TWINKLE:
         CH_TWINKLE.append(twinkle)
         strip.setPixelColor(twinkle, color)
