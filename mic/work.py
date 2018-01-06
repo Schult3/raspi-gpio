@@ -316,12 +316,10 @@ if __name__ == '__main__':
         elif config["music_switch"] == True:
             if effect_counter <= 1:
                 randint = random.randint(0, len(music_effects) - 1)
-                print(randint)
-            music_effects[1 ](strip, color)
+            music_effects[randint](strip, color)
         else:
             if effect_counter <= 1:
                 randint = random.randint(0, len(effects) - 1)
-                print(randint)
             effects[randint](strip, color)
 
 
