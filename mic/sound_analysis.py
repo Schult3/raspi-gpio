@@ -5,8 +5,8 @@ import goertzel as go
 
 running_max = []
 running_max_size = 100
-freq_min = 64
-freq_max = 250
+freq_min = 31
+freq_max = 125
 
 def readSound(samples):
 	buff = []
@@ -28,7 +28,7 @@ def calc():
 	max = np.amax(rarr)
 	return max
 
-	
+
 def getSoundPWM():
 	global running_max, running_max_size
 	max = calc()
@@ -38,7 +38,7 @@ def getSoundPWM():
 			temp.append(running_max[x])
 		running_max = temp
 	running_max.append(max)
-		
+
 	max_running_max = np.amax(running_max)
 	if max_running_max > 0:
 		teil = int(max / max_running_max * 100)
