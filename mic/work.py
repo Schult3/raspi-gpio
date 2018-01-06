@@ -144,7 +144,7 @@ def equalizer(strip, color, parts=2):
 
 def strobe(strip, color):
     amp = sa.getSoundPWM()
-    if amp > 90:
+    if amp > 50:
         for i in range(strip.numPixels()):
         	strip.setPixelColor(i, color)
         strip.show()
