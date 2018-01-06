@@ -275,6 +275,9 @@ def chrystal(strip, color):
 
     print("Twinkle:")
     print(twinkle)
+    print("CH_COUNTER"):
+    print(CH_COUNTER)
+
     if len(CH_TWINKLE) == 133:
         CH_COUNTER += 1
     else:
