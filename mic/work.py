@@ -9,10 +9,9 @@ from neopixel import *
 import argparse
 import signal
 import sys
-
 import json
-
 import random
+import os.path
 
 def signal_handler(signal, frame):
         colorWipe(strip, Color(0,0,0))
@@ -279,8 +278,10 @@ def chrystal(strip, color):
     AKT_MODUS = "CH"
 
 def readConfig():
-	data = json.load(open('/var/www/html/config.json'))
-	return data
+    filepath = "/var/www/html/config.json"
+    if os.path.isfile(filepath):
+	       data = json.load(open(filepath))
+	       return data
 
 # Main program logic follows:
 if __name__ == '__main__':
