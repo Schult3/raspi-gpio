@@ -314,7 +314,7 @@ if __name__ == '__main__':
         	equalizer(strip, 4)
         else:
             if effect_counter <= 1:
-                randint = random.randint(0, len(effects))
+                randint = random.randint(0, len(effects) - 1)
                 #randint -= 1
                 print(randint)
             effects[randint](strip, color)
