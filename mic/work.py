@@ -316,6 +316,7 @@ if __name__ == '__main__':
             if effect_counter <= 1:
                 randint = random.randint(0, len(effects))
                 randint -= 1
+                print(randint)
             effects[randint](strip, color)
 
 
