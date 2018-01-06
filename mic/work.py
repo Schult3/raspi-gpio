@@ -54,6 +54,7 @@ RL_CARS = []
 
 #Chrystal config
 CH_TWINKLE = []
+CH_COUNTER = 0
 
 #Rainbow config
 RB_J = 0
@@ -257,6 +258,7 @@ def chrystal(strip, color):
     global CH_TWINKLE
     global AKT_MODUS
     global FLG_CHANGE_COLOR
+    global CH_COUNTER
 
     if AKT_MODUS != "CH":
         for i in range(strip.numPixels()):
@@ -273,6 +275,10 @@ def chrystal(strip, color):
 
     print("Twinkle:")
     print(twinkle)
+    if len(CH_TWINKLE) == 133:
+        CH_COUNTER += 1
+    else:
+        CH_COUNTER = 0
 
     if twinkle not in CH_TWINKLE:
         CH_TWINKLE.append(twinkle)
@@ -319,6 +325,7 @@ if __name__ == '__main__':
 
         if config["light_switch"] == True:
         	light(strip, color)
+            time.sleep(config["range_delay"] / 1000.0)
         elif config["music_switch"] == True:
             if effect_counter <= 1:
                 randint = random.randint(0, len(music_effects) - 1)
@@ -326,7 +333,8 @@ if __name__ == '__main__':
         else:
             if effect_counter <= 1:
                 randint = random.randint(0, len(effects) - 1)
-            effects[randint](strip, color)
+            effects[3](strip, color)
+            time.sleep(config["range_delay"] / 1000.0)
 
 
         if FLG_CHANGE_COLOR == 1:
@@ -341,6 +349,3 @@ if __name__ == '__main__':
             effect_counter = random.randint(100, 1000)
         else:
             effect_counter -= 1
-
-
-        time.sleep(config["range_delay"] / 1000.0)
