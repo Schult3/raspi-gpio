@@ -109,7 +109,7 @@ def rainbow(strip, color):
     strip.show()
     AKT_MODUS = "RB"
 
-def equalizer(strip, color, parts=2):
+def equalizer(strip, color, parts=4):
 	global HIST_AMP
 	global POS_OFFSET
 
