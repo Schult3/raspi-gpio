@@ -109,7 +109,7 @@ def rainbow(strip, color):
     strip.show()
     AKT_MODUS = "RB"
 
-def equalizer(strip, parts=2):
+def equalizer(strip, color, parts=2):
 	global HIST_AMP
 	global POS_OFFSET
 
@@ -140,16 +140,18 @@ def equalizer(strip, parts=2):
 			i -= 1
 
 	HIST_AMP = amp
-	#time.sleep(10 / 1000.0)
+
 
 def strobe(strip, color):
-	for i in range(strip.numPixels()):
-		strip.setPixelColor(i, color)
-	strip.show()
-	time.sleep(wait_ms / 1000.0)
-	for i in range(strip.numPixels()):
-		strip.setPixelColor(i, Color(0, 0, 0))
-	strip.show()
+    amp = sa.getSoundPWM()
+    if amp > 90:
+        for i in range(strip.numPixels()):
+        	strip.setPixelColor(i, color)
+        strip.show()
+        time.sleep(5 / 1000.0)
+        for i in range(strip.numPixels()):
+        	strip.setPixelColor(i, Color(0, 0, 0))
+        strip.show()
 
 
 def runningLights(strip, color):
@@ -295,7 +297,7 @@ if __name__ == '__main__':
     initialize(strip, Color(255, 255, 255))
 
     effects = [initializeTetris, light, runningLights, chrystal, rainbow]
-    music_effects = [equalizer]
+    music_effects = [equalizer, strobe]
 
     rainbow_counter = 0
     effect_counter = 1
@@ -312,11 +314,13 @@ if __name__ == '__main__':
         if config["light_switch"] == True:
         	light(strip, color)
         elif config["music_switch"] == True:
-        	equalizer(strip, 4)
+        	if effect_counter <= 1:
+                randint = random.randint(0, len(music_effects) - 1)
+                print(randint)
+            music_effects[1](strip, color)
         else:
             if effect_counter <= 1:
                 randint = random.randint(0, len(effects) - 1)
-                #randint -= 1
                 print(randint)
             effects[randint](strip, color)
 
