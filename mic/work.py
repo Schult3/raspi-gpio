@@ -327,7 +327,7 @@ if __name__ == '__main__':
             color = Color(int(config["color_picker"]["r"] * brightness), int(config["color_picker"]["g"] * brightness), int(config["color_picker"]["b"] * brightness))
 
         if config["light_switch"] == True:
-        	light(strip, color)
+            light(strip, color)
             time.sleep(config["range_delay"] / 1000.0)
         elif config["music_switch"] == True:
             if effect_counter <= 1:
