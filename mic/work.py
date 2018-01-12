@@ -54,10 +54,13 @@ RL_CARS = []
 
 #Chrystal config
 CH_TWINKLE = []
-CH_COUNTER = 0
 
 #Rainbow config
 RB_J = 0
+
+#While Loop config
+FLG_CHANGE_EFFECT = 0
+randint = 0
 
 def wheel(pos):
     """Generate rainbow colors across 0-255 positions."""
@@ -93,6 +96,7 @@ def destroy(strip, color, wait_ms=10):
 def rainbow(strip, color):
     global AKT_MODUS
     global RB_J
+    global FLG_CHANGE_EFFECT
 
     if AKT_MODUS != "RB":
         RB_J = 0
@@ -105,6 +109,7 @@ def rainbow(strip, color):
     RB_J += 1
 
     if RB_J >= 256:
+        FLG_CHANGE_EFFECT = 1
         RB_J = 0
 
     strip.show()
@@ -159,6 +164,7 @@ def runningLights(strip, color):
     global AKT_MODUS
     global RL_CARS
     global FLG_CHANGE_COLOR
+    global FLG_CHANGE_EFFECT
 
     if AKT_MODUS != "RL":
         anz_cars = random.randint(1, 10)
@@ -183,6 +189,7 @@ def runningLights(strip, color):
             strip.setPixelColor(pos, color)
             if pos + 1 >= strip.numPixels():
                 RL_CARS[RL_CARS.index(i)][i.index(pos)] = 0
+                FLG_CHANGE_EFFECT = 1
             else:
                 RL_CARS[RL_CARS.index(i)][i.index(pos)] += 1
 
@@ -197,6 +204,7 @@ def initializeTetris(strip, color):
     global FLG_CHANGE_COLOR
     global AKT_MODUS
     global TET_RICHTUNG
+    global FLG_CHANGE_EFFECT
 
     if AKT_MODUS != "IT":
         TET_QUEUE_POS = 0
@@ -240,13 +248,17 @@ def initializeTetris(strip, color):
     if TET_QUEUE_POS == TET_QUEUE_NEG:
         TET_QUEUE_POS = 0
         TET_QUEUE_NEG = strip.numPixels() - 1
+        FLG_CHANGE_EFFECT = 1
 
     AKT_MODUS = "IT"
 
 def light(strip, color):
     global AKT_MODUS
     global FLG_CHANGE_COLOR
+    global FLG_CHANGE_EFFECT
+
     FLG_CHANGE_COLOR = 1
+    FLG_CHANGE_EFFECT = 1
 
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, color)
@@ -258,7 +270,7 @@ def chrystal(strip, color):
     global CH_TWINKLE
     global AKT_MODUS
     global FLG_CHANGE_COLOR
-    global CH_COUNTER
+    global FLG_CHANGE_EFFECT
 
     if AKT_MODUS != "CH":
         for i in range(strip.numPixels()):
@@ -268,25 +280,15 @@ def chrystal(strip, color):
         for i in range(strip.numPixels()):
             strip.setPixelColor(i, Color(0, 0, 0))
         CH_TWINKLE = []
-
-    print(len(CH_TWINKLE))
+        FLG_CHANGE_EFFECT = 1
 
     twinkle = random.randint(0, strip.numPixels() - 1)
-
-    print("Twinkle:")
-    print(twinkle)
-    print("CH_COUNTER:")
-    print(CH_COUNTER)
-
-    if len(CH_TWINKLE) == 133:
-        CH_COUNTER += 1
-    else:
-        CH_COUNTER = 0
 
     if twinkle not in CH_TWINKLE:
         CH_TWINKLE.append(twinkle)
         strip.setPixelColor(twinkle, color)
     else:
+        time.sleep(5 / 1000.0)
         chrystal(strip, color)
 
 
@@ -348,7 +350,9 @@ if __name__ == '__main__':
             FLG_CHANGE_COLOR = 0
 
         #nach x-Aufrufen anderer Effekt
-        if effect_counter <= 1:
-            effect_counter = random.randint(100, 1000)
-        else:
-            effect_counter -= 1
+        if FLG_CHANGE_EFFECT == 1:
+            if effect_counter <= 1:
+                effect_counter = random.randint(1, 5)
+            else:
+                effect_counter -= 1
+            FLG_CHANGE_EFFECT = 0
