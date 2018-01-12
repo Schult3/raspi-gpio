@@ -343,13 +343,9 @@ if __name__ == '__main__':
                 randint = random.randint(0, len(music_effects) - 1)
             music_effects[randint](strip, color)
         else:
-            print("E-Counter:")
-            print(EFFECT_COUNTER)
             if EFFECT_COUNTER <= 1:
                 randomizeEffectCounter()
                 randint = random.randint(0, len(effects) - 1)
-            print("randint:")
-            print(randint)
             effects[randint](strip, color)
             time.sleep(config["range_delay"] / 1000.0)
 
