@@ -344,7 +344,7 @@ if __name__ == '__main__':
             print(randint)
             effects[randint](strip, color)
             #time.sleep(config["range_delay"] / 1000.0)
-            time.sleep(500 / 1000.0)
+            time.sleep(1000 / 1000.0)
 
 
         if FLG_CHANGE_COLOR == 1:
