@@ -336,8 +336,12 @@ if __name__ == '__main__':
                 randint = random.randint(0, len(music_effects) - 1)
             music_effects[randint](strip, color)
         else:
+            print("E-Counter:")
+            print(effect_counter)
             if effect_counter <= 1:
                 randint = random.randint(0, len(effects) - 1)
+            print("randint:")
+            print(randint)
             effects[randint](strip, color)
             time.sleep(config["range_delay"] / 1000.0)
 
@@ -352,7 +356,7 @@ if __name__ == '__main__':
         #nach x-Aufrufen anderer Effekt
         if FLG_CHANGE_EFFECT == 1:
             if effect_counter <= 1:
-                effect_counter = random.randint(1, 5)
+                effect_counter = random.randint(1, 10)
             else:
                 effect_counter -= 1
             FLG_CHANGE_EFFECT = 0
