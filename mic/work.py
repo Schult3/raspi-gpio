@@ -357,7 +357,7 @@ if __name__ == '__main__':
         #nach x-Aufrufen anderer Effekt
         if FLG_CHANGE_EFFECT == 1:
             if effect_counter <= 1:
-                effect_counter = random.randint(1, 10)
+                effect_counter = random.randint(10, 20)
             else:
                 effect_counter -= 1
             FLG_CHANGE_EFFECT = 0
