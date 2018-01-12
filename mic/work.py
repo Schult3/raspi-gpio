@@ -327,6 +327,7 @@ if __name__ == '__main__':
     rainbow_counter = 0
     EFFECT_COUNTER = 1
 
+    config = readConfig()
     if config["music_switch"] == True:
         randint = random.randint(0, len(music_effects) - 1)
     else:
