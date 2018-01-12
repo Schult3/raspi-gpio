@@ -195,7 +195,7 @@ def runningLights(strip, color):
 
         if RL_CARS[0][0] == 133:
             FLG_CHANGE_EFFECT = 1
-            
+
 
     strip.show()
     AKT_MODUS = "RL"
