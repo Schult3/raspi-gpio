@@ -190,9 +190,12 @@ def runningLights(strip, color):
             strip.setPixelColor(pos, color)
             if pos + 1 >= strip.numPixels():
                 RL_CARS[RL_CARS.index(i)][i.index(pos)] = 0
-                FLG_CHANGE_EFFECT = 1
             else:
                 RL_CARS[RL_CARS.index(i)][i.index(pos)] += 1
+
+        if RL_CARS[0][0] == 133:
+            FLG_CHANGE_EFFECT = 1
+            
 
     strip.show()
     AKT_MODUS = "RL"
