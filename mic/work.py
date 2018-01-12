@@ -305,7 +305,7 @@ def readConfig():
 
 def randomizeEffectCounter():
     global EFFECT_COUNTER
-    EFFECT_COUNTER = random.randint(10, 20)
+    EFFECT_COUNTER = random.randint(2, 10)
 
 
 # Main program logic follows:
