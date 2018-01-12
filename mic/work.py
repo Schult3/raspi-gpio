@@ -60,7 +60,6 @@ RB_J = 0
 
 #While Loop config
 FLG_CHANGE_EFFECT = 0
-randint = 0
 EFFECT_COUNTER = 1
 
 def wheel(pos):
@@ -328,6 +327,10 @@ if __name__ == '__main__':
     rainbow_counter = 0
     EFFECT_COUNTER = 1
 
+    if config["music_switch"] == True:
+        randint = random.randint(0, len(music_effects) - 1)
+    else:
+        randint = random.randint(0, len(effects) - 1)
 
     while True:
         config = readConfig()
