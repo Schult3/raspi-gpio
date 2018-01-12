@@ -61,6 +61,7 @@ RB_J = 0
 #While Loop config
 FLG_CHANGE_EFFECT = 0
 randint = 0
+EFFECT_COUNTER = 1
 
 def wheel(pos):
     """Generate rainbow colors across 0-255 positions."""
@@ -302,6 +303,11 @@ def readConfig():
 	       data = json.load(open(filepath))
 	       return data
 
+def randomizeEffectCounter():
+    global EFFECT_COUNTER
+    EFFECT_COUNTER = random.randint(10, 20)
+
+
 # Main program logic follows:
 if __name__ == '__main__':
     # Process arguments
@@ -317,7 +323,7 @@ if __name__ == '__main__':
     music_effects = [equalizer, strobe]
 
     rainbow_counter = 0
-    effect_counter = 1
+    EFFECT_COUNTER = 1
 
 
     while True:
@@ -332,13 +338,15 @@ if __name__ == '__main__':
             light(strip, color)
             time.sleep(config["range_delay"] / 1000.0)
         elif config["music_switch"] == True:
-            if effect_counter <= 1:
+            if EFFECT_COUNTER <= 1:
+                randomizeEffectCounter()
                 randint = random.randint(0, len(music_effects) - 1)
             music_effects[randint](strip, color)
         else:
             print("E-Counter:")
-            print(effect_counter)
-            if effect_counter <= 1:
+            print(EFFECT_COUNTER)
+            if EFFECT_COUNTER <= 1:
+                randomizeEffectCounter()
                 randint = random.randint(0, len(effects) - 1)
             print("randint:")
             print(randint)
@@ -356,8 +364,5 @@ if __name__ == '__main__':
 
         #nach x-Aufrufen anderer Effekt
         if FLG_CHANGE_EFFECT == 1:
-            if effect_counter <= 1:
-                effect_counter = random.randint(10, 20)
-            else:
-                effect_counter -= 1
+            EFFECT_COUNTER -= 1
             FLG_CHANGE_EFFECT = 0
