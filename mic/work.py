@@ -341,7 +341,7 @@ def runningCircle(strip, color):
 
         if temp >= strip.numPixels() - 1:
             temp = 0
-        elif temp <= 0:
+        elif temp < 0:
             temp = strip.numPixels() - 1
         RC_LIST[RC_LIST.index(i)] = temp
 
