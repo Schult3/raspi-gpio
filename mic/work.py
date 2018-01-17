@@ -313,7 +313,9 @@ def runningCircle(strip, color):
             RC_LIST.append(i)
         randint = random.randint(0, strip.numPixels())
         del RC_LIST[randint]
-        print(RC_LIST)
+        for i in RC_LIST:
+            strip.setPixelColor(i, color)
+        strip.show()
 
 
 
