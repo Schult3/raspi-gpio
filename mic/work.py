@@ -389,7 +389,7 @@ def runningCircle(strip, color):
 
         for i in range(strip.numPixels()):
             if i not in RC_LIST:
-            strip.setPixelColor(i, color)
+                strip.setPixelColor(i, color)
         strip.show()
 
     AKT_MODUS = "RC"
