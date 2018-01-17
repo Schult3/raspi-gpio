@@ -317,8 +317,8 @@ def runningCircle(strip, color):
             RC_LIST.append(i)
             strip.setPixelColor(i, Color(0, 0, 0))
         randint = random.randint(0, strip.numPixels())
-        RC_OFFSET_NEG = randint - 1
-        RC_OFFSET_POS = randint + 1
+        RC_OFFSET_NEG = randint
+        RC_OFFSET_POS = randint
 
         del RC_LIST[randint]
         for i in RC_LIST:
@@ -332,6 +332,8 @@ def runningCircle(strip, color):
     index_neg = RC_LIST.index(RC_OFFSET_NEG)
     index_pos = RC_LIST.index(RC_OFFSET_POS)
 
+    print("Pos:")
+    print(RC_OFFSET_POS)
     print(index_pos)
 
     if index_neg in RC_LIST:
@@ -414,7 +416,8 @@ if __name__ == '__main__':
                 randint = random.randint(0, len(effects) - 1)
             #effects[randint](strip, color)
             effects[4](strip, color)
-            time.sleep(config["range_delay"] / 1000.0)
+            #time.sleep(config["range_delay"] / 1000.0)
+            time.sleep(1000 / 1000.0)
 
 
         if FLG_CHANGE_COLOR == 1:
