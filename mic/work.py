@@ -330,7 +330,7 @@ def runningCircle(strip, color):
                 strip.setPixelColor(i, color)
         strip.show()
 
-    temp = RC_LIST.index(0)
+    temp = RC_LIST[0]
     print(temp)
 
     for i in RC_LIST:
