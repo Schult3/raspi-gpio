@@ -311,6 +311,7 @@ def runningCircle(strip, color):
     global RC_LIST
     global RC_OFFSET_POS
     global RC_OFFSET_NEG
+    global RC_RICHTUNG
 
     if AKT_MODUS != "RC":
         RC_RICHTUNG = random.randint(0, 1)
@@ -336,7 +337,7 @@ def runningCircle(strip, color):
             temp = i + 1
         else:
             temp = i - 1
-            
+
         if temp >= strip.numPixels() - 1:
             temp = 0
         elif temp <= 0:
