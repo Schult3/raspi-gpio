@@ -396,12 +396,10 @@ def runningCircle(strip, color):
     ListMin = min(RC_LIST)
     ListMax = max(RC_LIST)
 
-    print(ListMin)
-    print(ListMax)
-    print("---")
-
-    RC_LIST.append(ListMin - 1)
+    RC_LIST.insert(0, ListMin - 1)
     RC_LIST.append(ListMax + 1)
+
+    print(len(RC_LIST))
 
     for i in RC_LIST:
         temp = i + 1
