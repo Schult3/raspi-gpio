@@ -338,6 +338,8 @@ def runningCircle(strip, color):
     if RC_OFFSET_POS in RC_LIST:
         pos_index = RC_LIST.index(RC_OFFSET_POS)
         del RC_LIST[pos_index]
+    else:
+        RC_LIST.append(RC_OFFSET_POS)
 
 
     for i in RC_LIST:
