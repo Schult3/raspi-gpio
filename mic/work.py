@@ -331,7 +331,13 @@ def runningCircle(strip, color):
         strip.show()
 
     temp = RC_LIST[0]
-    print(temp)
+    temp -= 1
+    if temp < 0:
+        temp = strip.numPixels() - 1
+
+    RC_LIST.insert(0, temp)
+    print(len(RC_LIST))
+
 
     for i in RC_LIST:
         if RC_RICHTUNG == 0:
