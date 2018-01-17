@@ -331,11 +331,13 @@ def runningCircle(strip, color):
     RC_OFFSET_NEG -= 1
     RC_OFFSET_POS += 1
 
-    print(RC_OFFSET_NEG)
-
     if RC_OFFSET_NEG in RC_LIST:
         neg_index = RC_LIST.index(RC_OFFSET_NEG)
         del RC_LIST[neg_index]
+
+    if RC_OFFSET_POS in RC_LIST:
+        pos_index = RC_LIST.index(RC_OFFSET_POS)
+        del RC_LIST[pos_index]
 
 
     for i in RC_LIST:
