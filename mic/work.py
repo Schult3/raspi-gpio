@@ -333,6 +333,8 @@ def runningCircle(strip, color):
 
     print(RC_OFFSET_NEG)
     print(RC_OFFSET_NEG in RC_LIST)
+    neg_index = RC_LIST.index(RC_OFFSET_NEG)
+    print(neg_index)
 
 
 
