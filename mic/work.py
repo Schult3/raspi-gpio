@@ -60,8 +60,7 @@ RB_J = 0
 
 #RunningCircle config
 RC_LIST = []
-RC_OFFSET_NEG = 0
-RC_OFFSET_POS = 0
+RC_RICHTUNG = 0
 
 #While Loop config
 FLG_CHANGE_EFFECT = 0
@@ -304,69 +303,6 @@ def chrystal(strip, color):
     FLG_CHANGE_COLOR = 1
     AKT_MODUS = "CH"
 
-def runningCircleBeta(strip, color):
-    global AKT_MODUS
-    global FLG_CHANGE_COLOR
-    global FLG_CHANGE_EFFECT
-    global RC_LIST
-    global RC_OFFSET_POS
-    global RC_OFFSET_NEG
-
-    if AKT_MODUS != "RC":
-        for i in range(strip.numPixels()):
-            RC_LIST.append(i)
-            strip.setPixelColor(i, Color(0, 0, 0))
-        randint = random.randint(0, strip.numPixels())
-        RC_OFFSET_NEG = randint
-        RC_OFFSET_POS = randint
-
-        del RC_LIST[randint]
-        for i in RC_LIST:
-            strip.setPixelColor(i, color)
-        strip.show()
-
-    for i in range(strip.numPixels()):
-        strip.setPixelColor(i, Color(0, 0, 0))
-
-    RC_OFFSET_NEG -= 1
-    RC_OFFSET_POS += 1
-
-    if RC_OFFSET_NEG in RC_LIST:
-        neg_index = RC_LIST.index(RC_OFFSET_NEG)
-        del RC_LIST[neg_index]
-    else:
-        RC_LIST.append(RC_OFFSET_NEG)
-
-    if RC_OFFSET_POS in RC_LIST:
-        pos_index = RC_LIST.index(RC_OFFSET_POS)
-        del RC_LIST[pos_index]
-    else:
-        RC_LIST.append(RC_OFFSET_POS)
-
-
-    for i in RC_LIST:
-        strip.setPixelColor(i, color)
-
-    strip.show()
-
-
-
-    if RC_OFFSET_NEG <= 0:
-        RC_OFFSET_NEG = strip.numPixels()
-
-    if RC_OFFSET_POS >= strip.numPixels() - 1:
-        RC_OFFSET_POS = -1
-
-    if len(RC_LIST) > strip.numPixels():
-        RC_LIST = []
-        return
-
-
-    AKT_MODUS = "RC"
-    FLG_CHANGE_COLOR = 1
-
-
-
 
 def runningCircle(strip, color):
     global AKT_MODUS
@@ -377,6 +313,8 @@ def runningCircle(strip, color):
     global RC_OFFSET_NEG
 
     if AKT_MODUS != "RC":
+        RC_RICHTUNG = random.randint(0, 1)
+
         for i in range(strip.numPixels()):
             strip.setPixelColor(i, Color(0, 0, 0))
         randint = random.randint(0, strip.numPixels())
@@ -393,16 +331,12 @@ def runningCircle(strip, color):
         strip.show()
 
 
-    ListMin = min(RC_LIST)
-    ListMax = max(RC_LIST)
-
-    RC_LIST.insert(0, ListMin - 1)
-    RC_LIST.append(ListMax + 1)
-
-    print(len(RC_LIST))
-
     for i in RC_LIST:
-        temp = i + 1
+        if RC_RICHTUNG == 0:
+            temp = i + 1
+        else:
+            temp = i - 1
+            
         if temp >= strip.numPixels() - 1:
             temp = 0
         elif temp <= 0:
