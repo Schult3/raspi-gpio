@@ -318,7 +318,7 @@ def runningCircle(strip, color):
             strip.setPixelColor(i, Color(0, 0, 0))
         randint = random.randint(0, strip.numPixels())
         RC_OFFSET_NEG = randint
-        RC_OFFSET_POS = randint + 1
+        RC_OFFSET_POS = randint
 
         del RC_LIST[randint]
         for i in RC_LIST:
@@ -328,9 +328,10 @@ def runningCircle(strip, color):
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, Color(0, 0, 0))
 
-
-    index_neg = RC_LIST.index(RC_OFFSET_NEG)
-    index_pos = RC_LIST.index(RC_OFFSET_POS)
+    if RC_OFFSET_NEG in RC_LIST:
+        index_neg = RC_LIST.index(RC_OFFSET_NEG)
+    if RC_OFFSET_POS in RC_LIST:
+        index_pos = RC_LIST.index(RC_OFFSET_POS)
 
     print("Pos:")
     print(RC_OFFSET_POS)
