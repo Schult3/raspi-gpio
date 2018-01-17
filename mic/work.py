@@ -392,23 +392,25 @@ def runningCircle(strip, color):
                 strip.setPixelColor(i, color)
         strip.show()
 
-    print(RC_LIST)
+
+    ListMin = min(RC_LIST)
+    ListMax = max(RC_LIST)
+
+    RC_LIST.append(ListMin - 1)
+    RC_LIST.append(ListMax + 1)
 
     for i in RC_LIST:
         temp = i + 1
-
         if temp >= strip.numPixels() - 1:
             temp = 0
         elif temp <= 0:
             temp = strip.numPixels() - 1
-
-
         RC_LIST[RC_LIST.index(i)] = temp
+
+
 
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, Color(0, 0, 0))
-
-
     for i in range(strip.numPixels()):
         if i not in RC_LIST:
             strip.setPixelColor(i, color)
