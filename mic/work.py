@@ -392,6 +392,18 @@ def runningCircle(strip, color):
                 strip.setPixelColor(i, color)
         strip.show()
 
+    for i in RC_LIST:
+        RC_LIST[RC_LIST.index(i)] += 1
+
+    for i in range(strip.numPixels()):
+        strip.setPixelColor(i, Color(0, 0, 0))
+
+
+    for i in range(strip.numPixels()):
+        if i not in RC_LIST:
+            strip.setPixelColor(i, color)
+    strip.show()
+
     AKT_MODUS = "RC"
     FLG_CHANGE_COLOR = 1
 
