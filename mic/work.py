@@ -58,6 +58,9 @@ CH_TWINKLE = []
 #Rainbow config
 RB_J = 0
 
+#RunningCircle config
+RC_LIST = []
+
 #While Loop config
 FLG_CHANGE_EFFECT = 0
 EFFECT_COUNTER = 1
@@ -299,6 +302,25 @@ def chrystal(strip, color):
     FLG_CHANGE_COLOR = 1
     AKT_MODUS = "CH"
 
+def runningCircle(strip, color):
+    global AKT_MODUS
+    global FLG_CHANGE_COLOR
+    global FLG_CHANGE_EFFECT
+    global RC_LIST
+
+    if AKT_MODUS != "RC":
+        for i in range(strip.numPixels()):
+            RC_LIST.append(i)
+            randint = random.randint(0, strip.numPixels())
+            RC_LIST.del(randint)
+            print(RC_LIST)
+
+
+
+    AKT_MODUS = "RC"
+    FLG_CHANGE_COLOR = 1
+
+
 def readConfig():
     filepath = "/var/www/html/config.json"
     if os.path.isfile(filepath):
@@ -321,7 +343,7 @@ if __name__ == '__main__':
     strip.begin()
     initialize(strip, Color(255, 255, 255))
 
-    effects = [initializeTetris, runningLights, chrystal, rainbow]
+    effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle]
     music_effects = [equalizer, strobe]
 
     rainbow_counter = 0
@@ -353,7 +375,8 @@ if __name__ == '__main__':
             if EFFECT_COUNTER <= 1:
                 randomizeEffectCounter()
                 randint = random.randint(0, len(effects) - 1)
-            effects[randint](strip, color)
+            #effects[randint](strip, color)
+            effects[4](strip, color)
             time.sleep(config["range_delay"] / 1000.0)
 
 
