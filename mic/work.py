@@ -315,7 +315,6 @@ def runningCircle(strip, color):
 
     if AKT_MODUS != "RC":
         RC_RICHTUNG = random.randint(0, 1)
-
         for i in range(strip.numPixels()):
             strip.setPixelColor(i, Color(0, 0, 0))
         randint = random.randint(0, strip.numPixels())
@@ -331,15 +330,13 @@ def runningCircle(strip, color):
                 strip.setPixelColor(i, color)
         strip.show()
 
+    print(RC_LIST)
 
     for i in RC_LIST:
         if RC_RICHTUNG == 0:
             temp = i + 1
         else:
             temp = i - 1
-
-        print(temp)
-        print("---")
 
         if temp >= strip.numPixels() - 1:
             temp = 0
