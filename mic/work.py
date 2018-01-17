@@ -392,6 +392,8 @@ def runningCircle(strip, color):
                 strip.setPixelColor(i, color)
         strip.show()
 
+    print(RC_LIST)
+    
     for i in RC_LIST:
         temp = i + 1
 
@@ -402,7 +404,6 @@ def runningCircle(strip, color):
 
 
         RC_LIST[RC_LIST.index(i)] = temp
-
 
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, Color(0, 0, 0))
