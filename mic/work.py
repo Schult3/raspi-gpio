@@ -304,7 +304,7 @@ def chrystal(strip, color):
     FLG_CHANGE_COLOR = 1
     AKT_MODUS = "CH"
 
-def runningCircle(strip, color):
+def runningCircleBeta(strip, color):
     global AKT_MODUS
     global FLG_CHANGE_COLOR
     global FLG_CHANGE_EFFECT
@@ -361,6 +361,36 @@ def runningCircle(strip, color):
         RC_LIST = []
         return
 
+
+    AKT_MODUS = "RC"
+    FLG_CHANGE_COLOR = 1
+
+
+
+
+def runningCircle(strip, color):
+    global AKT_MODUS
+    global FLG_CHANGE_COLOR
+    global FLG_CHANGE_EFFECT
+    global RC_LIST
+    global RC_OFFSET_POS
+    global RC_OFFSET_NEG
+
+    if AKT_MODUS != "RC":
+        for i in range(strip.numPixels()):
+            RC_LIST.append(i)
+            strip.setPixelColor(i, Color(0, 0, 0))
+        randint = random.randint(0, strip.numPixels())
+        del RC_LIST[randint]
+
+        randint = random.randint(10, 50)
+        for i in randint:
+            index = RC_LIST.index(randint + i)
+            del RC_LIST[index]
+            
+        for i in RC_LIST:
+            strip.setPixelColor(i, color)
+        strip.show()
 
     AKT_MODUS = "RC"
     FLG_CHANGE_COLOR = 1
