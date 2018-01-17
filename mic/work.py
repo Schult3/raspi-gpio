@@ -334,8 +334,10 @@ def runningCircle(strip, color):
 
     try:
         del RC_LIST[index_neg]
+        break
     try:
         del RC_LIST[index_pos]
+        break
 
     for i in RC_LIST:
         strip.setPixelColor(i, color)
