@@ -311,6 +311,7 @@ def runningCircle(strip, color):
     if AKT_MODUS != "RC":
         for i in range(strip.numPixels()):
             RC_LIST.append(i)
+            strip.setPixelColor(i, Color(0, 0, 0))
         randint = random.randint(0, strip.numPixels())
         del RC_LIST[randint]
         for i in RC_LIST:
