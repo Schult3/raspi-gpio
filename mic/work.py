@@ -332,9 +332,16 @@ def runningCircle(strip, color):
     RC_OFFSET_POS += 1
 
     print(RC_OFFSET_NEG)
-    print(RC_OFFSET_NEG in RC_LIST)
-    neg_index = RC_LIST.index(RC_OFFSET_NEG)
-    print(neg_index)
+
+    if RC_OFFSET_NEG in RC_LIST:
+        neg_index = RC_LIST.index(RC_OFFSET_NEG)
+        del RC_LIST[neg_index]
+
+
+    for i in RC_LIST:
+        strip.setPixelColor(i, color)
+
+    strip.show()
 
 
 
