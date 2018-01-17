@@ -334,6 +334,8 @@ def runningCircle(strip, color):
     if RC_OFFSET_NEG in RC_LIST:
         neg_index = RC_LIST.index(RC_OFFSET_NEG)
         del RC_LIST[neg_index]
+    else:
+        RC_LIST.append(RC_OFFSET_NEG)
 
     if RC_OFFSET_POS in RC_LIST:
         pos_index = RC_LIST.index(RC_OFFSET_POS)
@@ -354,6 +356,10 @@ def runningCircle(strip, color):
 
     if RC_OFFSET_POS >= strip.numPixels() - 1:
         RC_OFFSET_POS = 0
+
+    if len(RC_LIST) > strip.numPixels():
+        RC_LIST = []
+        return
 
 
     AKT_MODUS = "RC"
