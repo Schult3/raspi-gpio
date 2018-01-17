@@ -384,10 +384,10 @@ def runningCircle(strip, color):
         del RC_LIST[randint]
 
         randint = random.randint(10, 50)
-        for i in randint:
+        for i in range(randint):
             index = RC_LIST.index(randint + i)
             del RC_LIST[index]
-            
+
         for i in RC_LIST:
             strip.setPixelColor(i, color)
         strip.show()
