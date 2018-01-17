@@ -328,8 +328,13 @@ def runningCircle(strip, color):
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, Color(0, 0, 0))
 
-    del RC_LIST[RC_OFFSET_NEG]
-    del RC_LIST[RC_OFFSET_POS]
+
+    index_neg = RC_LIST.index[RC_OFFSET_NEG]
+    index_pos = RC_LIST.index[RC_OFFSET_POS]
+
+
+    del RC_LIST[index_neg]
+    del RC_LIST[index_pos]
 
     for i in RC_LIST:
         strip.setPixelColor(i, color)
