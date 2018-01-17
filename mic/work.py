@@ -343,7 +343,13 @@ def runningCircle(strip, color):
 
 
     RC_OFFSET_NEG -= 1
-    RC_OFFSET_POS += 2
+    RC_OFFSET_POS += 1
+
+    if RC_OFFSET_POS >= strip.numPixels() - 1:
+        RC_OFFSET_POS = 0
+
+    if RC_OFFSET_NEG <= 0:
+        RC_OFFSET_POS = strip.numPixels() - 1
 
 
     AKT_MODUS = "RC"
