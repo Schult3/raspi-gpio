@@ -60,6 +60,8 @@ RB_J = 0
 
 #RunningCircle config
 RC_LIST = []
+RC_OFFSET_NEG = 0
+RC_OFFSET_POS = 0
 
 #While Loop config
 FLG_CHANGE_EFFECT = 0
@@ -307,17 +309,35 @@ def runningCircle(strip, color):
     global FLG_CHANGE_COLOR
     global FLG_CHANGE_EFFECT
     global RC_LIST
+    global RC_OFFSET_POS
+    global RC_OFFSET_NEG
 
     if AKT_MODUS != "RC":
         for i in range(strip.numPixels()):
             RC_LIST.append(i)
             strip.setPixelColor(i, Color(0, 0, 0))
         randint = random.randint(0, strip.numPixels())
+        RC_OFFSET_NEG = randint
+        RC_OFFSET_POS = randint
+
         del RC_LIST[randint]
         for i in RC_LIST:
             strip.setPixelColor(i, color)
         strip.show()
 
+    for i in range(strip.numPixels()):
+        strip.setPixelColor(i, Color(0, 0, 0))
+
+    del RC_LIST[RC_OFFSET_NEG]
+    del RC_LIST[RC_OFFSET_POS]
+
+    for i in RC_LIST:
+        strip.setPixelColor(i, color)
+    strip.show()
+
+
+    RC_OFFSET_NEG -= 1
+    RC_OFFSET_POS += 1
 
 
     AKT_MODUS = "RC"
