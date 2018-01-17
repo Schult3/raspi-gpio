@@ -421,9 +421,9 @@ if __name__ == '__main__':
                 randomizeEffectCounter()
                 randint = random.randint(0, len(effects) - 1)
             #effects[randint](strip, color)
+
             effects[4](strip, color)
-            #time.sleep(config["range_delay"] / 1000.0)
-            time.sleep(200 / 1000.0)
+            time.sleep(config["range_delay"] / 1000.0)
 
 
         if FLG_CHANGE_COLOR == 1:
