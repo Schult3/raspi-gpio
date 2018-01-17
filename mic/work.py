@@ -338,6 +338,9 @@ def runningCircle(strip, color):
         else:
             temp = i - 1
 
+        print(temp)
+        print("---")
+
         if temp >= strip.numPixels() - 1:
             temp = 0
         elif temp <= 0:
