@@ -381,7 +381,7 @@ def runningCircle(strip, color):
             strip.setPixelColor(i, Color(0, 0, 0))
         randint = random.randint(0, strip.numPixels())
         RC_LIST.append(randint)
-        randint = random.randint(10, 50)
+        randint = random.randint(0, 50)
         i = 1
         while i <= randint:
             RC_LIST.append(randint + i)
@@ -393,7 +393,7 @@ def runningCircle(strip, color):
         strip.show()
 
     print(RC_LIST)
-    
+
     for i in RC_LIST:
         temp = i + 1
 
