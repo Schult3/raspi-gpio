@@ -341,7 +341,7 @@ def runningCircle(strip, color):
         negOffset = strip.numPixels() - 1
 
 
-    RC_LIST.append(negOffset)
+    RC_LIST.insert(0, negOffset)
 
 
     #Display Liste
