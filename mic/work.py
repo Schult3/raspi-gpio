@@ -345,17 +345,19 @@ def runningCircle(strip, color):
         RC_flanke = random.randint(0, 1)
 
     #Flanke Skip Steuerung
+    #Flanke Multiplikator
+    fMultiplikator = 3
     if RC_flanke == 0:
-        if RC_negSkip == 1:
+        if RC_negSkip == fMultiplikator - 1:
             RC_negSkip = 0
         else:
-            RC_negSkip = 1
+            RC_negSkip += 1
         RC_posSkip = 0
     elif RC_flanke == 1:
-        if RC_posSkip == 1:
+        if RC_posSkip == fMultiplikator - 1:
             RC_posSkip = 0
         else:
-            RC_posSkip = 1
+            RC_posSkip += 1
         RC_negSkip = 0
 
     if RC_negSkip == 0:
