@@ -313,6 +313,7 @@ def runningCircle(strip, color):
     global RC_OFFSET_NEG
     global RC_RICHTUNG
 
+    #Start Operation
     if AKT_MODUS != "RC":
         #Position ersten Pixels bestimmen
         firstPixel = random.randint(0, strip.numPixels() - 1)
@@ -327,6 +328,29 @@ def runningCircle(strip, color):
             else:
                 strip.setPixelColor(i, Color(0, 0, 0))
         strip.show()
+
+    #laufende Operation
+    #negatives Offset ermitteln
+    negOffset = RC_LIST[0]
+
+    #Offset um 1 reduzieren
+    negOffset -= 1
+
+    #wenn Offset < 0 oder > 133 dann Position wechseln
+    if negOffset < 0:
+        negOffset = strip.numPixels() - 1
+
+
+    RC_LIST.append(negOffset)
+
+
+    #Display Liste
+    for i in range(strip.numPixels()):
+        if i not in RC_LIST:
+            strip.setPixelColor(i, color)
+        else:
+            strip.setPixelColor(i, Color(0, 0, 0))
+    strip.show()
 
     AKT_MODUS = "RC"
     FLG_CHANGE_COLOR = 1
