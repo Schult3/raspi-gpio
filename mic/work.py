@@ -347,7 +347,7 @@ def runningCircle(strip, color):
         RC_LIST.insert(0, negOffset)
 
     #Ausgabe Liste
-    print(RC_LIST)
+    print(len(RC_LIST))
 
     #Display Liste
     for i in range(strip.numPixels()):
