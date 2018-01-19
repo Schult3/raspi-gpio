@@ -340,8 +340,11 @@ def runningCircle(strip, color):
     if negOffset < 0:
         negOffset = strip.numPixels() - 1
 
-
-    RC_LIST.insert(0, negOffset)
+    #wenn Offset bereits in Liste -> Element aus Liste entfernen
+    if negOffset in RC_LIST:
+        del RC_LIST[RC_LIST.index(negOffset)]
+    else:
+        RC_LIST.insert(0, negOffset)
 
 
     #Display Liste
