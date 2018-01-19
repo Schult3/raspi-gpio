@@ -341,9 +341,6 @@ def runningCircle(strip, color):
 
     #laufende Operation
 
-    #neg Offset dekrementieren
-    RC_negOffset -= 1
-
     #pos Offset inkrementieren
     RC_posOffset += 1
 
@@ -367,6 +364,11 @@ def runningCircle(strip, color):
 
     if RC_negSkip == 0:
         #negativer Part
+
+        #neg Offset dekrementieren
+        RC_negOffset -= 1
+
+        
         #wenn Offset < 0 oder > 133 dann Position wechseln
         if RC_negOffset < 0:
             RC_negOffset = strip.numPixels() - 1
@@ -376,6 +378,8 @@ def runningCircle(strip, color):
             del RC_LIST[RC_LIST.index(RC_negOffset)]
         else:
             RC_LIST.insert(0, RC_negOffset)
+
+
 
     #positiver Part
     #wenn Offset < 0 oder > 133 dann Position wechseln
