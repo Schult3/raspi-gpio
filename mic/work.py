@@ -65,6 +65,7 @@ RC_posOffset = 0
 RC_posSkip = 0
 RC_negSkip = 0
 RC_flanke = 0
+RC_fMultiplikator = 2
 
 #While Loop config
 FLG_CHANGE_EFFECT = 0
@@ -318,6 +319,7 @@ def runningCircle(strip, color):
     global RC_flanke
     global RC_negSkip
     global RC_posSkip
+    global RC_fMultiplikator
 
     #Start Operation
     if AKT_MODUS != "RC":
@@ -343,18 +345,18 @@ def runningCircle(strip, color):
     #wenn Liste komplett Flanke aussuchen
     if len(RC_LIST) == strip.numPixels():
         RC_flanke = random.randint(0, 1)
+        #Flanke Multiplikator
+        RC_fMultiplikator = random.randint(1, 5)
 
     #Flanke Skip Steuerung
-    #Flanke Multiplikator
-    fMultiplikator = 3
     if RC_flanke == 0:
-        if RC_negSkip == fMultiplikator - 1:
+        if RC_negSkip == RC_fMultiplikator - 1:
             RC_negSkip = 0
         else:
             RC_negSkip += 1
         RC_posSkip = 0
     elif RC_flanke == 1:
-        if RC_posSkip == fMultiplikator - 1:
+        if RC_posSkip == RC_fMultiplikator - 1:
             RC_posSkip = 0
         else:
             RC_posSkip += 1
