@@ -128,37 +128,56 @@ def rainbow(strip, color):
     strip.show()
     AKT_MODUS = "RB"
 
-def equalizer(strip, color):
+def equalizer():
     global HIST_AMP
     global POS_OFFSET
     global AKT_MODUS
     global EQ_PARTS
     global EQ_LISTE
 
+    numPixels = strip.numPixels()
 
     if AKT_MODUS != "EQ":
         #Anzahl Teile ermitteln
         EQ_PARTS = random.randint(2, 8)
-
         EQ_LISTE = []
         #Start Offset
-        randint = random.randint(0, strip.numPixels() - 1)
+        randint = random.randint(0, numPixels - 1)
 
         #Start Offset in EQ_LISTE
         EQ_LISTE.append(randint)
 
         #Pixel auf Parts aufteilen
-        anzahl = strip.numPixels() / EQ_PARTS * 1.0
-        anzahlInt = int(anzahl)
-        rest = anzahl - anzahlInt * strip.numPixels()
+        anzahl = float(numPixels) / EQ_PARTS
+        rest = numPixels - int(anzahl) * EQ_PARTS
 
-        print(rest)
-        print("Parts:")
-        print(EQ_PARTS)
-        print("---")
+        print(anzahl)
 
-    amp = sa.getSoundPWM()
+        #Parts in Liste sichern
+        for i in range(EQ_PARTS - 1):
+            offset = EQ_LISTE[len(EQ_LISTE) - 1]
+            nOffset = offset + int(anzahl)
+            #wenn Offset > numPixels, dann aufteilen
+            if nOffset > numPixels:
+                nOffset = nOffset - numPixels
+            EQ_LISTE.append(nOffset)
+
+        reversedList = EQ_LISTE[::-1]
+
+        #restliche Pixel platzieren
+        reversedList = EQ_LISTE[::-1]
+        c = 1
+        for i in reversedList:
+            index = EQ_LISTE.index(i)
+            EQ_LISTE[index] = i + 1
+            if c >= rest:
+                break
+            c += 1
+
+
+
     AKT_MODUS = "EQ"
+    FLG_CHANGE_COLOR = 1
 
 
 def strobe(strip, color):
@@ -352,6 +371,8 @@ def runningCircle(strip, color):
         #Flanke Multiplikator
         RC_fMultiplikator = random.randint(1, 10)
 
+        FLG_CHANGE_EFFECT = 1
+
     #Flanke Skip Steuerung
     if RC_flanke == 0:
         if RC_negSkip >= RC_fMultiplikator - 1:
@@ -466,12 +487,11 @@ if __name__ == '__main__':
             if EFFECT_COUNTER <= 1:
                 randomizeEffectCounter()
                 randint = random.randint(0, len(effects) - 1)
-            #effects[randint](strip, color)
 
             if randint not in effects:
                 randint = random.randint(0, len(effects) - 1)
 
-            effects[4](strip, color)
+            effects[randint](strip, color))
             time.sleep(config["range_delay"] / 1000.0)
 
 
