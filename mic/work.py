@@ -129,8 +129,8 @@ def rainbow(strip, color):
     AKT_MODUS = "RB"
 
 def equalizer(strip, color):
-	global HIST_AMP
-	global POS_OFFSET
+    global HIST_AMP
+    global POS_OFFSET
     global AKT_MODUS
     global EQ_PARTS
     global EQ_LISTE
@@ -157,12 +157,7 @@ def equalizer(strip, color):
         print(EQ_PARTS)
         print("---")
 
-
-
-
-	amp = sa.getSoundPWM()
-
-
+    amp = sa.getSoundPWM()
     AKT_MODUS = "EQ"
 
 
