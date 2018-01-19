@@ -352,12 +352,11 @@ def runningCircle(strip, color):
             RC_negSkip = 1
         RC_posSkip = 0
     elif RC_flanke == 1:
-        if RC_negSkip == 1:
-            RC_negSkip = 0
+        if RC_posSkip == 1:
+            RC_posSkip = 0
         else:
-            RC_negSkip = 1
+            RC_posSkip = 1
         RC_negSkip = 0
-
 
     if RC_negSkip == 0:
         #negativer Part
