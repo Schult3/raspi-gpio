@@ -131,7 +131,7 @@ def rainbow(strip, color):
 def equalizer(strip, color):
 	global HIST_AMP
 	global POS_OFFSET
-    global AKT_MODUS = "EQ"
+    global AKT_MODUS
     global EQ_PARTS
     global EQ_LISTE
 
