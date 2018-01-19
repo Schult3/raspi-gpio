@@ -321,7 +321,7 @@ def runningCircle(strip, color):
         RC_LIST.append(firstPixel)
 
         #Display Liste
-        for i in range(strip.numPixel()):
+        for i in range(strip.numPixels()):
             if i not in RC_LIST:
                 strip.setPixelColor(i, color)
             else:
