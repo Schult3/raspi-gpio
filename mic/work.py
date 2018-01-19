@@ -342,7 +342,7 @@ def runningCircle(strip, color):
 
     #wenn Offset bereits in Liste -> Element aus Liste entfernen
     if negOffset in RC_LIST:
-        del RC_LIST[RC_LIST.index(negOffset)]
+        del RC_LIST[len(RC_LIST) - 1]
     else:
         RC_LIST.insert(0, negOffset)
 
