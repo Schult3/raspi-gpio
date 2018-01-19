@@ -1,4 +1,4 @@
-# NeoPixel library strandtest example
+rr# NeoPixel library strandtest example
 # Author: Tony DiCola (tony@tonydicola.com)
 #
 # Direct port of the Arduino NeoPixel library strandtest example.  Showcases
@@ -314,58 +314,18 @@ def runningCircle(strip, color):
     global RC_RICHTUNG
 
     if AKT_MODUS != "RC":
-        RC_RICHTUNG = random.randint(0, 1)
-        for i in range(strip.numPixels()):
-            strip.setPixelColor(i, Color(0, 0, 0))
-        randint = random.randint(0, strip.numPixels())
-        RC_LIST.append(randint)
-        randint2 = random.randint(0, 50)
-        i = 1
-        while i <= randint2:
-            RC_LIST.append(randint + i)
-            i += 1
+        #Position ersten Pixels bestimmen
+        firstPixel = random.randint(0, strip.numPixels() - 1)
+        #RC_LIST = Liste schwarzer Pixel
+        RC_LIST = []
+        RC_LIST.append(firstPixel)
 
-        for i in range(strip.numPixels()):
+        #Display Liste
+        for i in range(strip.numPixel()):
             if i not in RC_LIST:
                 strip.setPixelColor(i, color)
-        strip.show()
-
-    tempFirst = RC_LIST[0]
-    tempFirst -= 1
-    if tempFirst < 0:
-        tempFirst = strip.numPixels() - 1
-
-    tempLast = RC_LIST[len(RC_LIST) - 1]
-    tempLast += 1
-    if tempLast > strip.numPixels() - 1:
-        tempLast = 0
-
-
-    RC_LIST.insert(0, tempFirst)
-    RC_LIST.append(tempLast)
-    print(len(RC_LIST))
-
-
-    for i in RC_LIST:
-        if RC_RICHTUNG == 0:
-            temp = i + 1
-        else:
-            temp = i - 1
-
-        if temp >= strip.numPixels() - 1:
-            temp = 0
-        elif temp < 0:
-            temp = strip.numPixels() - 1
-        RC_LIST[RC_LIST.index(i)] = temp
-
-
-
-    for i in range(strip.numPixels()):
-        strip.setPixelColor(i, Color(0, 0, 0))
-    for i in range(strip.numPixels()):
-        if i not in RC_LIST:
-            strip.setPixelColor(i, color)
-    strip.show()
+            else:
+                strip.setPixelColor(i, Color(0, 0, 0))
 
     AKT_MODUS = "RC"
     FLG_CHANGE_COLOR = 1
