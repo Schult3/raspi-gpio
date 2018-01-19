@@ -348,8 +348,8 @@ def runningCircle(strip, color):
 
 
     #wenn Liste komplett Flanke aussuchen
-    if len(RC_LIST) == strip.numPixels():
-        RC_flanke = random.randint(0, 1)
+    #if len(RC_LIST) == strip.numPixels():
+        #RC_flanke = random.randint(0, 1)
 
     #Flanke Skip Steuerung
     if RC_flanke == 0:
@@ -362,6 +362,7 @@ def runningCircle(strip, color):
 
     print(RC_flanke)
     print(RC_negSkip)
+    print("---")
 
     if RC_negSkip == 0:
         #negativer Part
