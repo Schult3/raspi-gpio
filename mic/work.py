@@ -328,7 +328,6 @@ def runningCircle(strip, color):
         strip.show()
 
     #laufende Operation
-    #negatives Offset Vorgänger Pixel
 
     #Offset um 1 reduzieren
     RC_negOffset -= 1
