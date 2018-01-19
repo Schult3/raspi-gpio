@@ -446,7 +446,6 @@ if __name__ == '__main__':
         else:
             brightness = config["range_brightness"] / 100.0
             color = Color(int(config["color_picker"]["r"] * brightness), int(config["color_picker"]["g"] * brightness), int(config["color_picker"]["b"] * brightness))
-
         if config["light_switch"] == True:
             light(strip, color)
             time.sleep(config["range_delay"] / 1000.0)
@@ -454,12 +453,18 @@ if __name__ == '__main__':
             if EFFECT_COUNTER <= 1:
                 randomizeEffectCounter()
                 randint = random.randint(0, len(music_effects) - 1)
+
+            if randint not in music_effects:
+                randint = random.randint(0, len(music_effects) - 1)
             music_effects[randint](strip, color)
         else:
             if EFFECT_COUNTER <= 1:
                 randomizeEffectCounter()
                 randint = random.randint(0, len(effects) - 1)
             #effects[randint](strip, color)
+
+            if randint not in effects:
+                randint = random.randint(0, len(effects) - 1)
 
             effects[4](strip, color)
             time.sleep(config["range_delay"] / 1000.0)
