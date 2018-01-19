@@ -362,6 +362,18 @@ def runningCircle(strip, color):
             RC_posSkip += 1
         RC_negSkip = 0
 
+
+    print("Flanke:")
+    print(RC_flanke)
+    print("nSkip:")
+    print(RC_negSkip)
+    print("pSkip:")
+    print(RC_posSkip)
+    print("Multi:")
+    print(RC_fMultiplikator)
+    print("---")
+
+
     if RC_negSkip == 0:
         #negativer Part
         #neg Offset dekrementieren
