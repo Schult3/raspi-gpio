@@ -456,7 +456,8 @@ if __name__ == '__main__':
 
             if randint not in music_effects:
                 randint = random.randint(0, len(music_effects) - 1)
-            music_effects[randint](strip, color)
+            #music_effects[randint](strip, color)
+            music_effects[0](strip, color)
         else:
             if EFFECT_COUNTER <= 1:
                 randomizeEffectCounter()
