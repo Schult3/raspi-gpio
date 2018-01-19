@@ -61,6 +61,7 @@ RB_J = 0
 #RunningCircle config
 RC_LIST = []
 RC_negOffset = 0
+RC_posOffset = 0
 
 #While Loop config
 FLG_CHANGE_EFFECT = 0
@@ -310,11 +311,12 @@ def runningCircle(strip, color):
     global FLG_CHANGE_EFFECT
     global RC_LIST
     global RC_negOffset
+    global RC_posOffset
 
     #Start Operation
     if AKT_MODUS != "RC":
         #Position ersten Pixels bestimmen
-        RC_negOffset = firstPixel = random.randint(0, strip.numPixels() - 1)
+        RC_posOffset = RC_negOffset = firstPixel = random.randint(0, strip.numPixels() - 1)
         #RC_LIST = Liste schwarzer Pixel
         RC_LIST = []
         RC_LIST.append(firstPixel)
@@ -329,18 +331,29 @@ def runningCircle(strip, color):
 
     #laufende Operation
 
-    #Offset um 1 reduzieren
+    #neg Offset dekrementieren
     RC_negOffset -= 1
+
+    #pos Offset inkrementieren
+    RC_posOffset += 1
 
     #wenn Offset < 0 oder > 133 dann Position wechseln
     if RC_negOffset < 0:
         RC_negOffset = strip.numPixels() - 1
+
+    if RC_posOffset > strip.numPixels() - 1:
+        RC_posOffset = 0
 
     #wenn Offset bereits in Liste -> Element aus Liste entfernen
     if RC_negOffset in RC_LIST:
         del RC_LIST[RC_LIST.index(RC_negOffset)]
     else:
         RC_LIST.insert(0, RC_negOffset)
+
+    if RC_posOffset in RC_LIST:
+        del RC_LIST[RC_LIST.index(RC_posOffset)]
+    else:
+        RC_LIST.append(RC_posOffset)
 
 
     #Display Liste
