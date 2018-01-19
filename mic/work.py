@@ -346,7 +346,7 @@ def runningCircle(strip, color):
     if len(RC_LIST) == strip.numPixels():
         RC_flanke = random.randint(0, 1)
         #Flanke Multiplikator
-        RC_fMultiplikator = random.randint(1, 5)
+        RC_fMultiplikator = random.randint(1, 10)
 
     #Flanke Skip Steuerung
     if RC_flanke == 0:
