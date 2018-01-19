@@ -67,6 +67,10 @@ RC_negSkip = 0
 RC_flanke = 0
 RC_fMultiplikator = 2
 
+#Equalizer Config
+EQ_PARTS = 0
+EQ_LIST = []
+
 #While Loop config
 FLG_CHANGE_EFFECT = 0
 EFFECT_COUNTER = 1
@@ -124,37 +128,42 @@ def rainbow(strip, color):
     strip.show()
     AKT_MODUS = "RB"
 
-def equalizer(strip, color, parts=4):
+def equalizer(strip, color):
 	global HIST_AMP
 	global POS_OFFSET
+    global AKT_MODUS = "EQ"
+    global EQ_PARTS
+    global EQ_LISTE
+
+
+    if AKT_MODUS != "EQ":
+        #Anzahl Teile ermitteln
+        EQ_PARTS = random.randint(2, 8)
+
+        EQ_LISTE = []
+        #Start Offset
+        randint = random.randint(0, strip.numPixels() - 1)
+
+        #Start Offset in EQ_LISTE
+        EQ_LISTE.append(randint)
+
+        #Pixel auf Parts aufteilen
+        anzahl = strip.numPixels() / EQ_PARTS * 1.0
+        anzahlInt = int(anzahl)
+        rest = anzahl - anzahlInt * strip.numPixels()
+
+        print(rest)
+        print("Parts:")
+        print(EQ_PARTS)
+        print("---")
+
+
+
 
 	amp = sa.getSoundPWM()
-	max_pixels = strip.numPixels() / parts
-	anz_pixels = amp / 100.0 * max_pixels
-	anz_pixels = round(anz_pixels, 0)
 
-	if len(POS_OFFSET) != parts:
-		for i in range(parts):
-			POS_OFFSET.append(i * max_pixels)
 
-	hist_anz_pixels = HIST_AMP / 100.0 * max_pixels
-	hist_anz_pixels = round(hist_anz_pixels, 0)
-	if amp > HIST_AMP:
-		i = int(hist_anz_pixels)
-		while i <= anz_pixels:
-			for x in POS_OFFSET:
-				strip.setPixelColor(x + i, wheel(x + i))
-			strip.show()
-			i += 1
-	else:
-		i = int(hist_anz_pixels)
-		while i >= anz_pixels:
-			for x in POS_OFFSET:
-				strip.setPixelColor(x + i, Color(0, 0, 0))
-			strip.show()
-			i -= 1
-
-	HIST_AMP = amp
+    AKT_MODUS = "EQ"
 
 
 def strobe(strip, color):
