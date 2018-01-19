@@ -350,13 +350,13 @@ def runningCircle(strip, color):
 
     #Flanke Skip Steuerung
     if RC_flanke == 0:
-        if RC_negSkip == RC_fMultiplikator - 1:
+        if RC_negSkip >= RC_fMultiplikator - 1:
             RC_negSkip = 0
         else:
             RC_negSkip += 1
         RC_posSkip = 0
     elif RC_flanke == 1:
-        if RC_posSkip == RC_fMultiplikator - 1:
+        if RC_posSkip >= RC_fMultiplikator - 1:
             RC_posSkip = 0
         else:
             RC_posSkip += 1
