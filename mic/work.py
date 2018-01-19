@@ -360,6 +360,8 @@ def runningCircle(strip, color):
     else:
         RC_negSkip = 0
 
+    print(RC_flanke)
+    print(RC_negSkip)
 
     if RC_negSkip == 0:
         #negativer Part
