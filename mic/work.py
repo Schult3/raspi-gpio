@@ -328,7 +328,8 @@ def runningCircle(strip, color):
         RC_LIST.append(firstPixel)
 
         #eine Flanke schneller als andere
-        RC_flanke = random.randint(0, 1)
+        #RC_flanke = random.randint(0, 1)
+        RC_flanke = 0
 
         #Display Liste
         for i in range(strip.numPixels()):
