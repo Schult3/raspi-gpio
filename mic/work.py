@@ -151,8 +151,6 @@ def equalizer():
         anzahl = float(numPixels) / EQ_PARTS
         rest = numPixels - int(anzahl) * EQ_PARTS
 
-        print(anzahl)
-
         #Parts in Liste sichern
         for i in range(EQ_PARTS - 1):
             offset = EQ_LISTE[len(EQ_LISTE) - 1]
@@ -173,6 +171,10 @@ def equalizer():
             if c >= rest:
                 break
             c += 1
+
+    #Amplitude empfangen
+    amp = sa.getSoundPWM()
+    print(amp)
 
 
 
