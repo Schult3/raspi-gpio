@@ -196,7 +196,7 @@ def equalizer(strip, color):
             c += 1
 
             #wenn c > numPixels dann 0
-            if c > numPixels:
+            if c >= numPixels:
                 c = 0
 
             anzahlPixel += 1
