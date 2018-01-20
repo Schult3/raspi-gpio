@@ -238,8 +238,10 @@ def strobe(strip, color):
         	strip.setPixelColor(i, Color(0, 0, 0))
         strip.show()
 
+        FLG_CHANGE_EFFECT = 1
+
     AKT_MODUS = "ST"
-    FLG_CHANGE_EFFECT = 1
+
     time.sleep(25 / 1000.0)
 
 
