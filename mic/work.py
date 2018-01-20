@@ -210,6 +210,7 @@ def equalizer(strip, color):
                 pixelIndex = 0 + c
 
             strip.setPixelColor(pixelIndex, color)
+            c += 1
 
     strip.show()
 
