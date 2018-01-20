@@ -212,11 +212,9 @@ def equalizer(strip, color):
                 pixelIndex = 0 + c
 
             print(pixelIndex)
-
-        print("---")
-
             strip.setPixelColor(pixelIndex, color)
             c += 1
+        print("---")
 
     strip.show()
 
