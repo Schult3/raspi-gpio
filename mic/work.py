@@ -182,19 +182,28 @@ def equalizer(strip, color):
     for x in EQ_LISTE:
         index = EQ_LISTE.index(x)
         nIndex = index + 1
-
         #wenn letzter Index dann bis index 0
         if nIndex > len(EQ_LISTE) - 1:
             nIndex = 0
-            anzahlPixel = numPixels - EQ_LISTE[index] + EQ_LISTE[nIndex]
-        else:
-            anzahlPixel = EQ_LISTE[nIndex] - EQ_LISTE[index]
+
+        c = EQ_LISTE[index]
+        anzahlPixel = 1
+        while True:
+            #wenn c am nächsten Index Stop
+            if c == EQ_LISTE[nIndex]:
+                break
+
+            #wenn c > numPixels dann 0
+            if c > numPixels:
+                c = 0
+
+
+            c += 1
+            anzahlPixel += 1
 
 
         print(anzahlPixel)
-
     print("---")
-
 
 
 
