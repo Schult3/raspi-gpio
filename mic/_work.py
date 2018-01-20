@@ -177,13 +177,6 @@ def equalizer(strip, color):
 
     #Amplitude empfangen
     amp = sa.getSoundPWM()
-
-    if amp > HIST_AMP:
-        HIST_AMP = amp
-    else:
-        HIST_AMP -= 1
-
-    #Alles schwarz
     for i in range(numPixels):
         strip.setPixelColor(i, Color(0, 0, 0))
 
@@ -208,7 +201,7 @@ def equalizer(strip, color):
             anzahlPixel += 1
 
         #anzahlPixel je Amplitude
-        auslenkung = int(anzahlPixel * HIST_AMP / 100)
+        auslenkung = int(anzahlPixel * amp / 100)
 
         #Auslenkung anzeigen
         c = 1
