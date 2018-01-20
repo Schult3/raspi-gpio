@@ -174,9 +174,9 @@ def equalizer(strip, color):
 
     #Amplitude empfangen
     amp = sa.getSoundPWM()
-    print(amp)
 
     #einzelne Parts durchlaufen
+
     for x in EQ_LISTE:
         index = EQ_LISTE.index(x)
         nIndex = index + 1
@@ -468,7 +468,7 @@ if __name__ == '__main__':
 
     # Intialize the library (must be called once before other functions).
     strip.begin()
-    initialize(strip, Color(255, 255, 255))
+    #initialize(strip, Color(255, 255, 255))
 
     effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle]
     music_effects = [equalizer, strobe]
