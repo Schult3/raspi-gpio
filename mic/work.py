@@ -176,6 +176,7 @@ def equalizer(strip, color):
 
     if amp > HIST_AMP:
         HIST_AMP = amp
+        FLG_CHANGE_EFFECT = 1
     else:
         HIST_AMP -= int(HIST_AMP * 0.1)
 
@@ -220,7 +221,6 @@ def equalizer(strip, color):
 
     AKT_MODUS = "EQ"
     FLG_CHANGE_COLOR = 1
-    FLG_CHANGE_EFFECT = 1
 
 
 def strobe(strip, color):
