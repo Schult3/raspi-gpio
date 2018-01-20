@@ -132,6 +132,7 @@ def equalizer(strip, color):
     global EQ_PARTS
     global EQ_LISTE
     global FLG_CHANGE_COLOR
+    global FLG_CHANGE_EFFECT
 
     numPixels = strip.numPixels()
 
@@ -219,10 +220,12 @@ def equalizer(strip, color):
 
     AKT_MODUS = "EQ"
     FLG_CHANGE_COLOR = 1
+    FLG_CHANGE_EFFECT = 1
 
 
 def strobe(strip, color):
     global AKT_MODUS
+    global FLG_CHANGE_EFFECT
 
     amp = sa.getSoundPWM()
     if amp > 50:
@@ -235,6 +238,7 @@ def strobe(strip, color):
         strip.show()
 
     AKT_MODUS = "ST"
+    FLG_CHANGE_EFFECT = 1
 
 
 
