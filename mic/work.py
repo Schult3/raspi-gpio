@@ -176,6 +176,21 @@ def equalizer(strip, color):
     amp = sa.getSoundPWM()
     print(amp)
 
+    #einzelne Parts durchlaufen
+    for x in EQ_LISTE:
+        index = EQ_LISTE.index(x)
+        nIndex = index + 1
+
+        #wenn letzter Index dann bis index 0
+        if nIndex > len(EQ_LISTE) - 1:
+            nIndex = 0
+
+        anzahlPixel = EQ_LISTE[nIndex] - EQ_LISTE[index]
+        print(anzahlPixel)
+
+    print("---")
+
+
 
 
     AKT_MODUS = "EQ"
