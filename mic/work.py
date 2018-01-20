@@ -228,7 +228,7 @@ def strobe(strip, color):
     global FLG_CHANGE_EFFECT
 
     amp = sa.getSoundPWM()
-    if amp > 25:
+    if amp > 50:
         for i in range(strip.numPixels()):
         	strip.setPixelColor(i, Color(255, 255, 255))
         strip.show()
