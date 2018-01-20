@@ -181,7 +181,7 @@ def equalizer(strip, color):
     if amp > HIST_AMP:
         HIST_AMP = amp
     else:
-        HIST_AMP -= 5
+        HIST_AMP -= int(HIST_AMP * 0.1)
 
     #Alles schwarz
     for i in range(numPixels):
