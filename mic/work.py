@@ -483,9 +483,9 @@ def readConfig():
 	       data = json.load(open(filepath))
 	       return data
 
-def randomizeEffectCounter():
+def randomizeEffectCounter(start, end):
     global EFFECT_COUNTER
-    EFFECT_COUNTER = random.randint(2, 10)
+    EFFECT_COUNTER = random.randint(start, end)
 
 
 # Main program logic follows:
@@ -507,9 +507,9 @@ if __name__ == '__main__':
 
     config = readConfig()
     if config["music_switch"] == True:
-        randint = random.randint(0, len(music_effects) - 1)
+        effectNumMus = random.randint(0, len(music_effects) - 1)
     else:
-        randint = random.randint(0, len(effects) - 1)
+        effectNum = random.randint(0, len(effects) - 1)
 
     while True:
         config = readConfig()
@@ -523,17 +523,14 @@ if __name__ == '__main__':
             time.sleep(config["range_delay"] / 1000.0)
         elif config["music_switch"] == True:
             if EFFECT_COUNTER <= 1:
-                randomizeEffectCounter()
-                randint = random.randint(0, len(music_effects) - 1)
-
-            #music_effects[randint](strip, color)
-            music_effects[0](strip, color)
+                randomizeEffectCounter(100, 1000)
+                effectNumMus = random.randint(0, len(music_effects) - 1)
+            music_effects[effectNumMus](strip, color)
         else:
             if EFFECT_COUNTER <= 1:
-                randomizeEffectCounter()
-                randint = random.randint(0, len(effects) - 1)
-
-            effects[randint](strip, color)
+                randomizeEffectCounter(2, 10)
+                effectNum = random.randint(0, len(effects) - 1)
+            effects[effectNum](strip, color)
             time.sleep(config["range_delay"] / 1000.0)
 
 
