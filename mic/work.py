@@ -177,8 +177,7 @@ def equalizer(strip, color):
     #Amplitude empfangen
     amp = sa.getSoundPWM()
 
-    #einzelne Parts durchlaufen
-
+    #einzelne Parts durchlaufen da unterschiedlich lang
     for x in EQ_LISTE:
         index = EQ_LISTE.index(x)
         nIndex = index + 1
@@ -192,17 +191,16 @@ def equalizer(strip, color):
             #wenn c am naechsten Index Stop
             if c == EQ_LISTE[nIndex] - 1:
                 break
-
             c += 1
-
             #wenn c > numPixels dann 0
             if c >= numPixels:
                 c = 0
-
             anzahlPixel += 1
 
+        #anzahlPixel je Amplitude
+        auslenkung = int(anzahlPixel * amp / 100)
+        print(auslenkung)
 
-        print(anzahlPixel)
     print("---")
 
 
