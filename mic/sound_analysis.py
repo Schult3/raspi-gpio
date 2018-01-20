@@ -6,7 +6,7 @@ import goertzel as go
 running_max = []
 running_max_size = 1000
 freq_min = 31
-freq_max = 175
+freq_max = 124
 
 def readSound(samples):
 	buff = []
