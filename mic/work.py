@@ -140,11 +140,13 @@ def equalizer(strip, color):
 
     if AKT_MODUS != "EQ":
         #Anzahl Teile ermitteln
-        EQ_PARTS = random.randint(2, 8)
+        #EQ_PARTS = random.randint(2, 8)
+        EQ_PARTS = 2
         EQ_LISTE = []
         #Start Offset
-        randint = random.randint(0, numPixels - 1)
-
+        #randint = random.randint(0, numPixels - 1)
+        randint = 120
+        
         #Start Offset in EQ_LISTE
         EQ_LISTE.append(randint)
 
@@ -205,7 +207,6 @@ def equalizer(strip, color):
         c = 1
         while c <= auslenkung:
             pixelIndex = EQ_LISTE[index] + c
-
             #wenn pixelIndex > numPixels bei 0 starten
             if pixelIndex > numPixels - 1:
                 pixelIndex = 0 + c
@@ -214,8 +215,6 @@ def equalizer(strip, color):
             c += 1
 
     strip.show()
-
-
 
     AKT_MODUS = "EQ"
     FLG_CHANGE_COLOR = 1
