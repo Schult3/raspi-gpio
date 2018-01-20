@@ -172,6 +172,8 @@ def equalizer(strip, color):
                 break
             c += 1
 
+        print(EQ_LISTE)
+
     #Amplitude empfangen
     amp = sa.getSoundPWM()
 
