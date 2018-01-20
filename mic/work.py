@@ -245,6 +245,7 @@ def initializeTetris(strip, color):
         TET_QUEUE_POS = 0
         TET_QUEUE_NEG = strip.numPixels() - 1
         TET_LAUFNUMMER = strip.numPixels() - 1
+        EFFECT_COUNTER = 1
 
     strip.setPixelColor(TET_LAUFNUMMER, color)
 
@@ -479,17 +480,13 @@ if __name__ == '__main__':
                 randomizeEffectCounter()
                 randint = random.randint(0, len(music_effects) - 1)
 
-            if randint not in music_effects:
-                randint = random.randint(0, len(music_effects) - 1)
+
             #music_effects[randint](strip, color)
             music_effects[0](strip, color)
         else:
             if EFFECT_COUNTER <= 1:
                 randomizeEffectCounter()
                 randint = random.randint(0, len(effects) - 1)
-
-            #if randint not in effects:
-                #randint = random.randint(0, len(effects) - 1)
 
             effects[randint](strip, color)
             time.sleep(config["range_delay"] / 1000.0)
