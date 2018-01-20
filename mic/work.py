@@ -209,7 +209,7 @@ def equalizer(strip, color):
             pixelIndex = EQ_LISTE[index] + c
             #wenn pixelIndex > numPixels bei 0 starten
             if pixelIndex > numPixels - 1:
-                pixelIndex = numPixels - pixelIndex
+                pixelIndex = pixelIndex - numPixels 
 
             print(pixelIndex)
             strip.setPixelColor(pixelIndex, color)
