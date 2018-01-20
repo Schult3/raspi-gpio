@@ -190,15 +190,15 @@ def equalizer(strip, color):
         anzahlPixel = 1
         while True:
             #wenn c am naechsten Index Stop
-            if c == EQ_LISTE[nIndex]:
+            if c == EQ_LISTE[nIndex] - 1:
                 break
+
+            c += 1
 
             #wenn c > numPixels dann 0
             if c > numPixels:
                 c = 0
 
-
-            c += 1
             anzahlPixel += 1
 
 
