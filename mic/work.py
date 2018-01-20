@@ -134,6 +134,7 @@ def equalizer(strip, color):
     global AKT_MODUS
     global EQ_PARTS
     global EQ_LISTE
+    global FLG_CHANGE_COLOR
 
     numPixels = strip.numPixels()
 
@@ -519,7 +520,6 @@ if __name__ == '__main__':
             if EFFECT_COUNTER <= 1:
                 randomizeEffectCounter()
                 randint = random.randint(0, len(music_effects) - 1)
-
 
             #music_effects[randint](strip, color)
             music_effects[0](strip, color)
