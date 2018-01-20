@@ -146,7 +146,7 @@ def equalizer(strip, color):
         #Start Offset
         #randint = random.randint(0, numPixels - 1)
         randint = 120
-        
+
         #Start Offset in EQ_LISTE
         EQ_LISTE.append(randint)
 
@@ -210,6 +210,10 @@ def equalizer(strip, color):
             #wenn pixelIndex > numPixels bei 0 starten
             if pixelIndex > numPixels - 1:
                 pixelIndex = 0 + c
+
+            print(pixelIndex)
+
+        print("---")
 
             strip.setPixelColor(pixelIndex, color)
             c += 1
