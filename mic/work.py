@@ -228,6 +228,8 @@ def strobe(strip, color):
     global FLG_CHANGE_EFFECT
 
     amp = sa.getSoundPWM()
+    print(amp)
+    
     if amp > 50:
         for i in range(strip.numPixels()):
         	strip.setPixelColor(i, Color(255, 255, 255))
@@ -531,10 +533,11 @@ if __name__ == '__main__':
                 randomizeEffectCounter(100, 1000)
                 effectNumMus = random.randint(0, len(music_effects) - 1)
             music_effects[effectNumMus](strip, color)
+            print(effectNumMus)
         else:
             if EFFECT_COUNTER > 10:
                 EFFECT_COUNTER = 1
-                
+
             if EFFECT_COUNTER <= 1:
                 randomizeEffectCounter(2, 10)
                 effectNum = random.randint(0, len(effects) - 1)
