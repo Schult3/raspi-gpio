@@ -39,10 +39,6 @@ LED_STRIP      = ws.WS2811_STRIP_GRB   # Strip type and colour ordering
 FLG_CHANGE_COLOR = 0
 AKT_MODUS = ""
 
-# Equalizer Einstellungen
-HIST_AMP = 0
-POS_OFFSET = []
-
 # Tetris Einstellungen
 TET_QUEUE_POS = 0 #Position des Stapels
 TET_QUEUE_NEG = LED_COUNT - 1
@@ -70,6 +66,7 @@ RC_fMultiplikator = 2
 #Equalizer Config
 EQ_PARTS = 0
 EQ_LIST = []
+HIST_AMP = 0
 
 #While Loop config
 FLG_CHANGE_EFFECT = 0
@@ -140,12 +137,10 @@ def equalizer(strip, color):
 
     if AKT_MODUS != "EQ":
         #Anzahl Teile ermitteln
-        #EQ_PARTS = random.randint(2, 8)
-        EQ_PARTS = 2
+        EQ_PARTS = random.randint(2, 8)
         EQ_LISTE = []
         #Start Offset
-        #randint = random.randint(0, numPixels - 1)
-        randint = 120
+        randint = random.randint(0, numPixels - 1)
 
         #Start Offset in EQ_LISTE
         EQ_LISTE.append(randint)
@@ -227,6 +222,8 @@ def equalizer(strip, color):
 
 
 def strobe(strip, color):
+    global AKT_MODUS
+
     amp = sa.getSoundPWM()
     if amp > 50:
         for i in range(strip.numPixels()):
@@ -236,6 +233,10 @@ def strobe(strip, color):
         for i in range(strip.numPixels()):
         	strip.setPixelColor(i, Color(0, 0, 0))
         strip.show()
+
+    AKT_MODUS = "ST"
+
+
 
 
 def runningLights(strip, color):
