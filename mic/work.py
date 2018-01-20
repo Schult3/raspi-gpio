@@ -488,8 +488,8 @@ if __name__ == '__main__':
                 randomizeEffectCounter()
                 randint = random.randint(0, len(effects) - 1)
 
-            if randint not in effects:
-                randint = random.randint(0, len(effects) - 1)
+            #if randint not in effects:
+                #randint = random.randint(0, len(effects) - 1)
 
             effects[randint](strip, color)
             time.sleep(config["range_delay"] / 1000.0)
