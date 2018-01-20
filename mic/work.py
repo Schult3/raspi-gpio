@@ -229,7 +229,7 @@ def strobe(strip, color):
 
     amp = sa.getSoundPWM()
     print(amp)
-    
+
     if amp > 50:
         for i in range(strip.numPixels()):
         	strip.setPixelColor(i, Color(255, 255, 255))
@@ -511,6 +511,9 @@ if __name__ == '__main__':
 
     rainbow_counter = 0
     EFFECT_COUNTER = 1
+
+    effectNum = effectNumMus = 0
+
 
     config = readConfig()
     if config["music_switch"] == True:
