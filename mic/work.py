@@ -496,6 +496,7 @@ def SoundPulse(strip, color):
     if AKT_MODUS != "SP":
         #Start Position ermitteln
         startPos = random.randint(0, numPixels - 1)
+        print(startPos)
         SP_LIST.insert(startPos, color)
 
         for i in range(numPixels):
