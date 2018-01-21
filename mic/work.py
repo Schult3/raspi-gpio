@@ -68,6 +68,9 @@ EQ_PARTS = 0
 EQ_LIST = []
 HIST_AMP = 0
 
+#SoundPulse config
+SP_LIST = []
+
 #While Loop config
 FLG_CHANGE_EFFECT = 0
 EFFECT_COUNTER = 1
@@ -485,6 +488,21 @@ def runningCircle(strip, color):
     AKT_MODUS = "RC"
     FLG_CHANGE_COLOR = 1
 
+def SoundPulse(strip, color):
+    global AKT_MODUS
+
+    numPixels = strip.numPixels()
+
+    if AKT_MODUS != "SP":
+        #Start Position ermitteln
+        startPos = random.randint(0, numPixels - 1)
+        SP_LIST.insert(startPos, color)
+
+    print(SP_LIST)
+
+
+    AKT_MODUS = "SP"
+
 
 def readConfig():
     filepath = "/var/www/html/config.json"
@@ -509,7 +527,7 @@ if __name__ == '__main__':
     #initialize(strip, Color(255, 255, 255))
 
     effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle]
-    music_effects = [equalizer, strobe]
+    music_effects = [equalizer, strobe, SoundPulse]
 
     rainbow_counter = 0
     EFFECT_COUNTER = 1
@@ -537,7 +555,8 @@ if __name__ == '__main__':
             if EFFECT_COUNTER <= 1:
                 randomizeEffectCounter(100, 1000)
                 effectNumMus = random.randint(0, len(music_effects) - 1)
-            music_effects[effectNumMus](strip, color)
+            #music_effects[effectNumMus](strip, color)
+            music_effects[2](strip, color)
         else:
             if EFFECT_COUNTER > 10:
                 EFFECT_COUNTER = 1
