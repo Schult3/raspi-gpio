@@ -69,7 +69,7 @@ EQ_LIST = []
 HIST_AMP = 0
 
 #SoundPulse config
-SP_LIST = []
+SP_LIST =  {}
 
 #While Loop config
 FLG_CHANGE_EFFECT = 0
@@ -497,16 +497,13 @@ def SoundPulse(strip, color):
         #Start Position ermitteln
         startPos = random.randint(0, numPixels - 1)
         print(startPos)
-        SP_LIST.insert(startPos, color)
+        SP_LIST = {startPos: color}
 
         for i in range(numPixels):
             strip.setPixelColor(i, Color(0, 0, 0))
 
     #SP_LIST darstellen
-    for x in SP_LIST:
-        pos = SP_LIST.index(x)
-        strip.setPixelColor(pos, x)
-
+    print(SP_LIST)
     strip.show()
 
 
