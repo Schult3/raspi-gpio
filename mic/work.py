@@ -498,7 +498,15 @@ def SoundPulse(strip, color):
         startPos = random.randint(0, numPixels - 1)
         SP_LIST.insert(startPos, color)
 
-    print(SP_LIST)
+        for i in range(numPixels):
+            strip.setPixelColor(i, Color(0, 0, 0))
+
+    #SP_LIST darstellen
+    for x in SP_LIST:
+        pos = SP_LIST.index(x)
+        strip.setPixelColor(pos, x)
+
+    strip.show()
 
 
     AKT_MODUS = "SP"
