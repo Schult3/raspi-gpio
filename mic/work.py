@@ -612,7 +612,7 @@ if __name__ == '__main__':
             if EFFECT_COUNTER <= 1:
                 randomizeEffectCounter(100, 1000)
                 effectNumMus = random.randint(0, len(music_effects) - 1)
-            print(effectNumMus)
+            print(EFFECT_COUNTER)
             music_effects[effectNumMus](strip, color)
         else:
             if EFFECT_COUNTER > 10:
