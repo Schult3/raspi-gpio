@@ -521,7 +521,7 @@ def SoundPulse(strip, color):
     if amp > 50:
         SP_COLOR = wheel(random.randint(0, 255))
 
-    if amp >= 100:
+    if amp >= 75:
         FLG_CHANGE_EFFECT = 1
 
 
