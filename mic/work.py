@@ -529,6 +529,8 @@ def SoundPulse(strip, color):
     i = 0
     print(SP_LIST)
     while i < listLength:
+        #strip.setPixelColor(c, SP_LIST[i])
+        print(i)
         strip.setPixelColor(c, SP_LIST[i])
 
         i += 1
