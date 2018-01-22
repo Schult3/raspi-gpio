@@ -511,11 +511,14 @@ def SoundPulse(strip, color):
         SP_COLOR = color
         SP_LIST.append(SP_COLOR)
 
-        print(SP_OFFSET)
-
-
         for i in range(numPixels):
             strip.setPixelColor(i, Color(0, 0, 0))
+
+    #wenn Amplitude > x, neue Farbe
+    amp = sa.getSoundPWM()
+    if amp > 75:
+        SP_COLOR = color
+
 
     #Listenelement 1 verschieben
     SP_LIST.insert(0, SP_COLOR)
