@@ -553,7 +553,8 @@ def SoundPulse(strip, color):
         c -= 1
         if c < 0:
             c = numPixels - 1
-
+            
+    print(c)
     print("---")
     strip.show()
 
