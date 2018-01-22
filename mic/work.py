@@ -506,8 +506,7 @@ def SoundPulse(strip, color):
 
     if AKT_MODUS != "SP":
         #Start Position ermitteln
-        #SP_OFFSET = startPos = random.randint(0, numPixels - 1)
-        SP_OFFSET = startPos = 0
+        SP_OFFSET = startPos = random.randint(0, numPixels - 1)
         SP_LIST = []
         SP_COLOR = color
         SP_LIST.append(SP_COLOR)
@@ -530,21 +529,13 @@ def SoundPulse(strip, color):
 
     #SP_LIST halb darstellen, Teil 1 positiv
     c = SP_OFFSET
-    print(listLength)
-    print(len(SP_LIST))
-    print("---")
     i = 0
     while i < listLength and i < len(SP_LIST):
         strip.setPixelColor(c, SP_LIST[i])
-        print(c)
-
         i += 1
         c += 1
         if c >= numPixels -1:
             c = 0
-
-    print("---")
-
 
     #SP_LIST darstellen, Teil 2
     c = SP_OFFSET - 1
