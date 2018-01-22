@@ -495,6 +495,7 @@ def SoundPulse(strip, color):
     global SP_LIST
     global SP_OFFSET
     global FLG_CHANGE_COLOR
+    global FLG_CHANGE_EFFECT
 
     #Farbwechsel bei amp limit
     global SP_COLOR
@@ -519,6 +520,9 @@ def SoundPulse(strip, color):
     amp = sa.getSoundPWM()
     if amp > 50:
         SP_COLOR = wheel(random.randint(0, 255))
+
+    if amp >= 100:
+        FLG_CHANGE_EFFECT = 1
 
 
     #Listenelement 1 verschieben
@@ -608,8 +612,7 @@ if __name__ == '__main__':
             if EFFECT_COUNTER <= 1:
                 randomizeEffectCounter(100, 1000)
                 effectNumMus = random.randint(0, len(music_effects) - 1)
-            #music_effects[effectNumMus](strip, color)
-            music_effects[2](strip, color)
+            music_effects[effectNumMus](strip, color)
         else:
             if EFFECT_COUNTER > 10:
                 EFFECT_COUNTER = 1
