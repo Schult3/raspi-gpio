@@ -520,9 +520,7 @@ def SoundPulse(strip, color):
     amp = sa.getSoundPWM()
     if amp > 50:
         SP_COLOR = wheel(random.randint(0, 255))
-
-    if amp >= 75:
-        FLG_CHANGE_EFFECT = 1
+        FLG_CHANGE_EFFECT = 1       
 
 
     #Listenelement 1 verschieben
