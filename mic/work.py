@@ -516,8 +516,8 @@ def SoundPulse(strip, color):
 
     #wenn Amplitude > x, neue Farbe
     amp = sa.getSoundPWM()
-    if amp > 75:
-        SP_COLOR = color
+    if amp > 50:
+        SP_COLOR = Color(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
 
 
     #Listenelement 1 verschieben
