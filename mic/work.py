@@ -247,7 +247,7 @@ def strobe(strip, color):
 
     AKT_MODUS = "ST"
 
-    time.sleep(25 / 1000.0)
+    time.sleep(50 / 1000.0)
 
 
 
