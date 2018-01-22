@@ -69,7 +69,9 @@ EQ_LIST = []
 HIST_AMP = 0
 
 #SoundPulse config
-SP_LIST =  {}
+SP_LIST =  []
+SP_OFFSET = 0
+SP_COLOR = Color(0, 0, 0)
 
 #While Loop config
 FLG_CHANGE_EFFECT = 0
@@ -490,23 +492,43 @@ def runningCircle(strip, color):
 
 def SoundPulse(strip, color):
     global AKT_MODUS
+    global SP_LIST
+    global SP_OFFSET
+    global FLG_CHANGE_COLOR
+
+    #Farbwechsel bei amp limit
+    global SP_COLOR
 
     numPixels = strip.numPixels()
 
+    #Listenlaenge halbe Strecke
+    listLength = int(numPixels / 2)
+
     if AKT_MODUS != "SP":
         #Start Position ermitteln
-        startPos = random.randint(0, numPixels - 1)
-        print(startPos)
-        SP_LIST = {startPos: color}
+        SP_OFFSET = startPos = random.randint(0, numPixels - 1)
+        SP_LIST = []
+        SP_COLOR = color
+        SP_LIST.append(SP_COLOR)
+
 
         for i in range(numPixels):
             strip.setPixelColor(i, Color(0, 0, 0))
 
+    #Listenelement 1 verschieben
+    SP_LIST.append(SP_COLOR)
+
+    #wenn Liste > halbe Strecke, letztes Element raus
+    if len(SP_LIST > listLength):
+        del SP_LIST[listLength - 1]
+
     #SP_LIST darstellen
     print(SP_LIST)
+    print(SP_OFFSET)
+
     strip.show()
 
-
+    FLG_CHANGE_COLOR = 1
     AKT_MODUS = "SP"
 
 
