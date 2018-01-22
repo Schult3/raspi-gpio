@@ -518,7 +518,7 @@ def SoundPulse(strip, color):
             strip.setPixelColor(i, Color(0, 0, 0))
 
     #Listenelement 1 verschieben
-    SP_LIST.append(SP_COLOR)
+    SP_LIST.insert(0, SP_COLOR)
 
     #wenn Liste > halbe Strecke, letztes Element raus
     if len(SP_LIST) > listLength:
@@ -528,9 +528,7 @@ def SoundPulse(strip, color):
     c = SP_OFFSET
     i = 0
     print(SP_LIST)
-    while i < listLength:
-        #strip.setPixelColor(c, SP_LIST[i])
-        print(i)
+    while i < listLength and i < len(SP_LIST):
         strip.setPixelColor(c, SP_LIST[i])
 
         i += 1
