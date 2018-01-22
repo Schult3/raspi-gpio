@@ -526,7 +526,7 @@ def SoundPulse(strip, color):
 
     #wenn Liste > halbe Strecke, letztes Element raus
     if len(SP_LIST) > listLength:
-        del SP_LIST[listLength - 1]
+        del SP_LIST[len(SP_LIST) - 1]
 
     #SP_LIST halb darstellen, Teil 1 positiv
     c = SP_OFFSET
@@ -538,24 +538,19 @@ def SoundPulse(strip, color):
         if c >= numPixels -1:
             c = 0
 
-    print(c)
-
     #SP_LIST darstellen, Teil 2
     c = SP_OFFSET - 1
     if c < 0:
         c = numPixels - 1
     i = 0 #Listenindex
 
-    print(c)
     while i < listLength and i < len(SP_LIST):
         strip.setPixelColor(c, SP_LIST[i])
         i += 1
         c -= 1
         if c < 0:
             c = numPixels - 1
-            
-    print(c)
-    print("---")
+
     strip.show()
 
     FLG_CHANGE_COLOR = 1
