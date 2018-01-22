@@ -534,12 +534,15 @@ def SoundPulse(strip, color):
     while i < listLength and i < len(SP_LIST):
         strip.setPixelColor(c, SP_LIST[i])
         print(c)
-        print("---")
+
         i += 1
         c += 1
         if c >= numPixels -1:
             c = 0
 
+    print("---")
+
+    
     #SP_LIST darstellen, Teil 2
     c = SP_OFFSET
     i = 0 #Listenindex
