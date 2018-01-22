@@ -67,11 +67,19 @@ RC_fMultiplikator = 2
 EQ_PARTS = 0
 EQ_LIST = []
 HIST_AMP = 0
+EQ_FREQ_MIN = 64
+EQ_FREQ_MAX = 250
 
 #SoundPulse config
 SP_LIST =  []
 SP_OFFSET = 0
 SP_COLOR = Color(0, 0, 0)
+SP_FREQ_MIN = 64
+SP_FREQ_MAX = 175
+
+#Strobe config
+ST_FREQ_MIN = 64
+ST_FREQ_MAX = 250
 
 #While Loop config
 FLG_CHANGE_EFFECT = 0
@@ -138,6 +146,8 @@ def equalizer(strip, color):
     global EQ_LISTE
     global FLG_CHANGE_COLOR
     global FLG_CHANGE_EFFECT
+    global EQ_FREQ_MIN
+    global EQ_FREQ_MAX
 
     numPixels = strip.numPixels()
 
@@ -177,7 +187,7 @@ def equalizer(strip, color):
             c += 1
 
     #Amplitude empfangen
-    amp = sa.getSoundPWM()
+    amp = sa.getSoundPWM(EQ_FREQ_MIN, EQ_FREQ_MAX)
 
     if amp > HIST_AMP:
         HIST_AMP = amp
@@ -231,8 +241,10 @@ def equalizer(strip, color):
 def strobe(strip, color):
     global AKT_MODUS
     global FLG_CHANGE_EFFECT
+    global ST_FREQ_MIN
+    global ST_FREQ_MAX
 
-    amp = sa.getSoundPWM()
+    amp = sa.getSoundPWM(ST_FREQ_MIN, ST_FREQ_MAX)
 
     if amp > 50:
         for i in range(strip.numPixels()):
@@ -496,6 +508,8 @@ def SoundPulse(strip, color):
     global SP_OFFSET
     global FLG_CHANGE_COLOR
     global FLG_CHANGE_EFFECT
+    global SP_FREQ_MIN
+    global SP_FREQ_MAX
 
     #Farbwechsel bei amp limit
     global SP_COLOR
@@ -517,10 +531,10 @@ def SoundPulse(strip, color):
             strip.setPixelColor(i, Color(0, 0, 0))
 
     #wenn Amplitude > x, neue Farbe
-    amp = sa.getSoundPWM()
+    amp = sa.getSoundPWM(SP_FREQ_MIN, SP_FREQ_MAX)
     if amp > 50:
         SP_COLOR = wheel(random.randint(0, 255))
-        FLG_CHANGE_EFFECT = 1       
+        FLG_CHANGE_EFFECT = 1
 
 
     #Listenelement 1 verschieben

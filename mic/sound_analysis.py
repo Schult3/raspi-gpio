@@ -29,8 +29,11 @@ def calc():
 	return max
 
 
-def getSoundPWM():
-	global running_max, running_max_size
+def getSoundPWM(reqFreqMin, reqFreqMax):
+	global running_max, running_max_size, freq_min, freq_max
+	freq_min = reqFreqMin
+	freq_max = reqFreqMax
+	
 	max = calc()
 	if(len(running_max) >= running_max_size):
 		temp = []
