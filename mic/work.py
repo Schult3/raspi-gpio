@@ -527,6 +527,7 @@ def SoundPulse(strip, color):
     #SP_LIST halb darstellen
     c = SP_OFFSET
     i = 0
+    print(SP_LIST)
     while i < listLength:
         strip.setPixelColor(c, SP_LIST[i])
 
