@@ -524,7 +524,7 @@ def SoundPulse(strip, color):
     SP_LIST.insert(0, SP_COLOR)
 
     #wenn Liste > halbe Strecke, letztes Element raus
-    if len(SP_LIST) > listLength:
+    if len(SP_LIST) >= listLength:
         del SP_LIST[listLength - 1]
 
     #SP_LIST halb darstellen
