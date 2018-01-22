@@ -547,7 +547,7 @@ def SoundPulse(strip, color):
 
 
     #SP_LIST darstellen, Teil 2
-    c = SP_OFFSET
+    c = SP_OFFSET + 1
     i = 0 #Listenindex
     while i < listLength and i < len(SP_LIST):
         strip.setPixelColor(c, SP_LIST[i])
