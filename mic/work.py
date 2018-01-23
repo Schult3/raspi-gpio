@@ -79,7 +79,7 @@ SP_FREQ_MAX = 175
 
 #Strobe config
 ST_FREQ_MIN = 64
-ST_FREQ_MAX = 250
+ST_FREQ_MAX = 350
 
 #While Loop config
 FLG_CHANGE_EFFECT = 0
