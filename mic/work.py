@@ -614,8 +614,7 @@ if __name__ == '__main__':
         if config["color_switch"] == True:
             color = wheel(rainbow_counter)
         else:
-            brightness = config["range_brightness"] / 100.0
-            color = Color(int(config["color_picker"]["r"] * brightness), int(config["color_picker"]["g"] * brightness), int(config["color_picker"]["b"] * brightness))
+            color = Color(int(config["color_picker"]["r"]), int(config["color_picker"]["g"]), int(config["color_picker"]["b"]))
         if config["light_switch"] == True:
             light(strip, color)
             time.sleep(config["range_delay"] / 1000.0)
