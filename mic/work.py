@@ -272,12 +272,12 @@ def runningLights(strip, color):
 
     if AKT_MODUS != "RL":
         anz_cars = random.randint(1, 10)
-        car_length = random.randint(2, 10)
-        car_space = random.randint(3, 20)
 
         RL_CARS = []
         pos_offset = 0
         for i in range(anz_cars):
+            car_space = random.randint(3, 20)
+            car_length = random.randint(2, 10)
         	pos = []
         	for x in range(car_length):
         		pos.append(pos_offset)
@@ -630,7 +630,7 @@ if __name__ == '__main__':
             if EFFECT_COUNTER <= 1:
                 randomizeEffectCounter(2, 10)
                 effectNum = random.randint(0, len(effects) - 1)
-            effects[effectNum](strip, color)
+            effects[1](strip, color)
             time.sleep(config["range_delay"] / 1000.0)
 
 
