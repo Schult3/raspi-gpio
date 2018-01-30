@@ -566,6 +566,23 @@ def SoundPulse(strip, color):
     FLG_CHANGE_COLOR = 1
     AKT_MODUS = "SP"
 
+def theatreChase(strip, color):
+    global FLG_CHANGE_COLOR, FLG_CHANGE_EFFECT, AKT_MODUS
+
+    numPixels = strip.numPixels();
+    for x in range (numPixels):
+        strip.setPixelColor(x, Color(0, 0, 0))
+
+
+    for x in range(numPixels):
+        if (x + 1) % 3 == 0:
+            strip.setPixelColor(x, Color(255, 0, 0))
+
+    strip.show()
+
+    AKT_MODUS = "TC"
+    FLG_CHANGE_COLOR = 1
+
 
 def readConfig():
     filepath = "/var/www/html/config.json"
