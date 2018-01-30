@@ -573,10 +573,12 @@ def theatreChase(strip, color):
     for x in range (numPixels):
         strip.setPixelColor(x, Color(0, 0, 0))
 
+    for x in range(3):
+        i = 0
+        while i < numPixels:
+            strip.setPixelColor(i, Color(255, 0, 0))
+            i += 3
 
-    for x in range(numPixels):
-        if (x + 1) % 3 == 0:
-            strip.setPixelColor(x, Color(255, 0, 0))
 
     strip.show()
 
