@@ -581,14 +581,13 @@ def theatreChase(strip, color):
     for x in range (numPixels):
         strip.setPixelColor(x, Color(0, 0, 0))
 
+    print(TC_POS)
+
     #TC_POS aktuelle Position des ersten Pixels
     i = TC_POS
     while i < numPixels:
         strip.setPixelColor(i, Color(255, 0, 0))
-        print(i)
         i += 3
-
-    print("---")
 
     i = TC_POS
     while i >= 0:
@@ -598,6 +597,7 @@ def theatreChase(strip, color):
     strip.show()
 
     TC_POS += 1
+
     if TC_RICHTUNG == 0:
         TC_POS += 1
     else:
