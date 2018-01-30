@@ -282,10 +282,10 @@ def runningLights(strip, color):
             for x in range(car_length):
                 pos.append(pos_offset)
                 pos_offset -= 1
-                RL_CARS.append(pos)
-                pos_offset-= car_space
-                print(pos)
-                print("---")
+            RL_CARS.append(pos)
+            pos_offset-= car_space
+            print(pos)
+            print("---")
         print(len(RL_CARS))
         print(".....................................")
 
