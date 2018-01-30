@@ -265,25 +265,21 @@ def strobe(strip, color):
 
 
 def runningLights(strip, color):
-    global AKT_MODUS
-    global RL_CARS
-    global FLG_CHANGE_COLOR
-    global FLG_CHANGE_EFFECT
+    global AKT_MODUS, RL_CARS, FLG_CHANGE_COLOR, FLG_CHANGE_EFFECT
 
     if AKT_MODUS != "RL":
         anz_cars = random.randint(1, 10)
-
         RL_CARS = []
         pos_offset = 0
         for i in range(anz_cars):
             car_space = random.randint(3, 20)
             car_length = random.randint(2, 10)
-        	pos = []
-        	for x in range(car_length):
-        		pos.append(pos_offset)
-        		pos_offset -= 1
-        	RL_CARS.append(pos)
-        	pos_offset-= car_space
+            pos = []
+            for x in range(car_length):
+                pos.append(pos_offset)
+                pos_offset -= 1
+                RL_CARS.append(pos)
+                pos_offset-= car_space
 
     for x in range(strip.numPixels()):
         strip.setPixelColor(x, Color(0, 0, 0))
@@ -296,9 +292,8 @@ def runningLights(strip, color):
             else:
                 RL_CARS[RL_CARS.index(i)][i.index(pos)] += 1
 
-        if RL_CARS[0][0] == 133:
-            FLG_CHANGE_EFFECT = 1
-
+    if RL_CARS[0][0] == 133:
+        FLG_CHANGE_EFFECT = 1
 
     strip.show()
     AKT_MODUS = "RL"
