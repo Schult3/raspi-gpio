@@ -606,7 +606,7 @@ if __name__ == '__main__':
     strip.begin()
     #initialize(strip, Color(255, 255, 255))
 
-    effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle]
+    effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle, theatreChase]
     music_effects = [equalizer, strobe, SoundPulse]
 
     rainbow_counter = 0
@@ -642,7 +642,7 @@ if __name__ == '__main__':
             if EFFECT_COUNTER <= 1:
                 randomizeEffectCounter(2, 10)
                 effectNum = random.randint(0, len(effects) - 1)
-            effects[1](strip, color)
+            effects[5](strip, color)
             time.sleep(config["range_delay"] / 1000.0)
 
 
