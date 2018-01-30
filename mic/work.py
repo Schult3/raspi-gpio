@@ -619,7 +619,7 @@ def readConfig():
         try:
 	       data = json.load(open(filepath))
 	       return data
-       except:
+        except:
            print("Error reading JSON")
 
 def randomizeEffectCounter(start, end):
