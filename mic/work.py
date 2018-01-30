@@ -597,7 +597,7 @@ def theatreChase(strip, color):
         i -= 3
 
     strip.show()
-    
+
     if TC_RICHTUNG == 0:
         TC_POS += 1
         if TC_POS > numPixels:
@@ -606,10 +606,6 @@ def theatreChase(strip, color):
         TC_POS -= 1
         if TC_POS < 0:
             TC_POS = numPixels - 1
-
-
-
-
 
     AKT_MODUS = "TC"
     FLG_CHANGE_COLOR = 1
