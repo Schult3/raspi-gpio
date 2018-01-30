@@ -571,7 +571,7 @@ def SoundPulse(strip, color):
     AKT_MODUS = "SP"
 
 def theatreChase(strip, color):
-    global FLG_CHANGE_COLOR, FLG_CHANGE_EFFECT, AKT_MODUS, TC_POS
+    global FLG_CHANGE_COLOR, FLG_CHANGE_EFFECT, AKT_MODUS, TC_POS, TC_RICHTUNG
 
     numPixels = strip.numPixels();
 
