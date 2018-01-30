@@ -81,6 +81,9 @@ SP_FREQ_MAX = 175
 ST_FREQ_MIN = 64
 ST_FREQ_MAX = 350
 
+#theatreChase config
+TC_POS = 0
+
 #While Loop config
 FLG_CHANGE_EFFECT = 0
 EFFECT_COUNTER = 1
@@ -567,20 +570,18 @@ def SoundPulse(strip, color):
     AKT_MODUS = "SP"
 
 def theatreChase(strip, color):
-    global FLG_CHANGE_COLOR, FLG_CHANGE_EFFECT, AKT_MODUS
+    global FLG_CHANGE_COLOR, FLG_CHANGE_EFFECT, AKT_MODUS, TC_POS
 
     numPixels = strip.numPixels();
     for x in range (numPixels):
         strip.setPixelColor(x, Color(0, 0, 0))
 
-    for x in range(3):
-        i = 0
-        while i < numPixels:
-            strip.setPixelColor(i, Color(255, 0, 0))
-            i += 3
-
+    print(TC_POS)
 
     strip.show()
+    TC_POS += 3
+    if TC_POS >= numPixels:
+        TC_POS = TC_POS - numPixels - 1
 
     AKT_MODUS = "TC"
     FLG_CHANGE_COLOR = 1
