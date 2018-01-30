@@ -83,6 +83,7 @@ ST_FREQ_MAX = 350
 
 #theatreChase config
 TC_POS = 0
+TC_RICHTUNG = 0
 
 #While Loop config
 FLG_CHANGE_EFFECT = 0
@@ -573,6 +574,10 @@ def theatreChase(strip, color):
     global FLG_CHANGE_COLOR, FLG_CHANGE_EFFECT, AKT_MODUS, TC_POS
 
     numPixels = strip.numPixels();
+
+    if AKT_MODUS != "TC":
+        TC_RICHTUNG = random.randint(0, 1)
+
     for x in range (numPixels):
         strip.setPixelColor(x, Color(0, 0, 0))
 
@@ -590,12 +595,19 @@ def theatreChase(strip, color):
         strip.setPixelColor(i, Color(255, 0, 0))
         i -= 3
 
-
     strip.show()
 
     TC_POS += 1
+    if TC_RICHTUNG == 0:
+        TC_POS += 1
+    else:
+        TC_POS -= 1
+
     if TC_POS > numPixels:
         TC_POS = 0
+
+    if TC_POS < 0:
+        TC_POS = numPixels
 
     AKT_MODUS = "TC"
     FLG_CHANGE_COLOR = 1
@@ -604,8 +616,11 @@ def theatreChase(strip, color):
 def readConfig():
     filepath = "/var/www/html/config.json"
     if os.path.isfile(filepath):
+        try:
 	       data = json.load(open(filepath))
 	       return data
+       except:
+           print("Error reading JSON")
 
 def randomizeEffectCounter(start, end):
     global EFFECT_COUNTER
