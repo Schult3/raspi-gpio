@@ -582,6 +582,8 @@ def theatreChase(strip, color):
         strip.setPixelColor(x, Color(0, 0, 0))
 
     print(TC_POS)
+    print(TC_RICHTUNG)
+    print("---")
 
     #TC_POS aktuelle Position des ersten Pixels
     i = TC_POS
