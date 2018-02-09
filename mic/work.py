@@ -636,7 +636,6 @@ if __name__ == '__main__':
 
     #effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle, theatreChase]
     effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle]
-
     music_effects = [equalizer, strobe, SoundPulse]
 
     rainbow_counter = 0
