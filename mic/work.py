@@ -634,7 +634,9 @@ if __name__ == '__main__':
     strip.begin()
     #initialize(strip, Color(255, 255, 255))
 
-    effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle, theatreChase]
+    #effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle, theatreChase]
+    effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle]
+
     music_effects = [equalizer, strobe, SoundPulse]
 
     rainbow_counter = 0
