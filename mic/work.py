@@ -594,8 +594,7 @@ def theatreChase(strip, color):
 
     strip.show()
 
-    print(TC_POS)
-    print(TC_RICHTUNG)
+    print(FLG_CHANGE_EFFECT)
     print("---")
 
     if TC_RICHTUNG == 0:
