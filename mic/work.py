@@ -594,6 +594,10 @@ def theatreChase(strip, color):
 
     strip.show()
 
+    print(TC_POS)
+    print(TC_RICHTUNG)
+    print("---")
+
     if TC_RICHTUNG == 0:
         TC_POS += 1
         if TC_POS > numPixels:
@@ -635,7 +639,8 @@ if __name__ == '__main__':
     #initialize(strip, Color(255, 255, 255))
 
     #effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle, theatreChase]
-    effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle]
+    #effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle]
+    effects = [theatreChase]
     music_effects = [equalizer, strobe, SoundPulse]
 
     rainbow_counter = 0
