@@ -608,9 +608,6 @@ def theatreChase(strip, color):
     AKT_MODUS = "TC"
     FLG_CHANGE_COLOR = 1
 
-    print(FLG_CHANGE_EFFECT)
-    print("---")
-
 
 def readConfig():
     filepath = "/var/www/html/config.json"
@@ -674,6 +671,8 @@ if __name__ == '__main__':
                 effectNum = random.randint(0, len(effects) - 1)
                 print(effectNum)
             effects[effectNum](strip, color)
+            print(EFFECT_COUNTER)
+            print("---")
             time.sleep(config["range_delay"] / 1000.0)
 
 
