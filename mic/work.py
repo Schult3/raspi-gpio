@@ -12,6 +12,7 @@ import sys
 import json
 import random
 import os.path
+import killswitch as ks
 
 def signal_handler(signal, frame):
         colorWipe(strip, Color(0,0,0))
@@ -655,6 +656,9 @@ if __name__ == '__main__':
 
     while True:
         config = readConfig()
+
+        ks.killswitch()
+        
         if config["color_switch"] == True:
             color = wheel(rainbow_counter)
         else:
