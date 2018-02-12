@@ -399,7 +399,7 @@ def chrystal(strip, color):
         CH_TWINKLE.append(twinkle)
         strip.setPixelColor(twinkle, color)
     else:
-        time.sleep(5 / 1000.0)
+        #time.sleep(5 / 1000.0)
         chrystal(strip, color)
 
 
