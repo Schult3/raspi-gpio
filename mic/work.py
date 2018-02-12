@@ -390,6 +390,9 @@ def chrystal(strip, color):
         FLG_CHANGE_EFFECT = 1
 
     twinkle = random.randint(0, strip.numPixels() - 1)
+    print(len(CH_TWINKLE))
+    print(twinkle)
+    print("---")
 
     if twinkle not in CH_TWINKLE:
         CH_TWINKLE.append(twinkle)
@@ -635,8 +638,7 @@ if __name__ == '__main__':
     #initialize(strip, Color(255, 255, 255))
 
     effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle, theatreChase]
-    #effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle]
-    #effects = [theatreChase]
+    effects = [chrystal]
     music_effects = [equalizer, strobe, SoundPulse]
 
     rainbow_counter = 0
