@@ -79,7 +79,7 @@ SP_FREQ_MIN = 64
 SP_FREQ_MAX = 175
 
 #Strobe config
-ST_FREQ_MIN = 64
+ST_FREQ_MIN = 0
 ST_FREQ_MAX = 350
 
 #theatreChase config
@@ -658,7 +658,7 @@ if __name__ == '__main__':
         config = readConfig()
 
         ks.killswitch()
-        
+
         if config["color_switch"] == True:
             color = wheel(rainbow_counter)
         else:
