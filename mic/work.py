@@ -312,6 +312,7 @@ def initializeTetris(strip, color):
     global AKT_MODUS
     global TET_RICHTUNG
     global FLG_CHANGE_EFFECT
+    global EFFECT_COUNTER
 
     if AKT_MODUS != "IT":
         TET_QUEUE_POS = 0
