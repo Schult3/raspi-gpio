@@ -391,9 +391,6 @@ def chrystal(strip, color):
         FLG_CHANGE_EFFECT = 1
 
     twinkle = random.randint(0, strip.numPixels() - 1)
-    print(len(CH_TWINKLE))
-    print(twinkle)
-    print("---")
 
     if twinkle not in CH_TWINKLE:
         CH_TWINKLE.append(twinkle)
