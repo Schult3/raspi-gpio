@@ -314,11 +314,13 @@ def initializeTetris(strip, color):
     global FLG_CHANGE_EFFECT
     global EFFECT_COUNTER
 
+    EFFECT_COUNTER = 1
+
     if AKT_MODUS != "IT":
         TET_QUEUE_POS = 0
         TET_QUEUE_NEG = strip.numPixels() - 1
         TET_LAUFNUMMER = strip.numPixels() - 1
-        EFFECT_COUNTER = 1
+
 
     strip.setPixelColor(TET_LAUFNUMMER, color)
 
