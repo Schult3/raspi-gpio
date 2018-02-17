@@ -137,6 +137,8 @@ def rainbow(strip, color):
     RB_J += 1
 
     if RB_J >= 256:
+        print("RB_J"):
+        print(RB_J)
         FLG_CHANGE_EFFECT = 1
         RB_J = 0
 
