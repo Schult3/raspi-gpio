@@ -303,8 +303,8 @@ def runningLights(strip, color):
 
     print("after moving")
 
-    #if RL_CARS[0][0] == 133:
-        #FLG_CHANGE_EFFECT = 1
+    if RL_CARS[0][0] == 133:
+        FLG_CHANGE_EFFECT = 1
 
     FLG_CHANGE_EFFECT = 1
 
