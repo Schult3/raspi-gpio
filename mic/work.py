@@ -319,7 +319,7 @@ def initializeTetris(strip, color):
 
     if AKT_MODUS != "IT":
         TET_QUEUE_POS = 0
-        TET_QUEUE_NEG = strip.numPixels() - 1
+        TET_QUEUE_NEG = strip.numPixels() - 2
         TET_LAUFNUMMER = strip.numPixels() - 1
 
 
@@ -639,8 +639,8 @@ if __name__ == '__main__':
     strip.begin()
     #initialize(strip, Color(255, 255, 255))
 
-    effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle, theatreChase]
-    #effects = [runningLights]
+    #effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle, theatreChase]
+    effects = [initializeTetris]
 
     #music_effects = [equalizer, strobe, SoundPulse]
 
