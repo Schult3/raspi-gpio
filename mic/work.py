@@ -272,6 +272,7 @@ def strobe(strip, color):
 def runningLights(strip, color):
     global AKT_MODUS, RL_CARS, FLG_CHANGE_COLOR, FLG_CHANGE_EFFECT
 
+    print("runningLights")
 
     if AKT_MODUS != "RL":
         anz_cars = random.randint(1, 10)
