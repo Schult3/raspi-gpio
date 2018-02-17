@@ -677,6 +677,8 @@ if __name__ == '__main__':
             if EFFECT_COUNTER <= 1 or EFFECT_COUNTER > 10:
                 randomizeEffectCounter(5, 25)
                 effectNum = random.randint(0, len(effects) - 1)
+                print(effectNum)
+                print("---")
             effects[effectNum](strip, color)
             time.sleep(config["range_delay"] / 1000.0)
 
