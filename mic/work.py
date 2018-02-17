@@ -293,13 +293,13 @@ def runningLights(strip, color):
     for x in range(strip.numPixels()):
         strip.setPixelColor(x, Color(0, 0, 0))
 
-    #for i in RL_CARS:
-        #for pos in i:
-            #strip.setPixelColor(pos, color)
-            #if pos + 1 >= strip.numPixels():
-                #RL_CARS[RL_CARS.index(i)][i.index(pos)] = 0
-            #else:
-                #RL_CARS[RL_CARS.index(i)][i.index(pos)] += 1
+    for i in RL_CARS:
+        for pos in i:
+            strip.setPixelColor(pos, color)
+            if pos + 1 >= strip.numPixels():
+                RL_CARS[RL_CARS.index(i)][i.index(pos)] = 0
+            else:
+                RL_CARS[RL_CARS.index(i)][i.index(pos)] += 1
 
     print("after moving")
 
