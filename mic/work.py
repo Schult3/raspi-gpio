@@ -271,6 +271,9 @@ def strobe(strip, color):
 
 def runningLights(strip, color):
     global AKT_MODUS, RL_CARS, FLG_CHANGE_COLOR, FLG_CHANGE_EFFECT
+    global EFFECT_COUNTER
+
+    EFFECT_COUNTER = 1
 
     if AKT_MODUS != "RL":
         anz_cars = random.randint(1, 10)
@@ -638,8 +641,10 @@ if __name__ == '__main__':
     strip.begin()
     #initialize(strip, Color(255, 255, 255))
 
-    effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle, theatreChase]
-    music_effects = [equalizer, strobe, SoundPulse]
+    #effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle, theatreChase]
+    effects = [runningLights]
+
+    #music_effects = [equalizer, strobe, SoundPulse]
 
     rainbow_counter = 0
     EFFECT_COUNTER = 1
