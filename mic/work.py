@@ -272,8 +272,6 @@ def strobe(strip, color):
 def runningLights(strip, color):
     global AKT_MODUS, RL_CARS, FLG_CHANGE_COLOR, FLG_CHANGE_EFFECT
 
-    print("runningLights")
-
     if AKT_MODUS != "RL":
         anz_cars = random.randint(1, 10)
         RL_CARS = []
@@ -288,8 +286,6 @@ def runningLights(strip, color):
             RL_CARS.append(pos)
             pos_offset-= car_space
 
-    print("after initialize")
-
     for x in range(strip.numPixels()):
         strip.setPixelColor(x, Color(0, 0, 0))
 
@@ -302,18 +298,12 @@ def runningLights(strip, color):
             else:
                 RL_CARS[RL_CARS.index(i)][i.index(pos)] += 1
 
-    print("after moving")
-
-    if RL_CARS[0][0] == 133:
+    if RL_CARS[0][0] == strip.numPixels() - 1:
         FLG_CHANGE_EFFECT = 1
-
-    print("after Change Effect")
 
     strip.show()
     AKT_MODUS = "RL"
     FLG_CHANGE_COLOR = 1
-
-    print("after showing")
 
 def initializeTetris(strip, color):
     global TET_QUEUE_POS
@@ -685,10 +675,9 @@ if __name__ == '__main__':
             music_effects[effectNumMus](strip, color)
         else:
             if EFFECT_COUNTER <= 1 or EFFECT_COUNTER > 10:
-                randomizeEffectCounter(1, 2)
+                randomizeEffectCounter(2, 10)
                 effectNum = random.randint(0, len(effects) - 1)
                 print(effectNum)
-                print(len(effects))
                 print("---")
             effects[effectNum](strip, color)
             time.sleep(config["range_delay"] / 1000.0)
