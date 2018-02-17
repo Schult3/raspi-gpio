@@ -312,6 +312,8 @@ def runningLights(strip, color):
     AKT_MODUS = "RL"
     FLG_CHANGE_COLOR = 1
 
+    print("after showing")
+
 def initializeTetris(strip, color):
     global TET_QUEUE_POS
     global TET_QUEUE_NEG
