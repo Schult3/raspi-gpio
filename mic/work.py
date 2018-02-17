@@ -604,10 +604,14 @@ def theatreChase(strip, color):
         if TC_POS > numPixels:
             TC_POS = 0
             FLG_CHANGE_EFFECT = 1
+            print("TC_POS:")
+            print(TC_POS)
     else:
         TC_POS -= 1
         if TC_POS < 0:
             TC_POS = numPixels - 1
+            print("TC_POS:")
+            print(TC_POS)
             FLG_CHANGE_EFFECT = 1
 
     AKT_MODUS = "TC"
