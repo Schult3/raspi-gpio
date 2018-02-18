@@ -673,7 +673,8 @@ if __name__ == '__main__':
         config = readConfig()
 
         ks.killswitch()
-
+        print(config)
+        
         if config["color_switch"] == True:
             color = wheel(rainbow_counter)
         else:
