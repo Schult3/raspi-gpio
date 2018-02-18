@@ -38,9 +38,6 @@ calibration = 38 # in mV, to make up for the precision of the components
 #        0 = MSB first format
 # ------------------------------------------------------------------------------
 
-spi = setupSpi()
-
-
 def setupSpi():
     # SPI setup
     spi_max_speed = 1000000 # 1 MHz (1.2MHz = max for 2V7 ref/supply)
@@ -54,6 +51,9 @@ def setupSpi():
     except:
         print("Spi error")
         return false
+
+spi = setupSpi()
+
 
 #
 # create a function that sets the configuration parameters and gets the results
