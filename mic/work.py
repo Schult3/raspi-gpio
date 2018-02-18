@@ -321,7 +321,7 @@ def initializeTetris(strip, color):
 
     if AKT_MODUS != "IT":
         TET_QUEUE_POS = 0
-        TET_QUEUE_NEG = strip.numPixels() - 1
+        TET_QUEUE_NEG = strip.numPixels() - 2
         TET_LAUFNUMMER = strip.numPixels() - 1
 
 
@@ -351,7 +351,7 @@ def initializeTetris(strip, color):
         else:
             TET_LAUFNUMMER += 1
 
-            
+
 
     strip.setPixelColor(TET_LAUFNUMMER, color)
 
