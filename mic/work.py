@@ -307,7 +307,7 @@ def runningLights(strip, color):
     AKT_MODUS = "RL"
     FLG_CHANGE_COLOR = 1
 
-def initializeTetris(strip, color):
+    def initializeTetris(strip, color):
     global TET_QUEUE_POS
     global TET_QUEUE_NEG
     global TET_LAUFNUMMER
@@ -317,30 +317,42 @@ def initializeTetris(strip, color):
     global FLG_CHANGE_EFFECT
     global EFFECT_COUNTER
 
+    #Effekt nur einmal anzeigen
     EFFECT_COUNTER = 2
 
     if AKT_MODUS != "IT":
+        #Warteschlangen auf 0 bzw. Ende setzen
         TET_QUEUE_POS = 0
         TET_QUEUE_NEG = strip.numPixels() - 2
         TET_LAUFNUMMER = strip.numPixels() - 1
 
+        #Richtung 1 = substrahieren, sonst addieren
+        TET_RICHTUNG = 0
+
 
 
     if TET_RICHTUNG == 1:
+        # wenn Laufnummer = Warteschlage Pos dann...
         if TET_LAUFNUMMER <= TET_QUEUE_POS:
-            TET_LAUFNUMMER = TET_QUEUE_NEG
             TET_QUEUE_POS += 1
             FLG_CHANGE_COLOR = 1
-            TET_RICHTUNG = random.randint(0, 1)
+
+            print(TET_QUEUE_POS)
+
+            #Richtung wuerfeln
+            #TET_RICHTUNG = random.randint(0, 1)
+            TET_RICHTUNG = 0
+
             if TET_RICHTUNG == 1:
                 TET_LAUFNUMMER = TET_QUEUE_NEG - 1
             else:
                 TET_LAUFNUMMER = TET_QUEUE_POS + 1
+                print(TET_LAUFNUMMER)
+
         else:
             TET_LAUFNUMMER -= 1
     else:
         if TET_LAUFNUMMER >= TET_QUEUE_NEG:
-            TET_LAUFNUMMER = TET_QUEUE_POS
             TET_QUEUE_NEG -= 1
             FLG_CHANGE_COLOR = 1
             TET_RICHTUNG = random.randint(0, 1)
@@ -352,6 +364,7 @@ def initializeTetris(strip, color):
             TET_LAUFNUMMER += 1
 
     strip.setPixelColor(TET_LAUFNUMMER, color)
+    print("draw---")
 
     if TET_RICHTUNG == 1:
         strip.setPixelColor(TET_LAUFNUMMER + 1, Color(0, 0, 0))
@@ -652,8 +665,8 @@ if __name__ == '__main__':
     strip.begin()
     #initialize(strip, Color(255, 255, 255))
 
-    effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle, theatreChase]
-    #effects = [initializeTetris]
+    #effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle, theatreChase]
+    effects = [initializeTetris]
 
     music_effects = [equalizer, strobe, SoundPulse]
     #music_effects = [equalizer, SoundPulse]
