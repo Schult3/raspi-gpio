@@ -38,22 +38,15 @@ calibration = 38 # in mV, to make up for the precision of the components
 #        0 = MSB first format
 # ------------------------------------------------------------------------------
 
-def setupSpi():
-    # SPI setup
-    spi_max_speed = 1000000 # 1 MHz (1.2MHz = max for 2V7 ref/supply)
-    # reason is that the ADC input cap needs time to get charged to the input level.
-    CE = 0 # CE0 | CE1, selection of the SPI device
-    try:
-        spi = spidev.SpiDev()
-        spi.open(0,CE) # Open up the communication to the device
-        spi.max_speed_hz = spi_max_speed
-        return spi
-    except:
-        print("Spi error")
-        return false
 
-spi = setupSpi()
+# SPI setup
+spi_max_speed = 1000000 # 1 MHz (1.2MHz = max for 2V7 ref/supply)
+# reason is that the ADC input cap needs time to get charged to the input level.
+CE = 0 # CE0 | CE1, selection of the SPI device
 
+spi = spidev.SpiDev()
+spi.open(0,CE) # Open up the communication to the device
+spi.max_speed_hz = spi_max_speed
 
 #
 # create a function that sets the configuration parameters and gets the results
