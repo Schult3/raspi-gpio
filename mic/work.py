@@ -333,6 +333,11 @@ def initializeTetris(strip, color):
         strip.setPixelColor(TET_LAUFNUMMER - 1, Color(0, 0, 0))
     strip.show()
 
+    print(TET_LAUFNUMMER)
+    print(TET_QUEUE_NEG)
+    print(TET_QUEUE_POS)
+    print("---")
+
 
     if TET_RICHTUNG == 1:
         if TET_LAUFNUMMER <= TET_QUEUE_POS:
@@ -651,8 +656,8 @@ if __name__ == '__main__':
     strip.begin()
     #initialize(strip, Color(255, 255, 255))
 
-    effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle, theatreChase]
-    #effects = [initializeTetris]
+    #effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle, theatreChase]
+    effects = [initializeTetris]
 
     #music_effects = [equalizer, strobe, SoundPulse]
     music_effects = [equalizer, SoundPulse]
