@@ -606,13 +606,13 @@ def theatreChase(strip, color):
         if TC_POS > numPixels:
             TC_POS = 0
             FLG_CHANGE_EFFECT = 1
-            print("TC_POS:")
+            print("TC_POS Richtung 0:")
             print(TC_POS)
     else:
         TC_POS -= 1
         if TC_POS < 0:
             TC_POS = numPixels - 1
-            print("TC_POS:")
+            print("TC_POS Richtung 1:")
             print(TC_POS)
             FLG_CHANGE_EFFECT = 1
 
@@ -682,7 +682,7 @@ if __name__ == '__main__':
             music_effects[effectNumMus](strip, color)
         else:
             if EFFECT_COUNTER <= 1 or EFFECT_COUNTER > 10:
-                randomizeEffectCounter(5, 25)
+                randomizeEffectCounter(2, 3)
                 effectNum = random.randint(0, len(effects) - 1)
                 AKT_MODUS = ""
                 print(effectNum)
