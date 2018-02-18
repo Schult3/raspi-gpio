@@ -342,8 +342,10 @@ def initializeTetris(strip, color):
 
             if TET_RICHTUNG == 1:
                 TET_LAUFNUMMER = TET_QUEUE_NEG - 1
+                print("start queue neg")
             else:
                 TET_LAUFNUMMER = TET_QUEUE_POS + 1
+                print("start queue pos")
 
         else:
             TET_LAUFNUMMER -= 1
@@ -354,8 +356,10 @@ def initializeTetris(strip, color):
             TET_RICHTUNG = random.randint(0, 1)
             if TET_RICHTUNG == 1:
                 TET_LAUFNUMMER = TET_QUEUE_NEG - 1
+                print("start queue neg")
             else:
                 TET_LAUFNUMMER = TET_QUEUE_POS + 1
+                print("start queue pos")
         else:
             TET_LAUFNUMMER += 1
 
