@@ -308,14 +308,7 @@ def runningLights(strip, color):
     FLG_CHANGE_COLOR = 1
 
 def initializeTetris(strip, color):
-    global TET_QUEUE_POS
-    global TET_QUEUE_NEG
-    global TET_LAUFNUMMER
-    global FLG_CHANGE_COLOR
-    global AKT_MODUS
-    global TET_RICHTUNG
-    global FLG_CHANGE_EFFECT
-    global EFFECT_COUNTER
+    global TET_QUEUE_POS, TET_QUEUE_NEG, TET_LAUFNUMMER, FLG_CHANGE_COLOR, AKT_MODUS, TET_RICHTUNG, FLG_CHANGE_EFFECT, EFFECT_COUNTER
 
     #Effekt nur einmal anzeigen
     EFFECT_COUNTER = 2
@@ -325,7 +318,6 @@ def initializeTetris(strip, color):
         TET_QUEUE_POS = 0
         TET_QUEUE_NEG = strip.numPixels() - 1
         TET_LAUFNUMMER = strip.numPixels() - 1
-
         #Richtung 1 = substrahieren, sonst addieren
         TET_RICHTUNG = 1
 
