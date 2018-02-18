@@ -333,10 +333,10 @@ def initializeTetris(strip, color):
             TET_RICHTUNG = random.randint(0, 1)
 
             if TET_RICHTUNG == 1:
-                TET_LAUFNUMMER = TET_QUEUE_NEG - 1
+                TET_LAUFNUMMER = TET_QUEUE_NEG
                 print("start queue neg")
             else:
-                TET_LAUFNUMMER = TET_QUEUE_POS + 1
+                TET_LAUFNUMMER = TET_QUEUE_POS
                 print("start queue pos")
 
         else:
@@ -347,10 +347,10 @@ def initializeTetris(strip, color):
             FLG_CHANGE_COLOR = 1
             TET_RICHTUNG = random.randint(0, 1)
             if TET_RICHTUNG == 1:
-                TET_LAUFNUMMER = TET_QUEUE_NEG - 1
+                TET_LAUFNUMMER = TET_QUEUE_NEG
                 print("start queue neg")
             else:
-                TET_LAUFNUMMER = TET_QUEUE_POS + 1
+                TET_LAUFNUMMER = TET_QUEUE_POS
                 print("start queue pos")
         else:
             TET_LAUFNUMMER += 1
@@ -359,11 +359,11 @@ def initializeTetris(strip, color):
     print(TET_LAUFNUMMER)
 
 
-    if TET_RICHTUNG == 1:
+    if TET_RICHTUNG == 1 and TET_LAUFNUMMER + 1 != TET_QUEUE_NEG:
         strip.setPixelColor(TET_LAUFNUMMER + 1, Color(0, 0, 0))
         print("hide")
         print(TET_LAUFNUMMER + 1)
-    else:
+    elif TET_LAUFNUMMER - 1 != TET_QUEUE_POS:
         strip.setPixelColor(TET_LAUFNUMMER - 1, Color(0, 0, 0))
         print("hide")
         print(TET_LAUFNUMMER - 1)
