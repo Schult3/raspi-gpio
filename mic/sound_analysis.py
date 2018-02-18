@@ -11,8 +11,10 @@ freq_max = 175
 def readSound(samples):
 	buff = []
 	t = []
+	spiConnection = sd.setupSpi()
+
 	for i in range(samples):
-		buff.append(sd.read_mcp3002(1))
+		buff.append(spiConnection, sd.read_mcp3002(1))
 		t.append(time.time() * 1000)
 	return t, buff
 
@@ -33,7 +35,7 @@ def getSoundPWM(reqFreqMin, reqFreqMax):
 	global running_max, running_max_size, freq_min, freq_max
 	freq_min = reqFreqMin
 	freq_max = reqFreqMax
-	
+
 	max = calc()
 	if(len(running_max) >= running_max_size):
 		temp = []

@@ -39,20 +39,27 @@ calibration = 38 # in mV, to make up for the precision of the components
 # ------------------------------------------------------------------------------
 
 
-# SPI setup
-spi_max_speed = 1000000 # 1 MHz (1.2MHz = max for 2V7 ref/supply)
-# reason is that the ADC input cap needs time to get charged to the input level.
-CE = 0 # CE0 | CE1, selection of the SPI device
 
-spi = spidev.SpiDev()
-spi.open(0,CE) # Open up the communication to the device
-spi.max_speed_hz = spi_max_speed
+
+def setupSpi():
+    # SPI setup
+    spi_max_speed = 1000000 # 1 MHz (1.2MHz = max for 2V7 ref/supply)
+    # reason is that the ADC input cap needs time to get charged to the input level.
+    CE = 0 # CE0 | CE1, selection of the SPI device
+    try:
+        spi = spidev.SpiDev()
+        spi.open(0,CE) # Open up the communication to the device
+        spi.max_speed_hz = spi_max_speed
+        return spi
+    except:
+        print("Spi error")
+        return false
 
 #
 # create a function that sets the configuration parameters and gets the results
 # from the MCP3002
 #
-def read_mcp3002(channel):
+def read_mcp3002(spiConnection, channel):
     # see datasheet for more information
     # 8 bit control :
     # X, Strt, SGL|!DIFF, ODD|!SIGN, MSBF, X, X, X
@@ -76,4 +83,3 @@ def read_mcp3002(channel):
     # LSB: mask all but B9 & B8, shift to left and add to the MSB
     adc_data = ((spi_data[0] & 3) << 8) + spi_data[1]
     return adc_data
-
