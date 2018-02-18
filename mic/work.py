@@ -323,7 +323,7 @@ def initializeTetris(strip, color):
     if AKT_MODUS != "IT":
         #Warteschlangen auf 0 bzw. Ende setzen
         TET_QUEUE_POS = 0
-        TET_QUEUE_NEG = strip.numPixels() - 2
+        TET_QUEUE_NEG = strip.numPixels() - 1
         TET_LAUFNUMMER = strip.numPixels() - 1
 
         #Richtung 1 = substrahieren, sonst addieren
