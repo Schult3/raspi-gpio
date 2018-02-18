@@ -14,7 +14,7 @@ def readSound(samples):
 	spiConnection = sd.setupSpi()
 
 	for i in range(samples):
-		buff.append(spiConnection, sd.read_mcp3002(1))
+		buff.append(sd.read_mcp3002(spiConnection, 1))
 		t.append(time.time() * 1000)
 	return t, buff
 
