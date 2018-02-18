@@ -70,8 +70,6 @@ def read_mcp3002(channel):
     else:
         cmd = 0b01110000
 
-    spi = spiConnection
-
     if DEBUG : print"cmd = ", cmd
 
     spi_data = spi.xfer2([cmd,0]) # send hi_byte, low_byte; receive hi_byte, low_byte
