@@ -359,11 +359,11 @@ def initializeTetris(strip, color):
     print(TET_LAUFNUMMER)
 
 
-    if TET_RICHTUNG == 1 and TET_LAUFNUMMER + 1 != TET_QUEUE_NEG:
+    if TET_RICHTUNG == 1 and TET_LAUFNUMMER + 1 < TET_QUEUE_NEG:
         strip.setPixelColor(TET_LAUFNUMMER + 1, Color(0, 0, 0))
         print("hide")
         print(TET_LAUFNUMMER + 1)
-    elif TET_LAUFNUMMER - 1 != TET_QUEUE_POS:
+    elif TET_LAUFNUMMER - 1 > TET_QUEUE_POS:
         strip.setPixelColor(TET_LAUFNUMMER - 1, Color(0, 0, 0))
         print("hide")
         print(TET_LAUFNUMMER - 1)
