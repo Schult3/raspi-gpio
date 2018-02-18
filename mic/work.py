@@ -673,7 +673,7 @@ if __name__ == '__main__':
         config = readConfig()
 
         ks.killswitch()
-        
+
         if config["color_switch"] == True:
             color = wheel(rainbow_counter)
         else:
@@ -689,7 +689,7 @@ if __name__ == '__main__':
             music_effects[effectNumMus](strip, color)
         else:
             if EFFECT_COUNTER <= 1 or EFFECT_COUNTER > 10:
-                randomizeEffectCounter(2, 3)
+                randomizeEffectCounter(5, 25)
                 effectNum = random.randint(0, len(effects) - 1)
                 AKT_MODUS = ""
                 print(effectNum)
