@@ -584,6 +584,7 @@ def theatreChase(strip, color):
 
     if AKT_MODUS != "TC":
         TC_RICHTUNG = random.randint(0, 1)
+        TC_POS = 0
 
     for x in range (numPixels):
         strip.setPixelColor(x, Color(0, 0, 0))
