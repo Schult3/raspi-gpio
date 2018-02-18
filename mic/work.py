@@ -325,19 +325,6 @@ def initializeTetris(strip, color):
         TET_LAUFNUMMER = strip.numPixels() - 1
 
 
-    strip.setPixelColor(TET_LAUFNUMMER, color)
-
-    if TET_RICHTUNG == 1:
-        strip.setPixelColor(TET_LAUFNUMMER + 1, Color(0, 0, 0))
-    else:
-        strip.setPixelColor(TET_LAUFNUMMER - 1, Color(0, 0, 0))
-    strip.show()
-
-    print(TET_LAUFNUMMER)
-    print(TET_QUEUE_NEG)
-    print(TET_QUEUE_POS)
-    print("---")
-
 
     if TET_RICHTUNG == 1:
         if TET_LAUFNUMMER <= TET_QUEUE_POS:
@@ -363,6 +350,21 @@ def initializeTetris(strip, color):
                 TET_LAUFNUMMER = TET_QUEUE_POS + 1
         else:
             TET_LAUFNUMMER += 1
+
+            
+
+    strip.setPixelColor(TET_LAUFNUMMER, color)
+
+    if TET_RICHTUNG == 1:
+        strip.setPixelColor(TET_LAUFNUMMER + 1, Color(0, 0, 0))
+    else:
+        strip.setPixelColor(TET_LAUFNUMMER - 1, Color(0, 0, 0))
+    strip.show()
+
+    print(TET_LAUFNUMMER)
+    print(TET_QUEUE_NEG)
+    print(TET_QUEUE_POS)
+    print("---")
 
     if TET_QUEUE_POS == TET_QUEUE_NEG:
         TET_QUEUE_POS = 0
