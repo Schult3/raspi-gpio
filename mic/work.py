@@ -327,7 +327,7 @@ def initializeTetris(strip, color):
         TET_LAUFNUMMER = strip.numPixels() - 1
 
         #Richtung 1 = substrahieren, sonst addieren
-        TET_RICHTUNG = 0
+        TET_RICHTUNG = 1
 
 
 
@@ -341,7 +341,7 @@ def initializeTetris(strip, color):
 
             #Richtung wuerfeln
             #TET_RICHTUNG = random.randint(0, 1)
-            TET_RICHTUNG = 0
+            TET_RICHTUNG = 1
 
             if TET_RICHTUNG == 1:
                 TET_LAUFNUMMER = TET_QUEUE_NEG - 1
