@@ -45,7 +45,7 @@ spi_max_speed = 1000000 # 1 MHz (1.2MHz = max for 2V7 ref/supply)
 CE = 0 # CE0 | CE1, selection of the SPI device
 
 spi = spidev.SpiDev()
-spi.open(1,CE) # Open up the communication to the device
+spi.open(0,CE) # Open up the communication to the device
 spi.max_speed_hz = spi_max_speed
 
 #
