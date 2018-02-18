@@ -13,7 +13,7 @@
 import spidev # import the SPI driver
 from time import sleep
 
-DEBUG = True
+DEBUG = False
 vref = 3.3 * 1000 # V-Ref in mV (Vref = VDD for the MCP3002)
 resolution = 2**10 # for 10 bits of resolution
 calibration = 38 # in mV, to make up for the precision of the components

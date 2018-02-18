@@ -11,7 +11,7 @@ freq_max = 175
 def readSound(samples):
 	buff = []
 	t = []
-	
+
 	for i in range(samples):
 		buff.append(sd.read_mcp3002(1))
 		t.append(time.time() * 1000)
@@ -26,6 +26,7 @@ def calc():
 	sample_rate = len(sound) / sample_rate
 	freqs, results = go.goertzel(sound, sample_rate, (freq_min, freq_max))
 	rarr = np.array(results)[:,2]
+	print(rarr)
 	max = np.amax(rarr)
 	return max
 
