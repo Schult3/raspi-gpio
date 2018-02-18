@@ -337,17 +337,13 @@ def initializeTetris(strip, color):
             TET_QUEUE_POS += 1
             FLG_CHANGE_COLOR = 1
 
-            print(TET_QUEUE_POS)
-
             #Richtung wuerfeln
-            #TET_RICHTUNG = random.randint(0, 1)
-            TET_RICHTUNG = 1
+            TET_RICHTUNG = random.randint(0, 1)
 
             if TET_RICHTUNG == 1:
                 TET_LAUFNUMMER = TET_QUEUE_NEG - 1
             else:
                 TET_LAUFNUMMER = TET_QUEUE_POS + 1
-                print(TET_LAUFNUMMER)
 
         else:
             TET_LAUFNUMMER -= 1
@@ -364,7 +360,10 @@ def initializeTetris(strip, color):
             TET_LAUFNUMMER += 1
 
     strip.setPixelColor(TET_LAUFNUMMER, color)
-    print("draw---")
+    print(TET_LAUFNUMMER)
+    print(TET_QUEUE_POS)
+    print(TET_QUEUE_NEG)
+    print("---")
 
     if TET_RICHTUNG == 1:
         strip.setPixelColor(TET_LAUFNUMMER + 1, Color(0, 0, 0))
