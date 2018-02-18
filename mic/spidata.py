@@ -14,7 +14,7 @@ import spidev # import the SPI driver
 from time import sleep
 
 DEBUG = False
-vref = 5.0 * 1000 # V-Ref in mV (Vref = VDD for the MCP3002)
+vref = 3.3 * 1000 # V-Ref in mV (Vref = VDD for the MCP3002)
 resolution = 2**10 # for 10 bits of resolution
 calibration = 38 # in mV, to make up for the precision of the components
 
@@ -42,7 +42,7 @@ calibration = 38 # in mV, to make up for the precision of the components
 # SPI setup
 spi_max_speed = 1000000 # 1 MHz (1.2MHz = max for 2V7 ref/supply)
 # reason is that the ADC input cap needs time to get charged to the input level.
-CE = 0 # CE0 | CE1, selection of the SPI device
+CE = 1 # CE0 | CE1, selection of the SPI device
 
 spi = spidev.SpiDev()
 spi.open(0,CE) # Open up the communication to the device
