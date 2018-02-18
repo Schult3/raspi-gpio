@@ -11,10 +11,9 @@ freq_max = 175
 def readSound(samples):
 	buff = []
 	t = []
-	spiConnection = sd.setupSpi()
-
+	
 	for i in range(samples):
-		buff.append(sd.read_mcp3002(spiConnection, 1))
+		buff.append(sd.read_mcp3002(1))
 		t.append(time.time() * 1000)
 	return t, buff
 

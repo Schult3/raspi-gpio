@@ -38,7 +38,7 @@ calibration = 38 # in mV, to make up for the precision of the components
 #        0 = MSB first format
 # ------------------------------------------------------------------------------
 
-
+spi = setupSpi()
 
 
 def setupSpi():
@@ -59,7 +59,7 @@ def setupSpi():
 # create a function that sets the configuration parameters and gets the results
 # from the MCP3002
 #
-def read_mcp3002(spiConnection, channel):
+def read_mcp3002(channel):
     # see datasheet for more information
     # 8 bit control :
     # X, Strt, SGL|!DIFF, ODD|!SIGN, MSBF, X, X, X
