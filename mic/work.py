@@ -699,6 +699,7 @@ if __name__ == '__main__':
                 randomizeEffectCounter(5, 25)
                 effectNum = random.randint(0, len(effects) - 1)
                 AKT_MODUS = ""
+                print(EFFECT_COUNTER)
                 print(effectNum)
                 print("---")
             effects[effectNum](strip, color)
