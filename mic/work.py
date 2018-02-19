@@ -355,18 +355,18 @@ def initializeTetris(strip, color):
         TET_LAUFNUMMER += 1
 
     #wenn Laufnummer Stapel erreicht
-    if TET_LAUFNUMMER == TET_QUEUE_POS:
+    if TET_LAUFNUMMER <= TET_QUEUE_POS:
         TET_QUEUE_POS += 1
         FLG_CHANGE_COLOR = 1
         resetTetris()
 
-    if TET_LAUFNUMMER == TET_QUEUE_NEG:
+    if TET_LAUFNUMMER >= TET_QUEUE_NEG:
         TET_QUEUE_NEG -= 1
         FLG_CHANGE_COLOR = 1
         resetTetris()
 
     #Wenn beide Stapel erreicht - Reset
-    if TET_QUEUE_NEG == TET_QUEUE_POS:
+    if TET_QUEUE_NEG >= TET_QUEUE_POS:
         print("TEST")
         TET_QUEUE_POS = 0
         TET_QUEUE_NEG = numPixels - 1
