@@ -339,6 +339,7 @@ def initializeTetris(strip, color):
     i = TET_QUEUE_POS + 1
     while i < TET_QUEUE_NEG:
         strip.setPixelColor(i, Color(0, 0, 0))
+        i += 1
 
     #Laufnummer darstellen
     strip.setPixelColor(TET_LAUFNUMMER, color)
