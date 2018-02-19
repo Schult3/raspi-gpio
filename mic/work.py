@@ -343,6 +343,8 @@ def initializeTetris(strip, color):
     #Laufnummer darstellen
     strip.setPixelColor(TET_LAUFNUMMER, color)
 
+    strip.show()
+
     print(TET_LAUFNUMMER)
     print("---")
 
