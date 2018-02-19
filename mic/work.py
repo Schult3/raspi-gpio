@@ -307,77 +307,52 @@ def runningLights(strip, color):
     AKT_MODUS = "RL"
     FLG_CHANGE_COLOR = 1
 
+def resetTetris():
+    global TET_QUEUE_POS, TET_QUEUE_NEG, TET_LAUFNUMMER, TET_RICHTUNG
+    numPixels = strip.numPixels()
+
+    #Richtung 0 = auf linken Stapel, 1 auf rechten
+    TET_RICHTUNG = random.randint(0, 1)
+    TET_QUEUE_POS = 0
+    TET_QUEUE_NEG = numPixels - 1
+
+    if TET_RICHTUNG = 0:
+        TET_LAUFNUMMER = TET_QUEUE_NEG - 1
+    else:
+        TET_LAUFNUMMER = TET_QUEUE_POS + 1
+
+
+
 def initializeTetris(strip, color):
     global TET_QUEUE_POS, TET_QUEUE_NEG, TET_LAUFNUMMER, FLG_CHANGE_COLOR, AKT_MODUS, TET_RICHTUNG, FLG_CHANGE_EFFECT, EFFECT_COUNTER
 
     #Effekt nur einmal anzeigen
     EFFECT_COUNTER = 2
 
+    numPixels = strip.numPixels()
+
     if AKT_MODUS != "IT":
-        #Warteschlangen auf 0 bzw. Ende setzen
-        TET_QUEUE_POS = 0
-        TET_QUEUE_NEG = strip.numPixels() - 1
-        TET_LAUFNUMMER = strip.numPixels() - 1
-        #Richtung 1 = substrahieren, sonst addieren
-        TET_RICHTUNG = 1
+        resetTetris()
 
 
+    #Darstellung zwischen queu
+    i = TET_QUEUE_POS + 1
+    while i < TET_QUEUE_NEG:
+        strip.setPixelColor(i, Color(0, 0, 0))
 
-    if TET_RICHTUNG == 1:
-        # wenn Laufnummer = Warteschlage Pos dann...
-        if TET_LAUFNUMMER <= TET_QUEUE_POS:
-            TET_QUEUE_POS += 1
-            FLG_CHANGE_COLOR = 1
-
-            #Richtung wuerfeln
-            TET_RICHTUNG = random.randint(0, 1)
-
-            if TET_RICHTUNG == 1:
-                TET_LAUFNUMMER = TET_QUEUE_NEG
-                print("start queue neg")
-            else:
-                TET_LAUFNUMMER = TET_QUEUE_POS
-                print("start queue pos")
-
-        else:
-            TET_LAUFNUMMER -= 1
-    else:
-        if TET_LAUFNUMMER >= TET_QUEUE_NEG:
-            TET_QUEUE_NEG -= 1
-            FLG_CHANGE_COLOR = 1
-            TET_RICHTUNG = random.randint(0, 1)
-            if TET_RICHTUNG == 1:
-                TET_LAUFNUMMER = TET_QUEUE_NEG
-                print("start queue neg")
-            else:
-                TET_LAUFNUMMER = TET_QUEUE_POS
-                print("start queue pos")
-        else:
-            TET_LAUFNUMMER += 1
-
+    #Laufnummer darstellen
     strip.setPixelColor(TET_LAUFNUMMER, color)
-    print(TET_LAUFNUMMER)
 
+    #Laufnummer verschieben
+    if TET_RICHTUNG = 0:
+        TET_LAUFNUMMER -= 1
+    else:
+        TET_LAUFNUMMER += 1
 
-    if TET_RICHTUNG == 1 and TET_LAUFNUMMER + 1 < TET_QUEUE_NEG:
-        strip.setPixelColor(TET_LAUFNUMMER + 1, Color(0, 0, 0))
-        print("hide")
-        print(TET_LAUFNUMMER + 1)
-    elif TET_LAUFNUMMER - 1 > TET_QUEUE_POS:
-        strip.setPixelColor(TET_LAUFNUMMER - 1, Color(0, 0, 0))
-        print("hide")
-        print(TET_LAUFNUMMER - 1)
-    strip.show()
+    #Wenn beide Stapel erreicht - Reset
+    if TET_QUEUE_NEG == TET_QUEUE_POS:
+        resetTetris()
 
-    print(TET_QUEUE_POS)
-    print(TET_QUEUE_NEG)
-    print("---")
-
-
-    if TET_QUEUE_POS == TET_QUEUE_NEG:
-        TET_QUEUE_POS = 0
-        TET_QUEUE_NEG = strip.numPixels() - 1
-        FLG_CHANGE_EFFECT = 1
 
     AKT_MODUS = "IT"
 
