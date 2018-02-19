@@ -716,5 +716,7 @@ if __name__ == '__main__':
 
         #nach x-Aufrufen anderer Effekt
         if FLG_CHANGE_EFFECT == 1:
+            print("change Effect")
+            print(EFFECT_COUNTER)
             EFFECT_COUNTER -= 1
             FLG_CHANGE_EFFECT = 0
