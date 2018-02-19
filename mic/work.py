@@ -329,17 +329,14 @@ def initializeTetris(strip, color):
     numPixels = strip.numPixels()
 
     if AKT_MODUS != "IT":
-        TET_QUEUE_POS = -1 
+        TET_QUEUE_POS = -1
         TET_QUEUE_NEG = numPixels - 1
         resetTetris()
 
 
     #Darstellung zwischen queu
     i = TET_QUEUE_POS + 1
-    print("i:")
-    print(i)
-    print("neg")
-    print(TET_QUEUE_NEG)
+
     while i < TET_QUEUE_NEG:
         strip.setPixelColor(i, Color(0, 0, 0))
         i += 1
@@ -348,11 +345,6 @@ def initializeTetris(strip, color):
     strip.setPixelColor(TET_LAUFNUMMER, color)
 
     strip.show()
-
-    print(TET_QUEUE_POS)
-    print(TET_QUEUE_NEG)
-    print(TET_LAUFNUMMER)
-    print("---")
 
     #Laufnummer verschieben
     if TET_RICHTUNG == 0:
@@ -363,10 +355,12 @@ def initializeTetris(strip, color):
     #wenn Laufnummer Stapel erreicht
     if TET_LAUFNUMMER == TET_QUEUE_POS:
         TET_QUEUE_POS += 1
+        FLG_CHANGE_COLOR = 1
         resetTetris()
 
     if TET_LAUFNUMMER == TET_QUEUE_NEG:
         TET_QUEUE_NEG -= 1
+        FLG_CHANGE_COLOR = 1
         resetTetris()
 
     #Wenn beide Stapel erreicht - Reset
@@ -374,6 +368,7 @@ def initializeTetris(strip, color):
         TET_QUEUE_POS = 0
         TET_QUEUE_NEG = numPixels - 1
         resetTetris()
+        FLG_CHANGE_EFFECT = 1
 
     AKT_MODUS = "IT"
 
