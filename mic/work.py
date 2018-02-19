@@ -345,6 +345,8 @@ def initializeTetris(strip, color):
 
     strip.show()
 
+    print(TET_QUEUE_POS)
+    print(TET_QUEUE_NEG)
     print(TET_LAUFNUMMER)
     print("---")
 
