@@ -350,11 +350,11 @@ def initializeTetris(strip, color):
         TET_LAUFNUMMER += 1
 
     #wenn Laufnummer Stapel erreicht
-    if TET_LAUFNUMMER == TET_QUEUE_POS
+    if TET_LAUFNUMMER == TET_QUEUE_POS:
         TET_QUEUE_POS += 1
         reachedQueueTetris()
 
-    if TET_LAUFNUMMER == TET_QUEUE_NEG
+    if TET_LAUFNUMMER == TET_QUEUE_NEG:
         TET_QUEUE_POS -= 1
         reachedQueueTetris()
 
