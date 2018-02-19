@@ -366,7 +366,7 @@ def initializeTetris(strip, color):
         resetTetris()
 
     #Wenn beide Stapel erreicht - Reset
-    if TET_QUEUE_NEG >= TET_QUEUE_POS:
+    if TET_QUEUE_NEG == TET_QUEUE_POS:
         print("TEST")
         TET_QUEUE_POS = 0
         TET_QUEUE_NEG = numPixels - 1
