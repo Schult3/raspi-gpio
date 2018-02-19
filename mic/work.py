@@ -343,6 +343,9 @@ def initializeTetris(strip, color):
     #Laufnummer darstellen
     strip.setPixelColor(TET_LAUFNUMMER, color)
 
+    print(TET_LAUFNUMMER)
+    print("---")
+
     #Laufnummer verschieben
     if TET_RICHTUNG == 0:
         TET_LAUFNUMMER -= 1
@@ -352,11 +355,11 @@ def initializeTetris(strip, color):
     #wenn Laufnummer Stapel erreicht
     if TET_LAUFNUMMER == TET_QUEUE_POS:
         TET_QUEUE_POS += 1
-        reachedQueueTetris()
+        resetTetris()
 
     if TET_LAUFNUMMER == TET_QUEUE_NEG:
         TET_QUEUE_POS -= 1
-        reachedQueueTetris()
+        resetTetris()
 
     #Wenn beide Stapel erreicht - Reset
     if TET_QUEUE_NEG == TET_QUEUE_POS:
