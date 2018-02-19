@@ -329,7 +329,7 @@ def initializeTetris(strip, color):
     numPixels = strip.numPixels()
 
     if AKT_MODUS != "IT":
-        TET_QUEUE_POS = 0
+        TET_QUEUE_POS = -1 
         TET_QUEUE_NEG = numPixels - 1
         resetTetris()
 
