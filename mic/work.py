@@ -346,6 +346,8 @@ def initializeTetris(strip, color):
 
     strip.show()
 
+    print(TET_LAUFNUMMER)
+
     #Laufnummer verschieben
     if TET_RICHTUNG == 0:
         TET_LAUFNUMMER -= 1
