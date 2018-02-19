@@ -313,14 +313,11 @@ def resetTetris():
 
     #Richtung 0 = auf linken Stapel, 1 auf rechten
     TET_RICHTUNG = random.randint(0, 1)
-    TET_QUEUE_POS = 0
-    TET_QUEUE_NEG = numPixels - 1
 
-    if TET_RICHTUNG = 0:
+    if TET_RICHTUNG == 0:
         TET_LAUFNUMMER = TET_QUEUE_NEG - 1
     else:
         TET_LAUFNUMMER = TET_QUEUE_POS + 1
-
 
 
 def initializeTetris(strip, color):
@@ -332,6 +329,8 @@ def initializeTetris(strip, color):
     numPixels = strip.numPixels()
 
     if AKT_MODUS != "IT":
+        TET_QUEUE_POS = 0
+        TET_QUEUE_NEG = numPixels - 1
         resetTetris()
 
 
@@ -350,20 +349,20 @@ def initializeTetris(strip, color):
     else:
         TET_LAUFNUMMER += 1
 
-
     #wenn Laufnummer Stapel erreicht
     if TET_LAUFNUMMER == TET_QUEUE_POS
-        TET_LAUFNUMMER = TET_QUEUE_NEG - 1
         TET_QUEUE_POS += 1
+        reachedQueueTetris()
 
     if TET_LAUFNUMMER == TET_QUEUE_NEG
-        TET_LAUFNUMMER = TET_QUEUE_POS + 1
         TET_QUEUE_POS -= 1
+        reachedQueueTetris()
 
     #Wenn beide Stapel erreicht - Reset
     if TET_QUEUE_NEG == TET_QUEUE_POS:
+        TET_QUEUE_POS = 0
+        TET_QUEUE_NEG = numPixels - 1
         resetTetris()
-
 
     AKT_MODUS = "IT"
 
