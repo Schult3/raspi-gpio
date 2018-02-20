@@ -9,7 +9,7 @@ def goertzel(samples, sample_rate, *freqs):
     the second the coefficients `(real part, imag part, power)` for each of those frequencies.
     For simple spectral analysis, the power is usually enough.
     Example of usage :
-        
+
         freqs, results = goertzel(some_samples, 44100, (400, 500), (1000, 1100))
     """
     window_size = len(samples)
@@ -24,7 +24,7 @@ def goertzel(samples, sample_rate, *freqs):
         k_start = int(math.floor(f_start / f_step))
         k_end = int(math.ceil(f_end / f_step))
 
-        if k_end > window_size - 1: raise ValueError('frequency out of range %s' % k_end)
+        #if k_end > window_size - 1: raise ValueError('frequency out of range %s' % k_end)
         bins = bins.union(range(k_start, k_end))
 
     # For all the bins, calculate the DFT term
@@ -65,12 +65,12 @@ if __name__ == '__main__':
     #sine_wave = np.sin(2*np.pi*440*t) + np.sin(2*np.pi*1020*t)
     sine_wave = np.sin(2*np.pi*440*t)
     sine_wave = sine_wave * np.hamming(WINDOW_SIZE)
-    
+
     # applying Goertzel on those signals, and plotting results
     freqs, results = goertzel(sine_wave, SAMPLE_RATE, (400, 500))
     print(np.sin(2*np.pi*440))
     print(freqs)
-    
+
     pylab.subplot(1, 2, 1)
     pylab.title('(1) Sine wave 440Hz + 1020Hz')
     pylab.plot(t, sine_wave)
