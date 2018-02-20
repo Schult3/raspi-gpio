@@ -42,6 +42,7 @@ calibration = 38 # in mV, to make up for the precision of the components
 storedSpi = False
 
 def setupSpi():
+    global storedSpi
     # SPI setup
     spi_max_speed = 1000000 # 1 MHz (1.2MHz = max for 2V7 ref/supply)
     # reason is that the ADC input cap needs time to get charged to the input level.
