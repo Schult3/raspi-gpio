@@ -49,7 +49,7 @@ def setupSpi():
     CE = 0 # CE0 | CE1, selection of the SPI device
     try:
         spi = spidev.SpiDev()
-        spi.open(0,1) # Open up the communication to the device
+        spi.open(1,CE) # Open up the communication to the device
         spi.max_speed_hz = spi_max_speed
         storedSpi = spi
     except:
