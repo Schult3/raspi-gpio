@@ -49,7 +49,7 @@ def setupSpi():
     CE = 0 # CE0 | CE1, selection of the SPI device
     try:
         spi = spidev.SpiDev()
-        spi.open(0,CE) # Open up the communication to the device
+        spi.open(0,1) # Open up the communication to the device
         spi.max_speed_hz = spi_max_speed
         storedSpi = spi
     except:
@@ -74,12 +74,8 @@ def read_mcp3002(channel):
     else:
         cmd = 0b01110000
 
-
-    print(storedSpi)
-
     if not storedSpi:
         setupSpi()
-        print("call setupSpi")
         return False
 
     spi = storedSpi
