@@ -48,6 +48,7 @@ def setupSpi():
         spi = spidev.SpiDev()
         spi.open(0,CE) # Open up the communication to the device
         spi.max_speed_hz = spi_max_speed
+        print(spi)
         return spi
     except:
         print("SPI failure")
