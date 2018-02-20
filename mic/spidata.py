@@ -78,6 +78,7 @@ def read_mcp3002(channel):
 
     if not storedSpi:
         setupSpi()
+        print("call setupSpi")
         return False
 
     spi = storedSpi
