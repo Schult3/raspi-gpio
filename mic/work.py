@@ -137,8 +137,6 @@ def rainbow(strip, color):
     RB_J += 1
 
     if RB_J >= 256:
-        print("RB_J")
-        print(RB_J)
         FLG_CHANGE_EFFECT = 1
         RB_J = 0
 
@@ -589,15 +587,10 @@ def theatreChase(strip, color):
     numPixels = strip.numPixels();
 
     if AKT_MODUS != "TC":
-        print("set Modus TC")
         TC_RICHTUNG = random.randint(0, 1)
         TC_POS = 0
         if TC_RICHTUNG == 1:
             TC_POS = numPixels - 1
-        print("TC_POS")
-        print(TC_POS)
-        print(TC_RICHTUNG)
-
 
     for x in range (numPixels):
         strip.setPixelColor(x, Color(0, 0, 0))
@@ -620,14 +613,10 @@ def theatreChase(strip, color):
         if TC_POS > numPixels:
             TC_POS = 0
             FLG_CHANGE_EFFECT = 1
-            print("TC_POS Richtung 0:")
-            print(TC_POS)
     else:
         TC_POS -= 1
         if TC_POS < 0:
             TC_POS = numPixels - 1
-            print("TC_POS Richtung 1:")
-            print(TC_POS)
             FLG_CHANGE_EFFECT = 1
 
     AKT_MODUS = "TC"
@@ -700,9 +689,6 @@ if __name__ == '__main__':
                 randomizeEffectCounter(10, 30)
                 effectNum = random.randint(0, len(effects) - 1)
                 AKT_MODUS = ""
-                print(EFFECT_COUNTER)
-                print(effectNum)
-                print("---")
             effects[effectNum](strip, color)
             time.sleep(config["range_delay"] / 1000.0)
 
@@ -716,7 +702,5 @@ if __name__ == '__main__':
 
         #nach x-Aufrufen anderer Effekt
         if FLG_CHANGE_EFFECT == 1:
-            print("change Effect")
-            print(EFFECT_COUNTER)
             EFFECT_COUNTER -= 1
             FLG_CHANGE_EFFECT = 0
