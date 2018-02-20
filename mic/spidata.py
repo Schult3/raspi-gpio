@@ -38,6 +38,8 @@ calibration = 38 # in mV, to make up for the precision of the components
 #        0 = MSB first format
 # ------------------------------------------------------------------------------
 
+#SPI Connection in Variable speichern
+storedSpi = False
 
 def setupSpi():
     # SPI setup
@@ -48,11 +50,10 @@ def setupSpi():
         spi = spidev.SpiDev()
         spi.open(0,CE) # Open up the communication to the device
         spi.max_speed_hz = spi_max_speed
-        print(spi)
-        return spi
+        storedSpi = spi
     except:
         print("SPI failure")
-        return False
+        storedSpi = False
 
 
 #
@@ -60,6 +61,8 @@ def setupSpi():
 # from the MCP3002
 #
 def read_mcp3002(channel):
+    global storedSpi
+
     # see datasheet for more information
     # 8 bit control :
     # X, Strt, SGL|!DIFF, ODD|!SIGN, MSBF, X, X, X
@@ -70,10 +73,13 @@ def read_mcp3002(channel):
     else:
         cmd = 0b01110000
 
-    spi = setupSpi()
 
-    if not spi:
+
+    if not storedSpi:
+        setupSpi()
         return False
+
+    spi = storedSpi
 
     if DEBUG : print"cmd = ", cmd
 
