@@ -26,7 +26,6 @@ def calc():
 	sample_rate = len(sound) / sample_rate
 	freqs, results = go.goertzel(sound, sample_rate, (freq_min, freq_max))
 	rarr = np.array(results)[:,2]
-	print(rarr)
 	max = np.amax(rarr)
 	return max
 
