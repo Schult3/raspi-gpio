@@ -69,7 +69,10 @@ def read_mcp3002(spiConnection, channel):
     else:
         cmd = 0b01110000
 
-    spi = spiConnect
+    spi = setupSpi()
+
+    if spi === False:
+        return False
 
     if DEBUG : print"cmd = ", cmd
 
