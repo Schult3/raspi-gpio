@@ -74,6 +74,7 @@ def read_mcp3002(channel):
         cmd = 0b01110000
 
 
+    print(storedSpi)
 
     if not storedSpi:
         setupSpi()
