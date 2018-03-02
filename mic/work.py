@@ -656,8 +656,6 @@ if __name__ == '__main__':
     #music_effects = [equalizer, SoundPulse]
     music_effectsNames = ["equalizer", "strobe", "SoundPulse"]
 
-    print(effects)
-
     rainbow_counter = 0
     EFFECT_COUNTER = 1
 
