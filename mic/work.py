@@ -651,6 +651,8 @@ if __name__ == '__main__':
     effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle, theatreChase]
     #effects = [chrystal, rainbow, runningCircle, theatreChase]
 
+    effects = {"rainbow": rainbow}
+
     #music_effects = [equalizer, strobe, SoundPulse]
     music_effects = [equalizer, SoundPulse]
 
@@ -683,7 +685,7 @@ if __name__ == '__main__':
             sEffect = config["select_effect"]
             if sEffect in effects:
                 print("Test")
-                sEffect(strip, color)
+                effects[sEffect](strip, color)
                 time.sleep(config["range_delay"] / 1000.0)
 
         elif config["music_switch"] == True:
