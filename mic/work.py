@@ -652,8 +652,9 @@ if __name__ == '__main__':
     effectsNames = ["initializeTetris", "runningLights", "chrystal", "rainbow", "runningCircle", "theatreChase"]
     #effects = [chrystal, rainbow, runningCircle, theatreChase]
 
-    #music_effects = [equalizer, strobe, SoundPulse]
-    music_effects = [equalizer, SoundPulse]
+    music_effects = [equalizer, strobe, SoundPulse]
+    #music_effects = [equalizer, SoundPulse]
+    music_effectsNames = ["equalizer", "strobe", "SoundPulse"]
 
     print(effects)
 
