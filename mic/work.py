@@ -681,11 +681,11 @@ if __name__ == '__main__':
         elif config["singleeffect_switch"] == True:
             print(config["select_effect"])
             sEffect = config["select_effect"]
-            if sEffect in effect:
+            if sEffect in effects:
                 print("Test")
                 sEffect(strip, color)
                 time.sleep(config["range_delay"] / 1000.0)
-                
+
         elif config["music_switch"] == True:
             if EFFECT_COUNTER <= 1:
                 randomizeEffectCounter(100, 1000)
