@@ -663,7 +663,6 @@ if __name__ == '__main__':
 
 
     config = readConfig()
-    print(config)
 
     if config["music_switch"] == True:
         effectNumMus = random.randint(0, len(music_effects) - 1)
@@ -672,7 +671,6 @@ if __name__ == '__main__':
 
     while True:
         config = readConfig()
-        print(config)
 
         ks.killswitch()
 
