@@ -251,7 +251,7 @@ def strobe(strip, color):
 
     amp = sa.getSoundPWM(ST_FREQ_MIN, ST_FREQ_MAX)
 
-    if amp > 50:
+    if amp > 35:
         for i in range(strip.numPixels()):
         	strip.setPixelColor(i, Color(255, 255, 255))
         strip.show()
