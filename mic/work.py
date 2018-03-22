@@ -80,7 +80,7 @@ SP_FREQ_MAX = 175
 
 #Strobe config
 ST_FREQ_MIN = 0
-ST_FREQ_MAX = 350
+ST_FREQ_MAX = 300
 
 #theatreChase config
 TC_POS = 0
@@ -251,7 +251,7 @@ def strobe(strip, color):
 
     amp = sa.getSoundPWM(ST_FREQ_MIN, ST_FREQ_MAX)
 
-    if amp > 35:
+    if amp > 10:
         for i in range(strip.numPixels()):
         	strip.setPixelColor(i, Color(255, 255, 255))
         strip.show()
