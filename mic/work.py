@@ -75,8 +75,8 @@ EQ_FREQ_MAX = 250
 SP_LIST =  []
 SP_OFFSET = 0
 SP_COLOR = Color(0, 0, 0)
-SP_FREQ_MIN = 64
-SP_FREQ_MAX = 175
+SP_FREQ_MIN = 32
+SP_FREQ_MAX = 250
 
 #Strobe config
 ST_FREQ_MIN = 0
