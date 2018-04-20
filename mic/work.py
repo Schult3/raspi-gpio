@@ -158,7 +158,7 @@ def equalizer(strip, color):
 
     if AKT_MODUS != "EQ":
         #Anzahl Teile ermitteln
-        EQ_PARTS = random.randint(2, 8)
+        EQ_PARTS = random.randint(4, 8)
         EQ_LISTE = []
         #Start Offset
         randint = random.randint(0, numPixels - 1)
