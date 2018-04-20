@@ -68,7 +68,7 @@ RC_fMultiplikator = 2
 EQ_PARTS = 0
 EQ_LIST = []
 HIST_AMP = 0
-EQ_FREQ_MIN = 64
+EQ_FREQ_MIN = 0
 EQ_FREQ_MAX = 250
 
 #SoundPulse config
