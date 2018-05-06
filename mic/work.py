@@ -541,7 +541,7 @@ def SoundPulse(strip, color):
 
     #wenn Amplitude > x, neue Farbe
     amp = sa.getSoundPWM(SP_FREQ_MIN, SP_FREQ_MAX)
-    if amp > 50:
+    if amp > 25:
         SP_COLOR = wheel(random.randint(0, 255))
         FLG_CHANGE_EFFECT = 1
 
