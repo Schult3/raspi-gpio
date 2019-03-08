@@ -623,7 +623,7 @@ def theatreChase(strip, color):
     FLG_CHANGE_COLOR = 1
 
 
-def debug(strip):
+def debug(strip, color):
     numPixels = strip.numPixels();
     for x in range (numPixels):
         strip.setPixelColor(x, Color(0, 0, 0))
