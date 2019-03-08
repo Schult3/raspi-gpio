@@ -631,7 +631,7 @@ def debug(strip, color):
 
     numPixels = strip.numPixels();
 
-    if DB_POS >= numPixels;
+    if DB_POS >= numPixels:
         DB_POS = 0
 
     for x in range (numPixels):
