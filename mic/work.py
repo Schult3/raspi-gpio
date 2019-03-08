@@ -86,6 +86,9 @@ ST_FREQ_MAX = 300
 TC_POS = 0
 TC_RICHTUNG = 0
 
+#Debug config
+DB_POS = 0
+
 #While Loop config
 FLG_CHANGE_EFFECT = 0
 EFFECT_COUNTER = 1
@@ -624,12 +627,23 @@ def theatreChase(strip, color):
 
 
 def debug(strip, color):
-    global FLG_CHANGE_COLOR, FLG_CHANGE_EFFECT, AKT_MODUS
+    global FLG_CHANGE_COLOR, FLG_CHANGE_EFFECT, AKT_MODUS, DB_POS
 
     numPixels = strip.numPixels();
+
+    if DB_POS >= numPixels;
+        DB_POS = 0
+
     for x in range (numPixels):
         print(x)
         strip.setPixelColor(x, Color(0, 0, 0))
+
+
+    for x in range(DB_POS):
+        strip.setPixelColor(x, color)
+
+
+    DB_POS += 1
 
     strip.show()
 
