@@ -623,6 +623,15 @@ def theatreChase(strip, color):
     FLG_CHANGE_COLOR = 1
 
 
+def debug(strip):
+
+    numPixels = strip.numPixels();
+    for x in range (numPixels):
+        strip.setPixelColor(x, Color(0, 0, 0))
+
+
+
+
 def readConfig():
     filepath = "/var/www/html/config.json"
     if os.path.isfile(filepath):
@@ -649,7 +658,7 @@ if __name__ == '__main__':
     #initialize(strip, Color(255, 255, 255))
 
     effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle, theatreChase]
-    effectsNames = ["initializeTetris", "runningLights", "chrystal", "rainbow", "runningCircle", "theatreChase"]
+    effectsNames = ["initializeTetris", "runningLights", "chrystal", "rainbow", "runningCircle", "theatreChase", "debug"]
     #effects = [chrystal, rainbow, runningCircle, theatreChase]
 
     music_effects = [equalizer, strobe, SoundPulse]
