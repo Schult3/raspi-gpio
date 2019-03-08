@@ -624,7 +624,6 @@ def theatreChase(strip, color):
 
 
 def debug(strip):
-
     numPixels = strip.numPixels();
     for x in range (numPixels):
         strip.setPixelColor(x, Color(0, 0, 0))
@@ -657,7 +656,7 @@ if __name__ == '__main__':
     strip.begin()
     #initialize(strip, Color(255, 255, 255))
 
-    effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle, theatreChase]
+    effects = [initializeTetris, runningLights, chrystal, rainbow, runningCircle, theatreChase, debug]
     effectsNames = ["initializeTetris", "runningLights", "chrystal", "rainbow", "runningCircle", "theatreChase", "debug"]
     #effects = [chrystal, rainbow, runningCircle, theatreChase]
 
