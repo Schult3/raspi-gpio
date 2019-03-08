@@ -635,7 +635,7 @@ def debug(strip, color):
         DB_POS = 0
 
     for x in range (numPixels):
-        print(x)
+        #print(x)
         strip.setPixelColor(x, Color(0, 0, 0))
 
 
