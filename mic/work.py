@@ -634,7 +634,7 @@ def debug(strip, color):
     if DB_POS >= numPixels:
         DB_POS = 0
         FLG_CHANGE_EFFECT = 1
-        FLG_CHANGE_COLOR = 1
+
 
     for x in range (numPixels):
         #print(x)
@@ -644,12 +644,10 @@ def debug(strip, color):
     for x in range(DB_POS):
         strip.setPixelColor(x, color)
 
-
     DB_POS += 1
-
     strip.show()
-
     AKT_MODUS = "TC"
+    FLG_CHANGE_COLOR = 1
 
 
 
