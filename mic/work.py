@@ -634,6 +634,7 @@ def debug(strip, color):
     if DB_POS >= numPixels:
         DB_POS = 0
         FLG_CHANGE_EFFECT = 1
+        FLG_CHANGE_COLOR = 1
 
     for x in range (numPixels):
         #print(x)
