@@ -631,6 +631,8 @@ def debug(strip, color):
         print(x)
         strip.setPixelColor(x, Color(0, 0, 0))
 
+    strip.show()
+
     AKT_MODUS = "TC"
 
 
